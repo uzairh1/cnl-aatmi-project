@@ -23,11 +23,7 @@ After transpose, `cluster_class` is treated as:
 
 ## Dependencies
 
-Install the preprocessing dependency with:
-
-```bash
-conda install -c conda-forge h5py
-```
+`h5py`
 
 ## Current scope
 
