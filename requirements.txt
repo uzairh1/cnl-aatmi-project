@@ -1,0 +1,25 @@
+# =============================================================================
+# Movie SME Pipeline
+#
+# Install with:
+#     pip install -r requirements.txt
+#
+# This file contains only runtime dependencies.
+# Development tools (pytest, black, etc.) will go in requirements-dev.txt
+# =============================================================================
+
+# Core numerical computing
+numpy>=1.26
+
+# Data tables / CSV handling
+pandas>=2.2
+
+# Statistics
+scipy>=1.13
+
+# Plotting
+matplotlib>=3.8
+seaborn>=0.13
+
+# Read MATLAB v7.3 (HDF5) files
+h5py>=3.11
