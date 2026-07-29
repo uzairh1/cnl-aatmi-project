@@ -1,5 +1,4 @@
 chatgpt-readme.md
-/test-scripts
 __pycache__/
 .pytest_cache/
 cnl_aatmi_project.egg-info/PKG-INFO
