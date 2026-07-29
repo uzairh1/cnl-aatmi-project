@@ -2,3 +2,8 @@ chatgpt-readme.md
 /test-scripts
 __pycache__/
 .pytest_cache/
+cnl_aatmi_project.egg-info/PKG-INFO
+cnl_aatmi_project.egg-info/dependency_links.txt
+cnl_aatmi_project.egg-info/SOURCES.txt
+cnl_aatmi_project.egg-info/top_level.txt
+cnl_aatmi_project.egg-info/requires.txt
