@@ -1,4 +1,4 @@
-"""convert_mat.py
+"""convert_matlab_to_csv.py
 
 Stage 0 of the Movie SME pipeline.
 
@@ -54,6 +54,37 @@ from pathlib import Path
 import h5py
 import numpy as np
 import pandas as pd
+
+
+def choose_folders() -> list[Path]:
+    """
+    Repeatedly ask the user to choose folders.
+
+    Cancel finishes the selection.
+    """
+    try:
+        from tkinter import Tk, filedialog
+    except Exception as e:
+        raise RuntimeError(
+            "tkinter is not available, so interactive folder selection cannot run. "
+            "Pass folders on the command line instead."
+        ) from e
+
+    root = Tk()
+    root.withdraw()
+
+    folders: list[Path] = []
+
+    while True:
+        folder = filedialog.askdirectory(
+            title="Select a folder containing times_manual*.mat (Cancel to finish)"
+        )
+        if not folder:
+            break
+        folders.append(Path(folder))
+
+    root.destroy()
+    return folders
 
 
 def convert_mat_file(
@@ -122,7 +153,7 @@ def convert_mat_file(
         )
 
         outfile = output_dir / f"{base_name}_unit_{unit}.csv"
-        df.to_csv(outfile, index=False)
+        df.to_csv(outfile, index=False, float_format="%.4f")
         written_files.append(outfile)
 
         print(f"Created {outfile.name}")
@@ -187,12 +218,16 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    if not args.folders:
-        raise SystemExit(
-            "Please provide one or more folders containing times_manual*.mat files."
-        )
+    if args.folders:
+        folders = [Path(f) for f in args.folders]
+    else:
+        folders = choose_folders()
 
-    convert_folders(args.folders, skip_unit0=not args.keep_unit_0)
+    if not folders:
+        print("No folders selected.")
+        return
+
+    convert_folders(folders, skip_unit0=not args.keep_unit_0)
 
 
 if __name__ == "__main__":
