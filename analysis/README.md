@@ -18,11 +18,21 @@ The `analysis` package contains the alignment stages that sit between preprocess
 
 ### Running
 ```bash
-  python analysis/session_alignment_align_1.py \
+  python -m analysis.session_alignment_align1 \
   --input-dir "path/to/times_manual_unit_csvs" \
   --output-dir "path/to/align1_output" \
-  --start-unix-0 1680468596.211406 \
-  --matlab 1680468570.608406 \
+  --start-unix-0 [number] \
+  --matlab [number] \
+  --duration [number]
+```
+Example:
+
+```bash
+python -m analysis.session_alignment_align1 \
+  --input-dir "C:/Users/Uzair/Desktop/CNL/patients/570 - new" \
+  --output-dir "C:/Users/Uzair/Desktop/CNL/patients/new_script_output_570" \
+  --start-unix-0 1706308502.2209392 \
+  --matlab 1706304396.2999392 \
   --duration 2476.867
 ```
 
