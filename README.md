@@ -175,6 +175,8 @@ not yet be considered part of the production pipeline.
 | `data_io/localization.py` | Load localization workbooks and infer neuron anatomy | Complete |
 | `tests/test_ttl_table_parser.py` | Automated TTL parser unit tests | Complete |
 | `tests/test_localization.py` | Automated localization unit tests | Complete |
+| `analysis/session_alignment_align1.py` | Align per-unit spike CSVs to the movie/session timeline (Align 1) | Complete |
+| `analysis/trial_alignment_align2.py` | Assign movie-aligned spikes to behavioral trial windows (Align 2) | Complete |
 | `analysis/` | Statistical analyses | Not implemented |
 | `plotting/` | Raster plots, PSTHs, and summary figures | Not implemented |
 
@@ -395,6 +397,8 @@ These files are produced by the repository.
 | --- | --- | --- |
 | `times_manual_*_unit_#.csv` | `convert_matlab_to_csv.py` | One spike train per neuron |
 | `trial_table.csv` | `ttl_table_parser.py` | Canonical behavioral trial table |
+| `align1_*.csv` | `analysis/session_alignment.py` | Movie/session-aligned spike trains |
+| `align2_*.csv` | `analysis/trial_alignment.py` | Trial-aligned spike trains |
 
 Future derived files will be documented here as they are implemented.
 

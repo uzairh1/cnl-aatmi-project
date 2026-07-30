@@ -1,12 +1,16 @@
-import pandas as pd
-import pytest
 from pathlib import Path
 
-from analysis.spike_alignment import (
-    align_one_neuron,
+import pandas as pd
+import pytest
+
+from analysis.session_alignment_align1 import (
+    align_one_neuron as align_session_one_neuron,
     align_spikes_to_movie_window,
-    align_spikes_to_trials,
     load_spike_csv,
+)
+from analysis.trial_alignment_align2 import (
+    align_one_neuron as align_trial_one_neuron,
+    align_spikes_to_trials,
 )
 
 
@@ -30,6 +34,14 @@ def make_fake_spike_csv(tmp_path: Path) -> Path:
 
 
 def make_fake_trial_table() -> pd.DataFrame:
+    """
+    Create a trial table close to the current refactored schema.
+
+    These trial windows are movie-relative (Align 2 compares against
+    movieAlignedTimeMs):
+    - trial 1: 0-1000 ms
+    - trial 2: 2000-3500 ms
+    """
     return pd.DataFrame(
         {
             "experimentPhase": ["recog_task", "recog_task"],
@@ -78,8 +90,8 @@ def test_align_spikes_to_movie_window_filters_and_rezeros_times(tmp_path):
 
     # Only spikes inside [10.0, 12.0] should remain.
     assert aligned["spikeTimeRawS"].tolist() == [10.0, 10.5234, 11.2]
-    assert aligned["movieAlignedTimeS"].tolist() == [0.0, 0.5234, 1.2]
-    assert aligned["movieAlignedTimeMs"].tolist() == [0.0, 523.4, 1200.0]
+    assert aligned["movieAlignedTimeS"].tolist() == pytest.approx([0.0, 0.5234, 1.2], abs=1e-9)
+    assert aligned["movieAlignedTimeMs"].tolist() == pytest.approx([0.0, 523.4, 1200.0], abs=1e-9)
 
 
 def test_align_spikes_to_trials_assigns_spikes_to_trial_windows(tmp_path):
@@ -98,12 +110,16 @@ def test_align_spikes_to_trials_assigns_spikes_to_trial_windows(tmp_path):
         trial_table=trial_table,
     )
 
-    assert set(trial_aligned["trialOrder"].tolist()) == {1, 2}
-    
+    assert sorted(trial_aligned["trialOrder"].dropna().unique().tolist()) == [1, 2]
+
     first_trial_rows = trial_aligned[trial_aligned["trialOrder"] == 1]
     second_trial_rows = trial_aligned[trial_aligned["trialOrder"] == 2]
+
     assert len(first_trial_rows) == 2
     assert len(second_trial_rows) == 2
+
+    # Spike at 10.0 s should belong to first trial with zero relative offset.
+    assert first_trial_rows.iloc[0]["spikeTimeRelativeToClipStartMs"] == pytest.approx(0.0, abs=1e-9)
 
 
 def test_align_one_neuron_writes_align1_and_align2_outputs(tmp_path):
@@ -113,12 +129,16 @@ def test_align_one_neuron_writes_align1_and_align2_outputs(tmp_path):
     align1_dir = tmp_path / "align_24"
     align2_dir = tmp_path / "align_24_trial"
 
-    align1_path, align2_path = align_one_neuron(
+    align1_path = align_session_one_neuron(
         spike_csv_path=spike_path,
-        trial_table=trial_table,
         session_start_seconds=10.0,
         session_duration_seconds=4.0,
         align1_output_dir=align1_dir,
+    )
+
+    align2_path = align_trial_one_neuron(
+        align1_csv_path=align1_path,
+        trial_table=trial_table,
         align2_output_dir=align2_dir,
     )
 

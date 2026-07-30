@@ -167,6 +167,24 @@ columns.
 | `clipFrameRange` | Human-readable frame interval |
 | `clipTimeRangeMs` | Human-readable millisecond interval |
 | `clipWindowId` | Unique alignment identifier |
+
+`clipWindowId` format
+
+`movieID-clipStartTimeMs-clipEndTimeMs`
+
+Example
+
+1-10523-12523
+
+Purpose
+
+Provides a stable identifier for one behavioral trial window.
+
+Currently used by
+
+- `restore_plot_preferences()`
+- `trial_alignment.py`
+
 | `isAccurate` | Recognition accuracy |
 | `trialOrder` | Chronological ordering |
 | `plotOrder` | Raster plotting order |
