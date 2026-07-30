@@ -108,6 +108,11 @@ table if doing so simplifies downstream analyses.
 
 # ttl_table_parser.py
 
+## Running
+```bash
+python ttl_table_parser.py "[PATH TO TTL TABLE]"
+```
+
 ## Purpose
 
 Convert the raw behavioral TTL table into the standardized trial table

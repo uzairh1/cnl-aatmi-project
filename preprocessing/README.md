@@ -25,6 +25,13 @@
 
 ---
 
+# Running
+```bash
+# Make sure your virtual environment with h5py installed is active.
+python convert_matlab_to_csv.py
+# Opens a folder picker, which will continue to prompt for folders until Cancel is selected.
+```
+
 # Purpose
 
 The `preprocessing` package converts raw MATLAB spike sorting output into a

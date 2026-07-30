@@ -10,11 +10,21 @@ The `analysis` package contains the alignment stages that sit between preprocess
 
 | Module | Purpose | Status |
 | --- | --- | --- |
-| `session_alignment.py` | Align per-unit spike CSVs to the movie/session timebase | Complete |
-| `trial_alignment.py` | Assign movie-aligned spikes to trial windows | Complete |
+| `session_alignment_align1.py` | Align per-unit spike CSVs to the movie/session timebase | Complete |
+| `trial_alignment_align2.py` | Assign movie-aligned spikes to trial windows | Complete |
 | `README.md` | Package documentation | Complete |
 
 ## Session Alignment (Align 1)
+
+### Running
+```bash
+  python -m analysis/session_alignment_align_1.py \
+  --input-dir "path/to/times_manual_unit_csvs" \
+  --output-dir "path/to/align1_output" \
+  --start-unix-0 1680468596.211406 \
+  --matlab 1680468570.608406 \
+  --duration 2476.867
+```
 
 Inputs:
 - per-unit CSVs from `preprocessing/`
@@ -37,6 +47,13 @@ Rule:
 
 ## Trial Alignment (Align 2)
 
+### Running
+```bash
+  python -m analysis/trial_alignment_align2.py \
+  --align1-dir "path/to/align1_output" \
+  --trial-table "path/to/trial_table.csv" \
+  --output-dir "path/to/align2_output"
+```
 Inputs:
 - Align 1 CSVs
 - `trial_table.csv`
