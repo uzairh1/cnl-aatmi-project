@@ -18,7 +18,7 @@ The `analysis` package contains the alignment stages that sit between preprocess
 
 ### Running
 ```bash
-  python -m analysis/session_alignment_align_1.py \
+  python analysis/session_alignment_align_1.py \
   --input-dir "path/to/times_manual_unit_csvs" \
   --output-dir "path/to/align1_output" \
   --start-unix-0 1680468596.211406 \
@@ -49,7 +49,7 @@ Rule:
 
 ### Running
 ```bash
-  python -m analysis/trial_alignment_align2.py \
+  python analysis/trial_alignment_align2.py \
   --align1-dir "path/to/align1_output" \
   --trial-table "path/to/trial_table.csv" \
   --output-dir "path/to/align2_output"
