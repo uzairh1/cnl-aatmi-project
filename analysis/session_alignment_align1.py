@@ -136,3 +136,30 @@ def align_session_folder(
         )
 
     return results
+
+def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Create Align 1 session-aligned spike CSVs.")
+    parser.add_argument("--input-dir", required=True)
+    parser.add_argument("--output-dir", required=True)
+    parser.add_argument("--start-unix-0", type=float, required=True)
+    parser.add_argument("--matlab", type=float, required=True)
+    parser.add_argument("--duration", type=float, required=True)
+    args = parser.parse_args()
+
+    session_start_seconds = args.start_unix_0 - args.matlab
+
+    results = align_session_folder(
+        spike_csv_dir=args.input_dir,
+        session_start_seconds=session_start_seconds,
+        session_duration_seconds=args.duration,
+        align1_output_dir=args.output_dir,
+    )
+
+    print(f"Found {len(results)} input files; wrote {len(results)} align1 files to {args.output_dir}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

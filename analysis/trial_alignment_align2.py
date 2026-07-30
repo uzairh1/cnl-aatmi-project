@@ -201,3 +201,47 @@ def align_session_folder(
         )
 
     return results
+
+def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Create Align 2 trial-aligned spike CSVs."
+    )
+
+    parser.add_argument(
+        "--align1-dir",
+        required=True,
+        help="Folder containing align1_*.csv files.",
+    )
+
+    parser.add_argument(
+        "--trial-table",
+        required=True,
+        help="Path to trial_table.csv",
+    )
+
+    parser.add_argument(
+        "--output-dir",
+        required=True,
+        help="Folder where align2_*.csv files will be written.",
+    )
+
+    args = parser.parse_args()
+
+    trial_table = pd.read_csv(args.trial_table)
+
+    results = align_session_folder(
+        align1_input_dir=args.align1_dir,
+        trial_table=trial_table,
+        align2_output_dir=args.output_dir,
+    )
+
+    print(f"Processed {len(results)} neuron files.")
+    print(f"Output directory: {args.output_dir}")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
