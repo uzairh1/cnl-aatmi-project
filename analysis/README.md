@@ -25,16 +25,6 @@ The `analysis` package contains the alignment stages that sit between preprocess
   --matlab [number] \
   --duration [number]
 ```
-Example:
-
-```bash
-python -m analysis.session_alignment_align1 \
-  --input-dir "C:/Users/Uzair/Desktop/CNL/patients/570 - new" \
-  --output-dir "C:/Users/Uzair/Desktop/CNL/patients/new_script_output_570" \
-  --start-unix-0 1706308502.2209392 \
-  --matlab 1706304396.2999392 \
-  --duration 2476.867
-```
 
 Inputs:
 - per-unit CSVs from `preprocessing/`
