@@ -14,13 +14,10 @@
 - [End-to-End Pipeline](#end-to-end-pipeline)
 - [Repository Layout](#repository-layout)
 - [Major Data Products](#major-data-products)
-- [Current Modules](#current-modules)
-- [Design Philosophy](#design-philosophy)
 - [Installation](#installation)
 - [Running the Pipeline](#running-the-pipeline)
 - [Testing](#testing)
 - [Roadmap](#roadmap)
-- [Contributing](#contributing)
 
 ---
 
@@ -53,22 +50,6 @@ experimental workflow.
 
 ---
 
-## Refactoring Goals
-
-The guiding principles of this refactor are:
-
-- Preserve the scientific behavior of the original pipeline.
-- Improve readability.
-- Separate unrelated responsibilities into independent modules.
-- Remove hidden assumptions and hardcoded values whenever possible.
-- Make every processing stage independently executable.
-- Allow every module to be unit tested.
-- Produce documentation that serves as the project specification.
-
-The repository should ultimately be understandable without needing to read
-the original monolithic script.
-
----
 
 # Project Goals
 
@@ -113,17 +94,6 @@ Each module is responsible for a single stage of the pipeline.
 
 ---
 
-## 3. Produce Maintainable Research Software
-
-This repository is intended to become a long-term research codebase rather
-than a one-off analysis script.
-
-Consequently:
-
-- every public function is documented
-- every major module has its own README
-- every processing stage can be tested independently
-- every derived data product is documented
 
 ---
 
@@ -185,13 +155,6 @@ than execution order.
 
 No directory should perform responsibilities belonging to another package.
 
-For example:
-
-- `data_io` never performs plotting.
-- `plotting` never parses raw experimental files.
-- `analysis` never modifies experimental metadata.
-
-This separation of concerns is one of the primary goals of the refactor.
 
 ---
 
@@ -345,13 +308,6 @@ standardized CSV files.
 - Extracts spike times
 - Writes per-unit CSVs
 
-### Does Not
-
-- Read behavioral metadata
-- Read localization data
-- Perform statistics
-- Generate plots
-
 ---
 
 ## data_io/
@@ -374,11 +330,6 @@ Responsible for loading and standardizing experimental metadata.
 - Standardize timing variables
 - Match neuron filenames to localization tables
 
-### Does Not
-
-- Perform spike alignment
-- Compute statistics
-- Generate figures
 
 ---
 
@@ -446,95 +397,6 @@ These files are produced by the repository.
 | `trial_table.csv` | `ttl_table_parser.py` | Canonical behavioral trial table |
 
 Future derived files will be documented here as they are implemented.
-
----
-
-# Data Flow Philosophy
-
-One of the primary design goals of this repository is that every
-transformation is explicit.
-
-Raw experimental data should never be modified.
-
-Instead, each processing stage creates a new standardized representation
-that becomes the input to the next stage.
-
-For example:
-
-```
-Raw TTL_table.csv
-
-↓
-
-trial_table.csv
-
-↓
-
-Spike Alignment
-
-↓
-
-Statistics
-
-↓
-
-Plots
-```
-
-Likewise,
-
-```
-Raw MATLAB
-
-↓
-
-Per-neuron CSVs
-
-↓
-
-Spike Alignment
-```
-
-and
-
-```
-Localization Workbook
-
-↓
-
-Standardized Localization Metadata
-
-↓
-
-Spike Alignment
-```
-
-This approach provides several advantages:
-
-- Raw data remain immutable.
-- Intermediate files can be inspected independently.
-- Individual stages can be unit tested.
-- Bugs are easier to isolate.
-- New processing stages can be inserted without modifying earlier stages.
-
-
----
-
-# Canonical Data Products
-
-The repository intentionally creates standardized intermediate files.
-
-Rather than passing raw experimental files directly into downstream
-analysis, each stage produces a well-defined artifact with a documented
-schema.
-
-These intermediate files serve several purposes:
-
-- simplify debugging
-- provide stable interfaces between modules
-- preserve raw experimental data
-- make unit testing possible
-- make each processing stage independently executable
 
 ---
 
@@ -789,56 +651,7 @@ Examples
 
 ---
 
-## Preserve Raw Data
 
-Raw experimental files are never modified.
-
-Instead,
-
-```
-raw file
-
-↓
-
-standardized file
-
-↓
-
-analysis
-```
-
-This preserves provenance and greatly simplifies debugging.
-
----
-
-## Prefer Explicit Data Flow
-
-Intermediate data products should be written to disk whenever doing so
-improves reproducibility or debugging.
-
-Hidden transformations should be avoided.
-
----
-
-## Descriptive Names
-
-Columns created by the repository should clearly communicate their
-purpose.
-
-For example
-
-| Legacy | Current |
-| --- | --- |
-| `ms start` | `clipStartTimeMs` |
-| `ms end` | `clipEndTimeMs` |
-| `Plot Toggle` | `includeInPlots` |
-| `Accurate` | `isAccurate` |
-
-Raw experimental column names should remain unchanged whenever possible.
-
----
-
-## Documentation First
 
 Every public module should contain:
 
@@ -902,20 +715,6 @@ Planned documentation includes
 - `docs/TTL_TABLE.md`
 - `docs/LOCALIZATION.md`
 - `docs/TESTING.md`
-
----
-
-# Contributing
-
-When adding new functionality to the repository:
-
-1. Create a dedicated module.
-2. Keep responsibilities focused.
-3. Document all public functions.
-4. Add or update unit tests.
-5. Update the relevant README.
-6. Preserve raw experimental data.
-7. Prefer descriptive names for newly derived variables.
 
 ---
 
