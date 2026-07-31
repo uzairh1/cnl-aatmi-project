@@ -1,8 +1,6 @@
 # plotting
 
-> Figure generation layer for rasters, PSTHs, and summary visualizations.
-
----
+> Figure generation layer for rasters, PSTHs, swarm plots, and summary dashboards.
 
 # Table of Contents
 
@@ -12,6 +10,8 @@
 - [Current Modules](#current-modules)
 - [rasters.py](#rasterspy)
 - [swarm.py](#swarmpy)
+- [summary_figures.py](#summary_figurespy)
+- [Summary](#summary)
 
 ---
 
@@ -21,8 +21,8 @@ The `plotting` package contains the modules that turn standardized analysis
 outputs into figures.
 
 This package sits after `analysis` and consumes the outputs of
-movie/session alignment, trial assignment, statistics, and, where useful,
-binning.
+movie/session alignment, trial assignment, statistics, binning, and summary
+tables.
 
 The package is intentionally separate from the scientific calculations so
 that plotting remains a presentation layer rather than a computation layer.
@@ -35,12 +35,16 @@ The package is responsible for
 
 - drawing raster figures
 - drawing PSTH curves
+- drawing population swarm plots
+- assembling summary dashboards
 - applying legacy-style visual formatting
 - using summaries from the analysis layer when available
 - writing publication-style PNG outputs
 
 The package does **not** own raw metadata parsing, alignment, or the primary
 statistical calculations.
+
+Those responsibilities remain in `data_io` and `analysis`.
 
 ---
 
@@ -53,8 +57,12 @@ plotting/
 
 ├── rasters.py
 
+├── swarm.py
+
+├── summary_figures.py
+
 └── README.md
-```
+````
 
 Each module has exactly one primary responsibility.
 
@@ -62,9 +70,11 @@ Each module has exactly one primary responsibility.
 
 # Current Modules
 
-| Module | Purpose | Status |
-| --- | --- | --- |
-| `rasters.py` | Draw raster plots and PSTHs from Align 1 outputs | Complete |
+| Module               | Purpose                                            | Status   |
+| -------------------- | -------------------------------------------------- | -------- |
+| `rasters.py`         | Draw raster plots and PSTHs from Align 1 outputs   | Complete |
+| `swarm.py`           | Draw population swarm plots and regional summaries | Complete |
+| `summary_figures.py` | Assemble dashboards and final summary outputs      | Complete |
 
 Future modules should follow the same architectural style.
 
@@ -104,29 +114,29 @@ neurons in the same general way as the monolithic script.
 
 Primary inputs
 
-- `align1_*.csv`
-- `trial_table.csv` or legacy clip timing table
+* `align1_*.csv`
+* `trial_table.csv` or legacy clip timing table
 
 Optional inputs
 
-- localization workbook
-- neuron summary CSV from `statistics.py`
+* localization workbook
+* neuron summary CSV from `statistics.py`
 
 Expected Align 1 columns
 
-| Column | Description |
-| --- | --- |
-| `ms` | Movie/session-aligned spike time in milliseconds |
+| Column | Description                                      |
+| ------ | ------------------------------------------------ |
+| `ms`   | Movie/session-aligned spike time in milliseconds |
 
 Expected clip table columns
 
-| Column | Description |
-| --- | --- |
-| `ms start` or `clipStartTimeMs` | Clip start time in milliseconds |
-| `ms end` or `clipEndTimeMs` | Clip end time in milliseconds |
-| `Accurate` or `isAccurate` | Accuracy flag |
-| `Plot Y-Axis` or `plotOrder` | Manual raster ordering |
-| `Plot Toggle` or `includeInPlots` | Manual plot inclusion flag |
+| Column                            | Description                     |
+| --------------------------------- | ------------------------------- |
+| `ms start` or `clipStartTimeMs`   | Clip start time in milliseconds |
+| `ms end` or `clipEndTimeMs`       | Clip end time in milliseconds   |
+| `Accurate` or `isAccurate`        | Accuracy flag                   |
+| `Plot Y-Axis` or `plotOrder`      | Manual raster ordering          |
+| `Plot Toggle` or `includeInPlots` | Manual plot inclusion flag      |
 
 ---
 
@@ -144,11 +154,11 @@ P570_exp4presleep_RA_times_manual_GA1-REC3_unit_1_neg3_to_5_sig.png
 
 Typical figure contents
 
-- raster panel
-- PSTH panel
-- optional split by correct vs incorrect trials
-- optional clip-end markers
-- optional pre/post title labels
+* raster panel
+* PSTH panel
+* optional split by correct vs incorrect trials
+* optional clip-end markers
+* optional pre/post title labels
 
 ---
 
@@ -191,14 +201,14 @@ spike-time column.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `csv_path` | `str \| Path` | Yes | Path to one Align 1 CSV |
+| Parameter  | Type          | Required | Description             |
+| ---------- | ------------- | -------- | ----------------------- |
+| `csv_path` | `str \| Path` | Yes      | Path to one Align 1 CSV |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name      | Type               | Description                      |
+| --------- | ------------------ | -------------------------------- |
 | DataFrame | `pandas.DataFrame` | Standardized Align 1 spike table |
 
 #### Side Effects
@@ -215,14 +225,14 @@ Load the neuron summary CSV if one is available.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `summary_csv` | `str \| Path` | Yes | Path to the summary CSV |
+| Parameter     | Type          | Required | Description             |
+| ------------- | ------------- | -------- | ----------------------- |
+| `summary_csv` | `str \| Path` | Yes      | Path to the summary CSV |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name      | Type               | Description   |
+| --------- | ------------------ | ------------- |
 | DataFrame | `pandas.DataFrame` | Summary table |
 
 ---
@@ -235,14 +245,14 @@ Convert the summary CSV into a neuron-name lookup table.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `summary_csv` | `str \| Path` | Yes | Path to the summary CSV |
+| Parameter     | Type          | Required | Description             |
+| ------------- | ------------- | -------- | ----------------------- |
+| `summary_csv` | `str \| Path` | Yes      | Path to the summary CSV |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Type              | Description                      |
+| ---- | ----------------- | -------------------------------- |
 | dict | `dict[str, dict]` | Summary row keyed by neuron name |
 
 ---
@@ -258,17 +268,17 @@ figures.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `spikes_ms` | `numpy.ndarray` | Yes | Movie-aligned spike times in milliseconds |
-| `clips_df` | `DataFrame` | Yes | Clip timing table |
-| `window_start_ms` | `int` | Yes | Relative start of the figure window |
-| `window_end_ms` | `int` | Yes | Relative end of the figure window |
+| Parameter         | Type            | Required | Description                               |
+| ----------------- | --------------- | -------- | ----------------------------------------- |
+| `spikes_ms`       | `numpy.ndarray` | Yes      | Movie-aligned spike times in milliseconds |
+| `clips_df`        | `DataFrame`     | Yes      | Clip timing table                         |
+| `window_start_ms` | `int`           | Yes      | Relative start of the figure window       |
+| `window_end_ms`   | `int`           | Yes      | Relative end of the figure window         |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type                 | Description             |
+| ---------- | -------------------- | ----------------------- |
 | list[dict] | list of dictionaries | One raster row per clip |
 
 ---
@@ -281,17 +291,17 @@ Compute a PSTH in Hz from trial-aligned spike rows.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `clip_rows` | `list[list[float]]` | Yes | Per-trial spike rows |
-| `x_min` | `int` | Yes | Minimum x value |
-| `x_max` | `int` | Yes | Maximum x value |
-| `bin_ms` | `int` | Yes | Bin width in milliseconds |
+| Parameter   | Type                | Required | Description               |
+| ----------- | ------------------- | -------- | ------------------------- |
+| `clip_rows` | `list[list[float]]` | Yes      | Per-trial spike rows      |
+| `x_min`     | `int`               | Yes      | Minimum x value           |
+| `x_max`     | `int`               | Yes      | Maximum x value           |
+| `bin_ms`    | `int`               | Yes      | Bin width in milliseconds |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name  | Type                            | Description            |
+| ----- | ------------------------------- | ---------------------- |
 | tuple | `tuple[np.ndarray, np.ndarray]` | PSTH centers and rates |
 
 ---
@@ -304,18 +314,18 @@ Compute a smoothed PSTH using one of the legacy-style smoothing modes.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `clip_rows` | `list[list[float]]` | Yes | Per-trial spike rows |
-| `x_min` | `int` | Yes | Minimum x value |
-| `x_max` | `int` | Yes | Maximum x value |
-| `bin_ms` | `int` | No | Bin width in milliseconds |
-| `smooth_type` | `str` | No | Smoothing mode |
+| Parameter     | Type                | Required | Description               |
+| ------------- | ------------------- | -------- | ------------------------- |
+| `clip_rows`   | `list[list[float]]` | Yes      | Per-trial spike rows      |
+| `x_min`       | `int`               | Yes      | Minimum x value           |
+| `x_max`       | `int`               | Yes      | Maximum x value           |
+| `bin_ms`      | `int`               | No       | Bin width in milliseconds |
+| `smooth_type` | `str`               | No       | Smoothing mode            |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name  | Type                            | Description                     |
+| ----- | ------------------------------- | ------------------------------- |
 | tuple | `tuple[np.ndarray, np.ndarray]` | Smoothed PSTH centers and rates |
 
 ---
@@ -328,14 +338,14 @@ Order clip rows so correct trials appear above incorrect trials.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `plot_rows` | `list[dict]` | Yes | Raster rows |
+| Parameter   | Type         | Required | Description |
+| ----------- | ------------ | -------- | ----------- |
+| `plot_rows` | `list[dict]` | Yes      | Raster rows |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name  | Type                     | Description                               |
+| ----- | ------------------------ | ----------------------------------------- |
 | tuple | `tuple[list[dict], int]` | Reordered rows and number of correct rows |
 
 ---
@@ -348,11 +358,11 @@ Draw clip-end markers on the raster panel.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `ax` | `matplotlib.axes.Axes` | Yes | Raster axis |
-| `plot_rows` | `list[dict]` | Yes | Raster rows |
-| `x_max` | `int` | Yes | Maximum x value |
+| Parameter   | Type                   | Required | Description     |
+| ----------- | ---------------------- | -------- | --------------- |
+| `ax`        | `matplotlib.axes.Axes` | Yes      | Raster axis     |
+| `plot_rows` | `list[dict]`           | Yes      | Raster rows     |
+| `x_max`     | `int`                  | Yes      | Maximum x value |
 
 #### Returns
 
@@ -368,14 +378,14 @@ Return whether any clip row contains at least one spike.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `plot_rows` | `list[dict]` | Yes | Raster rows |
+| Parameter   | Type         | Required | Description |
+| ----------- | ------------ | -------- | ----------- |
+| `plot_rows` | `list[dict]` | Yes      | Raster rows |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Type   | Description                     |
+| ---- | ------ | ------------------------------- |
 | bool | `bool` | True if any row contains spikes |
 
 ---
@@ -391,26 +401,26 @@ plotting functions.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `align1_csv_path` | `str \| Path` | Yes | Input Align 1 CSV |
-| `clips_df` | `DataFrame` | Yes | Clip timing table |
-| `output_dir` | `str \| Path` | Yes | Output folder |
-| `patient_id` | `str` | Yes | Patient ID used in filenames |
-| `loc_df` | `DataFrame` | No | Localization table |
-| `summary_row` | `dict \| None` | No | Optional neuron summary row |
-| `output_tag` | `str` | No | Optional output tag |
-| `window_start_ms` | `int` | No | Figure window start |
-| `window_end_ms` | `int` | No | Figure window end |
-| `split_by_accuracy` | `bool` | No | Whether to split correct vs incorrect |
-| `show_clip_end_marker` | `bool` | No | Whether to draw clip-end markers |
-| `smooth_type` | `str` | No | PSTH smoothing mode |
-| `min_rate_hz` | `float` | No | Minimum post-stimulus firing rate |
+| Parameter              | Type           | Required | Description                           |
+| ---------------------- | -------------- | -------- | ------------------------------------- |
+| `align1_csv_path`      | `str \| Path`  | Yes      | Input Align 1 CSV                     |
+| `clips_df`             | `DataFrame`    | Yes      | Clip timing table                     |
+| `output_dir`           | `str \| Path`  | Yes      | Output folder                         |
+| `patient_id`           | `str`          | Yes      | Patient ID used in filenames          |
+| `loc_df`               | `DataFrame`    | No       | Localization table                    |
+| `summary_row`          | `dict \| None` | No       | Optional neuron summary row           |
+| `output_tag`           | `str`          | No       | Optional output tag                   |
+| `window_start_ms`      | `int`          | No       | Figure window start                   |
+| `window_end_ms`        | `int`          | No       | Figure window end                     |
+| `split_by_accuracy`    | `bool`         | No       | Whether to split correct vs incorrect |
+| `show_clip_end_marker` | `bool`         | No       | Whether to draw clip-end markers      |
+| `smooth_type`          | `str`          | No       | PSTH smoothing mode                   |
+| `min_rate_hz`          | `float`        | No       | Minimum post-stimulus firing rate     |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name         | Type                   | Description                |
+| ------------ | ---------------------- | -------------------------- |
 | Path or None | `pathlib.Path \| None` | Written PNG path or `None` |
 
 ---
@@ -425,74 +435,102 @@ This is the folder-level wrapper for figure generation.
 
 #### Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `align1_dir` | `str \| Path` | Yes | Folder containing Align 1 CSVs |
-| `clips_table` | `str \| Path` | Yes | Trial/clip timing table |
-| `output_dir` | `str \| Path` | Yes | Folder where PNGs will be written |
-| `patient_id` | `str` | Yes | Patient ID used in filenames |
-| `localization_file` | `str` | No | Optional localization workbook |
-| `summary_csv` | `str \| Path` | No | Optional summary CSV |
-| `output_tag` | `str` | No | Optional output tag |
-| `window_start_ms` | `int` | No | Figure window start |
-| `window_end_ms` | `int` | No | Figure window end |
-| `split_by_accuracy` | `bool` | No | Whether to split correct vs incorrect |
-| `show_clip_end_marker` | `bool` | No | Whether to draw clip-end markers |
-| `smooth_type` | `str` | No | PSTH smoothing mode |
-| `min_rate_hz` | `float` | No | Minimum post-stimulus firing rate |
+| Parameter              | Type          | Required | Description                           |
+| ---------------------- | ------------- | -------- | ------------------------------------- |
+| `align1_dir`           | `str \| Path` | Yes      | Folder containing Align 1 CSVs        |
+| `clips_table`          | `str \| Path` | Yes      | Trial/clip timing table               |
+| `output_dir`           | `str \| Path` | Yes      | Folder where PNGs will be written     |
+| `patient_id`           | `str`         | Yes      | Patient ID used in filenames          |
+| `localization_file`    | `str`         | No       | Optional localization workbook        |
+| `summary_csv`          | `str \| Path` | No       | Optional summary CSV                  |
+| `output_tag`           | `str`         | No       | Optional output tag                   |
+| `window_start_ms`      | `int`         | No       | Figure window start                   |
+| `window_end_ms`        | `int`         | No       | Figure window end                     |
+| `split_by_accuracy`    | `bool`        | No       | Whether to split correct vs incorrect |
+| `show_clip_end_marker` | `bool`        | No       | Whether to draw clip-end markers      |
+| `smooth_type`          | `str`         | No       | PSTH smoothing mode                   |
+| `min_rate_hz`          | `float`       | No       | Minimum post-stimulus firing rate     |
 
 #### Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type                   | Description                    |
+| ---------- | ---------------------- | ------------------------------ |
 | list[Path] | list of `pathlib.Path` | Paths to the written PNG files |
 
 ---
 
-swarm.py
-Running
+# swarm.py
+
+## Running
+
 ```bash
-python -m plotting.swarm         --summary-csv <neuron_summary.csv>         --output-dir <aggregate_output_directory>
+python -m plotting.swarm \
+    --summary-csv <neuron_summary.csv> \
+    --output-dir <aggregate_output_directory>
 ```
-Purpose
+
+## Purpose
+
 The `swarm.py` module reproduces the legacy population-level swarm plots
 from the monolithic UCLA script.
+
 It works from the neuron summary CSV produced by the statistics layer.
-This module does not perform spike alignment.
-It does not require Align 2.
+
+This module does **not** perform spike alignment.
+
+It does **not** require Align 2.
+
 It groups neurons by region, draws swarm plots with mean ± SEM, adds a side
 histogram, and writes the same family of region-level summary CSVs used by
 the old workflow.
+
 ---
-Inputs
+
+## Inputs
+
 Primary input
-`neuron_summary.csv`
+
+* `neuron_summary.csv`
+
 Expected columns
-Column	Description
-`Patient`	Patient label
-`Neuron Name`	Neuron identifier
-`Localization - Bipolar`	Region label used for region grouping
-`Pre-Stim T-Score`	Pre-window t-score
-`Pre-Stim Significant`	Pre-window significance flag
-`Post-Stim T-Score`	Post-window t-score
-`Post-Stim Significant`	Post-window significance flag
-`T-Score Diff (Pre - Post)`	Pre minus post t-score difference
+
+| Column                      | Description                           |
+| --------------------------- | ------------------------------------- |
+| `Patient`                   | Patient label                         |
+| `Neuron Name`               | Neuron identifier                     |
+| `Localization - Bipolar`    | Region label used for region grouping |
+| `Pre-Stim T-Score`          | Pre-window t-score                    |
+| `Pre-Stim Significant`      | Pre-window significance flag          |
+| `Post-Stim T-Score`         | Post-window t-score                   |
+| `Post-Stim Significant`     | Post-window significance flag         |
+| `T-Score Diff (Pre - Post)` | Pre minus post t-score difference     |
+
 If `Localization - Bipolar` is missing, only the global plots are generated.
+
 ---
-Outputs
+
+## Outputs
+
 Primary outputs
-global swarm plots
-region swarm plots
-`Swarm_Statistics_<region>.csv`
-`Summary_Overview_<region>.csv`
-`Summary_Global_and_Regional.csv`
-`Summary_Patient_Bipolar_Breakdown.csv`
+
+* global swarm plots
+* region swarm plots
+* `Swarm_Statistics_<region>.csv`
+* `Summary_Overview_<region>.csv`
+* `Summary_Global_and_Regional.csv`
+* `Summary_Patient_Bipolar_Breakdown.csv`
+
 Plot file names follow the legacy naming scheme used by the monolithic script.
+
 ---
-Public API
+
+## Public API
+
 The public interface of `swarm.py` consists of a small number of functions
 that together implement the legacy population-plot workflow.
+
 The intended execution order is
+
 ```text
 Neuron summary CSV
     ↓
@@ -502,77 +540,385 @@ generate_population_swarm_plot()
     ↓
 regional swarm plots + summary CSVs
 ```
+
 Although the functions may be called independently, the module is normally
 orchestrated through `generate_population_swarm_plot()` or the CLI.
----
-load_summary_table()
-Purpose
-Load the neuron summary CSV into a DataFrame.
-Parameters
-Parameter	Type	Required	Description
-`summary_csv`	`str | Path`	Yes	Path to the neuron summary CSV
-Returns
-Name	Type	Description
-DataFrame	`pandas.DataFrame`	Loaded summary table
----
-_select_region_dataframe()
-Purpose
-Filter the summary table to one region.
-This helper is used internally to reproduce the legacy region-grouping
-behavior.
-Parameters
-Parameter	Type	Required	Description
-`df`	`DataFrame`	Yes	Summary table
-`region_name`	`str`	Yes	Region name
-`abbreviations`	`list[str] | None`	Yes	Region abbreviations
-Returns
-Filtered DataFrame.
----
-_create_swarm_and_stats()
-Purpose
-Create one swarm plot and append one statistics row.
-This mirrors the legacy helper that produced the per-metric figure/statistic
-pairs.
-Parameters
-Parameter	Type	Required	Description
-`df`	`DataFrame`	Yes	Summary table or region subset
-`metric_col`	`str`	Yes	Metric to plot
-`plot_id`	`str`	Yes	Output figure ID
-`title_label`	`str`	Yes	Plot title
-`thresh`	`float | None`	No	Threshold guide line
-`out_dir`	`Path`	Yes	Output directory
-`stats_rows`	`list[dict]`	Yes	Stats rows accumulator
-`test_type`	`str`	Yes	`chisq_vs_chance` or `chisq_vs_5050`
-`sig_col`	`str | None`	No	Optional significance column
-Returns
-None.
-Notes
-This helper performs the chi-square calculations used by the legacy swarm
-plots.
----
-generate_population_swarm_plot()
-Purpose
-Generate global and region-specific swarm plots from a summary CSV.
-This is the main public entry point.
-Parameters
-Parameter	Type	Required	Description
-`summary_csv`	`str | Path`	Yes	Path to the neuron summary CSV
-`output_dir`	`str | Path`	Yes	Folder where swarm plots will be written
-Returns
-None.
-Side Effects
-Creates region-specific output folders and writes PNG/CSV summary outputs.
+
 ---
 
+### load_summary_table()
+
+#### Purpose
+
+Load the neuron summary CSV into a DataFrame.
+
+#### Parameters
+
+| Parameter     | Type          | Required | Description                    |
+| ------------- | ------------- | -------- | ------------------------------ |
+| `summary_csv` | `str \| Path` | Yes      | Path to the neuron summary CSV |
+
+#### Returns
+
+| Name      | Type               | Description          |
+| --------- | ------------------ | -------------------- |
+| DataFrame | `pandas.DataFrame` | Loaded summary table |
+
+---
+
+### _select_region_dataframe()
+
+#### Purpose
+
+Filter the summary table to one region.
+
+This helper is used internally to reproduce the legacy region-grouping
+behavior.
+
+#### Parameters
+
+| Parameter       | Type                | Required | Description          |
+| --------------- | ------------------- | -------- | -------------------- |
+| `df`            | `DataFrame`         | Yes      | Summary table        |
+| `region_name`   | `str`               | Yes      | Region name          |
+| `abbreviations` | `list[str] \| None` | Yes      | Region abbreviations |
+
+#### Returns
+
+Filtered DataFrame.
+
+---
+
+### _create_swarm_and_stats()
+
+#### Purpose
+
+Create one swarm plot and append one statistics row.
+
+This mirrors the legacy helper that produced the per-metric figure/statistic
+pairs.
+
+#### Parameters
+
+| Parameter     | Type            | Required | Description                          |
+| ------------- | --------------- | -------- | ------------------------------------ |
+| `df`          | `DataFrame`     | Yes      | Summary table or region subset       |
+| `metric_col`  | `str`           | Yes      | Metric to plot                       |
+| `plot_id`     | `str`           | Yes      | Output figure ID                     |
+| `title_label` | `str`           | Yes      | Plot title                           |
+| `thresh`      | `float \| None` | No       | Threshold guide line                 |
+| `out_dir`     | `Path`          | Yes      | Output directory                     |
+| `stats_rows`  | `list[dict]`    | Yes      | Stats rows accumulator               |
+| `test_type`   | `str`           | Yes      | `chisq_vs_chance` or `chisq_vs_5050` |
+| `sig_col`     | `str \| None`   | No       | Optional significance column         |
+
+#### Returns
+
+None.
+
+#### Notes
+
+This helper performs the chi-square calculations used by the legacy swarm
+plots.
+
+---
+
+### generate_population_swarm_plot()
+
+#### Purpose
+
+Generate global and region-specific swarm plots from a summary CSV.
+
+This is the main public entry point.
+
+#### Parameters
+
+| Parameter     | Type          | Required | Description                              |
+| ------------- | ------------- | -------- | ---------------------------------------- |
+| `summary_csv` | `str \| Path` | Yes      | Path to the neuron summary CSV           |
+| `output_dir`  | `str \| Path` | Yes      | Folder where swarm plots will be written |
+
+#### Returns
+
+None.
+
+#### Side Effects
+
+Creates region-specific output folders and writes PNG/CSV summary outputs.
+
+---
+
+# summary_figures.py
+
+## Running
+
+```bash
+python -m plotting.summary_figures \
+    --output-root <aggregate_output_directory> \
+    [--summary-csv <neuron_summary.csv>]
+```
+
+## Purpose
+
+The `summary_figures.py` module assembles the final summary layer of the
+plotting package.
+
+It does not compute new statistics.
+
+It reads the outputs already produced by `statistics.py` and `swarm.py` and
+then:
+
+* builds a compact run summary CSV
+* verifies and loads the existing summary tables
+* assembles simple dashboard figures from the existing P1--P5 swarm plots
+* keeps the final presentation layer in one place
+
+This is the last plotting stage.
+
+---
+
+## Inputs
+
+Primary inputs
+
+* output tree produced by the pipeline
+* optional neuron-level summary CSV from `statistics.py`
+
+Expected existing artifacts
+
+* `Swarm_Statistics_<region>.csv`
+* `Summary_Overview_<region>.csv`
+* `Summary_Global_and_Regional.csv`
+* `Summary_Patient_Bipolar_Breakdown.csv`
+* region folders containing `P1_Post-Stim_T-Scores.png`
+* region folders containing `P2_Pre-Stim_T-Scores.png`
+* region folders containing `P3_Diff_SigOnly.png`
+* region folders containing `P4_Diff_All.png`
+* region folders containing `P5_Diff_Post_GTE_1.png`
+
+---
+
+## Outputs
+
+Primary outputs
+
+* `Run_Summary.csv`
+* dashboard PNGs assembled from the existing swarm plots
+
+The module does not regenerate swarm plots and does not recompute statistics.
+
+---
+
+## Public API
+
+The public interface of `summary_figures.py` consists of a small number of
+functions that organize the final presentation layer.
+
+The intended execution order is
+
+```text
+Existing output tree
+    ↓
+load_summary_csv()
+    ↓
+build_run_summary()
+    ↓
+build_region_dashboards()
+    ↓
+generate_summary_figures()
+    ↓
+Run_Summary.csv + dashboard PNGs
+```
+
+Although the functions may be called independently, they are normally
+orchestrated through `generate_summary_figures()` or the module CLI.
+
+---
+
+### load_summary_csv()
+
+#### Purpose
+
+Load a summary CSV produced by the statistics or swarm stage.
+
+#### Parameters
+
+| Parameter  | Type          | Required | Description           |
+| ---------- | ------------- | -------- | --------------------- |
+| `csv_path` | `str \| Path` | Yes      | Path to a summary CSV |
+
+#### Returns
+
+| Name      | Type               | Description          |
+| --------- | ------------------ | -------------------- |
+| DataFrame | `pandas.DataFrame` | Loaded summary table |
+
+---
+
+### find_region_summary_tables()
+
+#### Purpose
+
+Find swarm summary CSVs in an output tree.
+
+#### Parameters
+
+| Parameter     | Type          | Required | Description        |
+| ------------- | ------------- | -------- | ------------------ |
+| `output_root` | `str \| Path` | Yes      | Root output folder |
+
+#### Returns
+
+| Name       | Type                   | Description                |
+| ---------- | ---------------------- | -------------------------- |
+| list[Path] | list of `pathlib.Path` | Matching summary CSV paths |
+
+---
+
+### find_region_overview_tables()
+
+#### Purpose
+
+Find region overview CSVs in an output tree.
+
+#### Parameters
+
+| Parameter     | Type          | Required | Description        |
+| ------------- | ------------- | -------- | ------------------ |
+| `output_root` | `str \| Path` | Yes      | Root output folder |
+
+#### Returns
+
+| Name       | Type                   | Description                 |
+| ---------- | ---------------------- | --------------------------- |
+| list[Path] | list of `pathlib.Path` | Matching overview CSV paths |
+
+---
+
+### find_global_summary_tables()
+
+#### Purpose
+
+Find run-level summary CSVs in an output tree.
+
+#### Parameters
+
+| Parameter     | Type          | Required | Description        |
+| ------------- | ------------- | -------- | ------------------ |
+| `output_root` | `str \| Path` | Yes      | Root output folder |
+
+#### Returns
+
+| Name       | Type                   | Description                  |
+| ---------- | ---------------------- | ---------------------------- |
+| list[Path] | list of `pathlib.Path` | Matching global summary CSVs |
+
+---
+
+### build_run_summary()
+
+#### Purpose
+
+Build a compact run summary from existing summary tables.
+
+This is a lightweight aggregation step and does not perform new analysis.
+
+#### Parameters
+
+| Parameter     | Type                  | Required | Description                       |
+| ------------- | --------------------- | -------- | --------------------------------- |
+| `output_root` | `str \| Path`         | Yes      | Root output folder                |
+| `summary_csv` | `str \| Path \| None` | No       | Optional neuron-level summary CSV |
+
+#### Returns
+
+| Name      | Type               | Description               |
+| --------- | ------------------ | ------------------------- |
+| DataFrame | `pandas.DataFrame` | Compact run summary table |
+
+---
+
+### build_dashboard_figure()
+
+#### Purpose
+
+Build one dashboard figure from existing P1--P5 swarm plots.
+
+#### Parameters
+
+| Parameter    | Type            | Required | Description                       |
+| ------------ | --------------- | -------- | --------------------------------- |
+| `plot_dir`   | `str \| Path`   | Yes      | Folder containing swarm plot PNGs |
+| `output_png` | `str \| Path`   | Yes      | Output dashboard path             |
+| `title`      | `str`           | No       | Optional figure title             |
+| `plot_names` | `Sequence[str]` | No       | Plot file names to include        |
+
+#### Returns
+
+| Name         | Type                   | Description                                              |
+| ------------ | ---------------------- | -------------------------------------------------------- |
+| Path or None | `pathlib.Path \| None` | Written dashboard PNG path, or `None` if no images exist |
+
+---
+
+### build_region_dashboards()
+
+#### Purpose
+
+Build dashboard figures for every region folder that contains swarm plots.
+
+#### Parameters
+
+| Parameter       | Type                  | Required | Description                              |
+| --------------- | --------------------- | -------- | ---------------------------------------- |
+| `output_root`   | `str \| Path`         | Yes      | Root output folder                       |
+| `dashboard_dir` | `str \| Path \| None` | No       | Optional output directory for dashboards |
+
+#### Returns
+
+| Name       | Type                   | Description         |
+| ---------- | ---------------------- | ------------------- |
+| list[Path] | list of `pathlib.Path` | Dashboard PNG paths |
+
+---
+
+### generate_summary_figures()
+
+#### Purpose
+
+Generate run summaries and dashboard figures from existing outputs.
+
+This is the main public entry point.
+
+#### Parameters
+
+| Parameter     | Type                  | Required | Description                       |
+| ------------- | --------------------- | -------- | --------------------------------- |
+| `output_root` | `str \| Path`         | Yes      | Root output folder                |
+| `summary_csv` | `str \| Path \| None` | No       | Optional neuron-level summary CSV |
+
+#### Returns
+
+| Name  | Type                                  | Description                                  |
+| ----- | ------------------------------------- | -------------------------------------------- |
+| tuple | `tuple[pandas.DataFrame, list[Path]]` | Run summary table and dashboard figure paths |
+
+#### Side Effects
+
+Writes `Run_Summary.csv` and dashboard PNGs.
+
+---
 
 # Summary
 
 The `plotting` package turns aligned spikes and analysis summaries into
 legacy-style figures.
 
-`rasters.py` is the first plotting module and reproduces the core
-single-neuron raster/PSTH workflow from the monolithic script.
+`rasters.py` reproduces the core single-neuron raster/PSTH workflow from the
+monolithic script.
 
-The `swarm.py` module turns the neuron summary table into legacy-style
-population figures and summary CSVs.
-It mirrors the monolithic script’s region grouping and chi-square workflow.
+`swarm.py` turns the neuron summary table into legacy-style population
+figures and summary CSVs.
+
+`summary_figures.py` assembles the final presentation layer and writes the
+run-level dashboard outputs.
