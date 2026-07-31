@@ -1,23 +1,12 @@
 """config.py
 
 Shared configuration and schema objects for the pipeline.
-
-This file defines the stable vocabulary used by the rest of the repo:
-- region mappings
-- patient configuration schema
-- analysis configuration schema
-- validation helpers
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from pathlib import Path
 from typing import Dict, List, Tuple
-
-# =============================================================================
-# REGION / LABEL MAPPINGS
-# =============================================================================
 
 BIPOLAR_REGIONS: Dict[str, str] = {
     "AMY": "amygdala",
@@ -47,18 +36,9 @@ TARGET_FOLDERS: Dict[str, List[str]] = {
     "MTL": ["AMY", "ERC", "HPC", "PHC"],
 }
 
-
-# =============================================================================
-# CONFIG OBJECTS
-# =============================================================================
-
 @dataclass(frozen=True)
 class PatientConfig:
-    """Patient-specific run metadata.
-
-    The values in this schema correspond to the fields that were hardcoded
-    in the monolithic pipeline.
-    """
+    """Patient-specific run metadata."""
 
     patient_id: str
     movie_label: str
@@ -72,14 +52,9 @@ class PatientConfig:
     fps: float = 29.97
     event_time_offset_ms: float = 0.0
 
-
 @dataclass(frozen=True)
 class AnalysisConfig:
-    """Analysis-wide parameters.
-
-    These settings define the shared windows, thresholds, and plotting
-    behavior used across patients.
-    """
+    """Analysis-wide parameters."""
 
     pre_window_ms: Tuple[int, int] = (-1000, 0)
     post_window_ms: Tuple[int, int] = (200, 1200)
@@ -96,13 +71,7 @@ class AnalysisConfig:
     line_width: float = 0.6
     clip_end_marker_half_height: float = 0.32
 
-
 DEFAULT_ANALYSIS_CONFIG = AnalysisConfig()
-
-
-# =============================================================================
-# VALIDATION HELPERS
-# =============================================================================
 
 def validate_patient_config(cfg: PatientConfig) -> None:
     missing: List[str] = []
@@ -114,7 +83,6 @@ def validate_patient_config(cfg: PatientConfig) -> None:
         missing.append("clip_ttl_csv")
     if missing:
         raise ValueError(f"PatientConfig missing required fields: {', '.join(missing)}")
-
 
 def validate_analysis_config(cfg: AnalysisConfig) -> None:
     if cfg.pre_window_ms[0] >= cfg.pre_window_ms[1]:

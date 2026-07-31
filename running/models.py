@@ -1,9 +1,6 @@
 """models.py
 
-Shared data models for the pipeline.
-
-These are small containers for data moving between modules.
-No file I/O lives here.
+Small containers for data moving between modules.
 """
 
 from __future__ import annotations
@@ -11,7 +8,6 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
-
 
 @dataclass(frozen=True)
 class TrialRecord:
@@ -33,7 +29,6 @@ class TrialRecord:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass(frozen=True)
 class SpikeTrain:
     neuron_name: str
@@ -42,7 +37,6 @@ class SpikeTrain:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass(frozen=True)
 class AlignedSpike:
@@ -59,7 +53,6 @@ class AlignedSpike:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass(frozen=True)
 class WindowStats:
     t_stat: Optional[float]
@@ -71,7 +64,6 @@ class WindowStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass(frozen=True)
 class NeuronResult:
@@ -104,7 +96,6 @@ class NeuronResult:
         row["T-Score Diff (Pre - Post)"] = row.pop("t_score_diff_pre_minus_post")
         row["Post-Stim Mean Rate (Hz)"] = row.pop("mean_post_rate_hz")
         return row
-
 
 @dataclass(frozen=True)
 class PipelineArtifact:

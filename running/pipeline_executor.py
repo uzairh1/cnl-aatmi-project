@@ -1,38 +1,61 @@
 """pipeline_executor.py
 
-Convert raw prompted inputs into objects and execute the pipeline.
-
-This is the transformation layer:
-- raw dicts -> PatientConfig / AnalysisConfig
-- patient configs -> stage execution
+Transform prompted dictionaries into pipeline objects and execute stages.
 """
 
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
-from typing import Iterable, List, Sequence
+from typing import Sequence
 
 import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+try:
+    from .config import (
+        AnalysisConfig,
+        PatientConfig,
+        DEFAULT_ANALYSIS_CONFIG,
+        validate_analysis_config,
+        validate_patient_config,
+    )
+    from .models import PipelineArtifact
+except ImportError:
+    from config import (
+        AnalysisConfig,
+        PatientConfig,
+        DEFAULT_ANALYSIS_CONFIG,
+        validate_analysis_config,
+        validate_patient_config,
+    )
+    from models import PipelineArtifact
 
 from analysis.binning import bin_align1_folder
 from analysis.statistics import analyze_align1_folder, load_clip_table
 from analysis.session_alignment_align1 import align_session_folder as align_session_folder_align1
 from analysis.trial_alignment_align2 import align_session_folder as align_session_folder_align2
-from config import (
-    AnalysisConfig,
-    PatientConfig,
-    DEFAULT_ANALYSIS_CONFIG,
-    validate_analysis_config,
-    validate_patient_config,
-)
 from data_io.localization import infer_neuron_localization, load_localization_map
 from data_io.ttl_table_parser import build_trial_table
-from models import PipelineArtifact
 from plotting.rasters import plot_align1_folder
 from plotting.swarm import generate_population_swarm_plot
 from plotting.summary_figures import generate_summary_figures
 
+def _as_pair(value, default):
+    if value is None:
+        return tuple(default)
+    if isinstance(value, str):
+        pieces = [p.strip() for p in value.split(",") if p.strip()]
+        if len(pieces) == 2:
+            return (float(pieces[0]), float(pieces[1]))
+        return tuple(default)
+    if isinstance(value, (list, tuple)) and len(value) == 2:
+        return (float(value[0]), float(value[1]))
+    return tuple(default)
 
 def patient_dict_to_config(raw: dict) -> PatientConfig:
     return PatientConfig(
@@ -49,44 +72,41 @@ def patient_dict_to_config(raw: dict) -> PatientConfig:
         event_time_offset_ms=float(raw.get("event_time_offset_ms", 0.0)),
     )
 
-
 def analysis_dict_to_config(raw: dict | None) -> AnalysisConfig:
+    default = DEFAULT_ANALYSIS_CONFIG
     if raw is None:
-        return DEFAULT_ANALYSIS_CONFIG
+        return default
+
     return AnalysisConfig(
-        pre_window_ms=tuple(raw.get("pre_window_ms", DEFAULT_ANALYSIS_CONFIG.pre_window_ms)),
-        post_window_ms=tuple(raw.get("post_window_ms", DEFAULT_ANALYSIS_CONFIG.post_window_ms)),
-        raster_window_ms=tuple(raw.get("raster_window_ms", DEFAULT_ANALYSIS_CONFIG.raster_window_ms)),
-        min_rate_hz=float(raw.get("min_rate_hz", DEFAULT_ANALYSIS_CONFIG.min_rate_hz)),
-        alpha=float(raw.get("alpha", DEFAULT_ANALYSIS_CONFIG.alpha)),
-        stat_style=str(raw.get("stat_style", DEFAULT_ANALYSIS_CONFIG.stat_style)),
-        n_permutations=int(raw.get("n_permutations", DEFAULT_ANALYSIS_CONFIG.n_permutations)),
-        smoothing=str(raw.get("smoothing", DEFAULT_ANALYSIS_CONFIG.smoothing)),
-        psth_bin_ms=int(raw.get("psth_bin_ms", DEFAULT_ANALYSIS_CONFIG.psth_bin_ms)),
-        raster_figsize=tuple(raw.get("raster_figsize", DEFAULT_ANALYSIS_CONFIG.raster_figsize)),
-        raster_dpi=int(raw.get("raster_dpi", DEFAULT_ANALYSIS_CONFIG.raster_dpi)),
-        line_length=float(raw.get("line_length", DEFAULT_ANALYSIS_CONFIG.line_length)),
-        line_width=float(raw.get("line_width", DEFAULT_ANALYSIS_CONFIG.line_width)),
+        pre_window_ms=tuple(raw.get("pre_window_ms", default.pre_window_ms)),
+        post_window_ms=tuple(raw.get("post_window_ms", default.post_window_ms)),
+        raster_window_ms=tuple(raw.get("raster_window_ms", default.raster_window_ms)),
+        min_rate_hz=float(raw.get("min_rate_hz", default.min_rate_hz)),
+        alpha=float(raw.get("alpha", default.alpha)),
+        stat_style=str(raw.get("stat_style", default.stat_style)),
+        n_permutations=int(raw.get("n_permutations", default.n_permutations)),
+        smoothing=str(raw.get("smoothing", default.smoothing)),
+        psth_bin_ms=int(raw.get("psth_bin_ms", default.psth_bin_ms)),
+        raster_figsize=_as_pair(raw.get("raster_figsize", default.raster_figsize), default.raster_figsize),
+        raster_dpi=int(raw.get("raster_dpi", default.raster_dpi)),
+        line_length=float(raw.get("line_length", default.line_length)),
+        line_width=float(raw.get("line_width", default.line_width)),
         clip_end_marker_half_height=float(
-            raw.get("clip_end_marker_half_height", DEFAULT_ANALYSIS_CONFIG.clip_end_marker_half_height)
+            raw.get("clip_end_marker_half_height", default.clip_end_marker_half_height)
         ),
     )
-
 
 def _patient_root(output_root: Path, patient_cfg: PatientConfig) -> Path:
     suffix = f"_{patient_cfg.output_tag}" if patient_cfg.output_tag else ""
     return output_root / f"P{patient_cfg.patient_id}{suffix}"
 
-
 def _add_artifacts_from_paths(paths: Sequence[Path], artifact_type: str) -> list[PipelineArtifact]:
     return [PipelineArtifact(name=p.name, path=p, artifact_type=artifact_type) for p in paths]
-
 
 def _load_trial_table(ttl_csv: str, output_path: Path):
     output_path.parent.mkdir(parents=True, exist_ok=True)
     trial_df, written_path = build_trial_table(ttl_csv=ttl_csv, output_csv=output_path)
     return trial_df, Path(written_path) if written_path is not None else output_path
-
 
 def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_path: Path) -> Path | None:
     if loc_df.empty:
@@ -116,7 +136,6 @@ def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_pat
     output_path.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).to_csv(output_path, index=False)
     return output_path
-
 
 def run_patient_pipeline(
     patient_cfg: PatientConfig,
@@ -173,7 +192,7 @@ def run_patient_pipeline(
 
     clips_df = load_clip_table(trial_table_path)
     stats_csv = stats_dir / "neuron_summary.csv"
-    stats_df = analyze_align1_folder(
+    analyze_align1_folder(
         align1_dir=align1_dir,
         clips_df=clips_df,
         patient_id=patient_cfg.patient_id,
@@ -220,7 +239,6 @@ def run_patient_pipeline(
     artifacts.extend(_add_artifacts_from_paths(dashboard_pngs, "dashboard_png"))
 
     return artifacts
-
 
 def run_pipeline(
     raw_patient_dicts: Sequence[dict],
