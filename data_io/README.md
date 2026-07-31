@@ -951,3 +951,21 @@ standardizing, and exposing metadata.
 By keeping metadata handling separate from preprocessing, analysis, and
 visualization, the repository remains modular, testable, and easier to
 maintain as new functionality is added.
+
+### Legacy note
+
+The legacy UCLA pipeline (`seen frames to ms.csv`) computed its millisecond trial
+windows from `frameOn` and `frameOff` using the configured frame rate:
+
+```text
+ms = round(frame / fps * 1000)
+```
+
+The refactored pipeline instead derives `clipStartTimeMs` and `clipEndTimeMs`
+from the canonical trial timing information in `TTL_table.csv`.
+
+These approaches produce nearly identical trial windows but may differ by a few
+milliseconds because of frame-rate conversion and rounding. During validation,
+this resulted in only small Align 2 differences (typically ±1 spike, maximum
+observed ±7 spikes across ~1400 spikes for a neuron), consistent with boundary
+effects rather than a change in the underlying experimental data.
