@@ -20,16 +20,16 @@ try:
     from .config import (
         AnalysisConfig,
         PatientConfig,
-        DEFAULT_ANALYSIS_CONFIG,
+        PIPELINE_ANALYSIS_CONFIG,
         validate_analysis_config,
         validate_patient_config,
     )
     from .models import PipelineArtifact
-except ImportError:
+except ImportError:  # pragma: no cover
     from config import (
         AnalysisConfig,
         PatientConfig,
-        DEFAULT_ANALYSIS_CONFIG,
+        PIPELINE_ANALYSIS_CONFIG,
         validate_analysis_config,
         validate_patient_config,
     )
@@ -45,6 +45,7 @@ from plotting.rasters import plot_align1_folder
 from plotting.swarm import generate_population_swarm_plot
 from plotting.summary_figures import generate_summary_figures
 
+
 def _as_pair(value, default):
     if value is None:
         return tuple(default)
@@ -56,6 +57,7 @@ def _as_pair(value, default):
     if isinstance(value, (list, tuple)) and len(value) == 2:
         return (float(value[0]), float(value[1]))
     return tuple(default)
+
 
 def patient_dict_to_config(raw: dict) -> PatientConfig:
     return PatientConfig(
@@ -72,11 +74,12 @@ def patient_dict_to_config(raw: dict) -> PatientConfig:
         event_time_offset_ms=float(raw.get("event_time_offset_ms", 0.0)),
     )
 
-def analysis_dict_to_config(raw: dict | None) -> AnalysisConfig:
-    default = DEFAULT_ANALYSIS_CONFIG
-    if raw is None:
-        return default
 
+def analysis_dict_to_config(raw: dict | None) -> AnalysisConfig:
+    if raw is None:
+        return PIPELINE_ANALYSIS_CONFIG
+
+    default = PIPELINE_ANALYSIS_CONFIG
     return AnalysisConfig(
         pre_window_ms=tuple(raw.get("pre_window_ms", default.pre_window_ms)),
         post_window_ms=tuple(raw.get("post_window_ms", default.post_window_ms)),
@@ -87,6 +90,7 @@ def analysis_dict_to_config(raw: dict | None) -> AnalysisConfig:
         n_permutations=int(raw.get("n_permutations", default.n_permutations)),
         smoothing=str(raw.get("smoothing", default.smoothing)),
         psth_bin_ms=int(raw.get("psth_bin_ms", default.psth_bin_ms)),
+        movie_bin_size_s=int(raw.get("movie_bin_size_s", default.movie_bin_size_s)),
         raster_figsize=_as_pair(raw.get("raster_figsize", default.raster_figsize), default.raster_figsize),
         raster_dpi=int(raw.get("raster_dpi", default.raster_dpi)),
         line_length=float(raw.get("line_length", default.line_length)),
@@ -96,17 +100,21 @@ def analysis_dict_to_config(raw: dict | None) -> AnalysisConfig:
         ),
     )
 
+
 def _patient_root(output_root: Path, patient_cfg: PatientConfig) -> Path:
     suffix = f"_{patient_cfg.output_tag}" if patient_cfg.output_tag else ""
     return output_root / f"P{patient_cfg.patient_id}{suffix}"
 
+
 def _add_artifacts_from_paths(paths: Sequence[Path], artifact_type: str) -> list[PipelineArtifact]:
     return [PipelineArtifact(name=p.name, path=p, artifact_type=artifact_type) for p in paths]
+
 
 def _load_trial_table(ttl_csv: str, output_path: Path):
     output_path.parent.mkdir(parents=True, exist_ok=True)
     trial_df, written_path = build_trial_table(ttl_csv=ttl_csv, output_csv=output_path)
     return trial_df, Path(written_path) if written_path is not None else output_path
+
 
 def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_path: Path) -> Path | None:
     if loc_df.empty:
@@ -137,15 +145,19 @@ def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_pat
     pd.DataFrame(rows).to_csv(output_path, index=False)
     return output_path
 
+
 def run_patient_pipeline(
     patient_cfg: PatientConfig,
     analysis_cfg: AnalysisConfig,
     output_root: Path,
     *,
-    bin_size_s: int = 10,
+    bin_size_s: int | None = None,
 ) -> list[PipelineArtifact]:
     validate_patient_config(patient_cfg)
     validate_analysis_config(analysis_cfg)
+
+    if bin_size_s is None:
+        bin_size_s = analysis_cfg.movie_bin_size_s
 
     patient_root = _patient_root(output_root, patient_cfg)
     patient_root.mkdir(parents=True, exist_ok=True)
@@ -240,12 +252,13 @@ def run_patient_pipeline(
 
     return artifacts
 
+
 def run_pipeline(
     raw_patient_dicts: Sequence[dict],
     raw_analysis_dict: dict | None,
     output_root: str | Path,
     *,
-    bin_size_s: int = 10,
+    bin_size_s: int | None = None,
 ) -> list[PipelineArtifact]:
     analysis_cfg = analysis_dict_to_config(raw_analysis_dict)
     output_root = Path(output_root)

@@ -36,6 +36,7 @@ TARGET_FOLDERS: Dict[str, List[str]] = {
     "MTL": ["AMY", "ERC", "HPC", "PHC"],
 }
 
+
 @dataclass(frozen=True)
 class PatientConfig:
     """Patient-specific run metadata."""
@@ -52,6 +53,7 @@ class PatientConfig:
     fps: float = 29.97
     event_time_offset_ms: float = 0.0
 
+
 @dataclass(frozen=True)
 class AnalysisConfig:
     """Analysis-wide parameters."""
@@ -65,13 +67,17 @@ class AnalysisConfig:
     n_permutations: int = 1000
     smoothing: str = "triangle"
     psth_bin_ms: int = 100
+    movie_bin_size_s: int = 10
     raster_figsize: Tuple[float, float] = (12.0, 8.0)
     raster_dpi: int = 200
     line_length: float = 0.8
     line_width: float = 0.6
     clip_end_marker_half_height: float = 0.32
 
-DEFAULT_ANALYSIS_CONFIG = AnalysisConfig()
+
+PIPELINE_ANALYSIS_CONFIG = AnalysisConfig()
+DEFAULT_ANALYSIS_CONFIG = PIPELINE_ANALYSIS_CONFIG
+
 
 def validate_patient_config(cfg: PatientConfig) -> None:
     missing: List[str] = []
@@ -83,6 +89,7 @@ def validate_patient_config(cfg: PatientConfig) -> None:
         missing.append("clip_ttl_csv")
     if missing:
         raise ValueError(f"PatientConfig missing required fields: {', '.join(missing)}")
+
 
 def validate_analysis_config(cfg: AnalysisConfig) -> None:
     if cfg.pre_window_ms[0] >= cfg.pre_window_ms[1]:
