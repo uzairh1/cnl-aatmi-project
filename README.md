@@ -87,7 +87,7 @@ Examples include:
 | Behavioral metadata | `data_io/` |
 | Localization lookup | `data_io/localization.py` |
 | TTL parsing | `data_io/ttl_table_parser.py` |
-| Statistical analyses | `analysis/` *(planned)* |
+| Statistical analyses | `analysis/` |
 | Plot generation | `plotting/` *(planned)* |
 
 Each module is responsible for a single stage of the pipeline.
@@ -148,7 +148,7 @@ than execution order.
 | --- | --- | --- |
 | `preprocessing/` | Convert MATLAB spike sorting output into per-unit CSV files | Complete |
 | `data_io/` | Read and standardize experimental metadata | Complete |
-| `analysis/` | Statistical analyses | Not implemented |
+| `analysis/` | Statistical analyses | Complete |
 | `plotting/` | Figure generation | Not implemented |
 | `tests/` | Automated pytest unit tests | In progress |
 | `docs/` | Detailed project documentation | Planned |
@@ -177,7 +177,7 @@ not yet be considered part of the production pipeline.
 | `tests/test_localization.py` | Automated localization unit tests | Complete |
 | `analysis/session_alignment_align1.py` | Align per-unit spike CSVs to the movie/session timeline (Align 1) | Complete |
 | `analysis/trial_alignment_align2.py` | Assign movie-aligned spikes to behavioral trial windows (Align 2) | Complete |
-| `analysis/` | Statistical analyses | Not implemented |
+| `analysis/` | Statistical analyses | Complete |
 | `plotting/` | Raster plots, PSTHs, and summary figures | Not implemented |
 
 Future modules will follow the same design principles and documentation
@@ -258,19 +258,20 @@ repository/
 ├── analysis/
 │
 │   README.md
+|  session_alignment_align1.py
+|  trial_alignment_align2.py
+|  binning.py
+|  statistics.py
 │
 ├── plotting/
 │
 │   README.md
 │
-├── tests/
+├── unit_tests/
 │
 │   test_ttl_table_parser.py
 │   test_localization.py
-│
-├── test_scripts/
-│
-│   README.md
+|   test_spike_alignment.py
 │
 ├── docs/
 │
@@ -341,15 +342,7 @@ Responsible for all statistical analyses.
 
 Status:
 
-> Not implemented.
 
-Planned responsibilities include:
-
-- Spike alignment
-- Baseline calculations
-- Window statistics
-- Population statistics
-- Recognition analyses
 
 ---
 
@@ -674,20 +667,6 @@ not merely its current implementation.
 
 The following components are planned but have not yet been implemented.
 
-## Analysis
-
-Status
-
-**Not implemented.**
-
-Planned functionality
-
-- spike alignment
-- baseline subtraction
-- window statistics
-- neuron-level analyses
-- population analyses
-
 ---
 
 ## Plotting
@@ -711,14 +690,6 @@ Status
 
 In progress.
 
-Planned documentation includes
-
-- `docs/ARCHITECTURE.md`
-- `docs/PIPELINE.md`
-- `docs/DATA_MODEL.md`
-- `docs/TTL_TABLE.md`
-- `docs/LOCALIZATION.md`
-- `docs/TESTING.md`
 
 ---
 
