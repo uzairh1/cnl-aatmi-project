@@ -1,9 +1,9 @@
-"""Shared data models for the naturalistic SME pipeline.
+"""models.py
 
-These objects are intentionally small and boring:
-they define the shape of the data that moves between modules.
+Shared data models for the pipeline.
+
+These are small containers for data moving between modules.
 No file I/O lives here.
-No hardcoded patient metadata lives here.
 """
 
 from __future__ import annotations
@@ -15,12 +15,6 @@ from typing import Any, Dict, Optional, Tuple
 
 @dataclass(frozen=True)
 class TrialRecord:
-    """One behavioral trial / clip / scene entry.
-
-    This is the cleaned unit that comes out of the TTL/behavior table and goes
-    into alignment, plotting, and scoring.
-    """
-
     trial_index: int
     clip_id: Any
     ms_start: float
@@ -42,8 +36,6 @@ class TrialRecord:
 
 @dataclass(frozen=True)
 class SpikeTrain:
-    """Spike times for one neuron after loading from a raw CSV."""
-
     neuron_name: str
     spike_times_s: Tuple[float, ...]
     spike_times_ms: Tuple[float, ...] = ()
@@ -54,8 +46,6 @@ class SpikeTrain:
 
 @dataclass(frozen=True)
 class AlignedSpike:
-    """One spike tied to one trial / clip."""
-
     neuron_name: str
     trial_index: int
     clip_id: Any
@@ -72,14 +62,12 @@ class AlignedSpike:
 
 @dataclass(frozen=True)
 class WindowStats:
-    """Statistics for one time window, such as PRE or POST."""
-
     t_stat: Optional[float]
     p_value: Optional[float]
     n_correct: int
     n_incorrect: int
     significant: bool
-    method: str = "permutation"
+    method: str = "welch"
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -87,8 +75,6 @@ class WindowStats:
 
 @dataclass(frozen=True)
 class NeuronResult:
-    """Full result row for one neuron."""
-
     patient_id: str
     neuron_name: str
     localization: str
@@ -122,8 +108,6 @@ class NeuronResult:
 
 @dataclass(frozen=True)
 class PipelineArtifact:
-    """A file written by the pipeline."""
-
     name: str
     path: Path
     artifact_type: str
