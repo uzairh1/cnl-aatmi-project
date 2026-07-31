@@ -54,12 +54,15 @@ def load_align1_csv(csv_path: str | Path) -> pd.DataFrame:
     csv_path = Path(csv_path)
     df = pd.read_csv(csv_path)
 
-    required = {"ms"}
-    missing = required - set(df.columns)
-    if missing:
-        raise ValueError(f"{csv_path.name} is missing required columns: {sorted(missing)}")
-
     out = df.copy()
+    if "ms" not in out.columns:
+        if "movieAlignedTimeMs" in out.columns:
+            out["ms"] = pd.to_numeric(out["movieAlignedTimeMs"], errors="coerce")
+        elif "movieAlignedTimeS" in out.columns:
+            out["ms"] = pd.to_numeric(out["movieAlignedTimeS"], errors="coerce") * 1000.0
+        else:
+            raise ValueError(f"{csv_path.name} is missing required columns: ['ms' or 'movieAlignedTimeMs']")
+
     out["ms"] = pd.to_numeric(out["ms"], errors="coerce")
     out = out.dropna(subset=["ms"]).copy()
     return out
