@@ -1,4 +1,4 @@
-# CNL AATMI Project
+# CNL 24 Python Pipeline Project
 
 > Refactored neuroscience analysis pipeline for the UCLA Cognitive Neurophysiology Laboratory (CNL) / Fried Laboratory naturalistic movie task.
 
@@ -339,9 +339,6 @@ Responsible for loading and standardizing experimental metadata.
 ## analysis/
 
 Responsible for all statistical analyses.
-
-Status:
-
 
 
 ---
