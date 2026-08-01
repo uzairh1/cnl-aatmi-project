@@ -181,6 +181,9 @@ Selects the subset of rows used for analysis.
 
 Adds the canonical timing columns derived from `clipStartTime` and `clipEndTime`.
 
+> [!IMPORTANT]
+> `drift_rate_slope` scales `clipStartTime` and `clipEndTime` by `1 + drift_rate_slope` before `clipStartTimeMs`, `clipEndTimeMs`, and the duration columns are derived.
+
 ### Inputs
 
 | Parameter | Type | Description |
@@ -358,7 +361,7 @@ Runs the full parser pipeline.
 | `phase` | `str` | Experimental phase to keep. Default: `recog_task`. |
 | `movie_id` | `Optional[int]` | Movie ID to keep. If `None`, all movie IDs are kept. |
 | `previous_table` | `Optional[str | Path]` | Optional prior trial table for restoring plot preferences. |
-
+| `drift_rate_slope` | `float` | Optional video drift estimate applied during timing standardization. Default: `0.0`. |
 ### Returns
 
 | Type | Description |

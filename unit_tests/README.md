@@ -24,6 +24,7 @@
   - [`test_summary_figures.py`](#test_summary_figurespy)
   - [`test_running_plan.py`](#test_running_planpy)
   - [`compare_align2_row_counts.py`](#compare_align2_row_countspy)
+  - [`test_video_drift.py`](#test_video_driftpy)
 - [Testing Notes](#testing-notes)
 
 ---
@@ -59,6 +60,7 @@ unit_tests/
 ├── test_summary_figures.py
 ├── test_swarm.py
 ├── test_ttl_table_parser.py
+├── test_video_drift.py
 └── fixtures/
 ```
 
@@ -77,6 +79,7 @@ unit_tests/
 | `test_summary_figures.py` | Verifies dashboard and run-summary generation. |
 | `test_running_plan.py` | Verifies planned filesystem layout for a patient run. |
 | `compare_align2_row_counts.py` | Utility script for comparing legacy and refactored Align 2 outputs. |
+| `test_video_drift.py` | Verifies patient-specific video drift correction during behavioral timing standardization. |
 
 ---
 
@@ -193,6 +196,21 @@ Checks that `movie_id=None` keeps all recognition rows.
 - verifies that the full recognition-task subset is retained
 
 ---
+
+## `test_video_drift.py`
+
+This file verifies patient-specific video drift correction.
+
+### `test_build_trial_table_applies_drift_slope()`
+
+Checks that a supplied `drift_rate_slope` scales the canonical movie timeline by `1 + drift_rate_slope`.
+
+#### Implementation
+
+- builds a synthetic TTL table
+- runs `build_trial_table()` with and without drift
+- confirms the corrected timing columns change by the expected factor
+- confirms that a zero drift rate preserves the original timing
 
 ## `test_spike_alignment.py`
 

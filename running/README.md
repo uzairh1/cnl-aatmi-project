@@ -127,7 +127,7 @@ Stores the per-patient fields required to execute a run.
 | `start_unix_0` | `float` | Movie start time in Unix seconds. |
 | `duration` | `float` | Movie duration in seconds. |
 | `fps` | `float` | Movie frame rate. |
-| `event_time_offset_ms` | `float` | Optional offset added when computing the Align 1 start time. |
+| `drift_rate_slope` | `float` | Optional video drift correction applied to the canonical movie timeline as `1 + drift_rate_slope`. Default: `0.0`. |
 
 ### Implementation
 
@@ -136,6 +136,9 @@ configuration.
 
 This makes it safe to pass the object across modules without worrying that one
 stage will silently modify the settings used by another stage.
+
+> [!NOTE]
+> `drift_rate_slope` is forwarded to the behavioral timing parser and also used when computing the Align 1 session duration. A value of `0.0` preserves the legacy baseline.
 
 ---
 

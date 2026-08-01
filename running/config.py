@@ -46,6 +46,7 @@ class PatientConfig:
     start_unix_0: float = 0.0
     duration: float = 0.0
     fps: float = 29.97
+    drift_rate_slope: float = 0.0
     event_time_offset_ms: float = 0.0
 
 

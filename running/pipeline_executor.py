@@ -105,9 +105,13 @@ def _add_artifacts_from_paths(paths: Sequence[Path], artifact_type: str) -> list
     return [PipelineArtifact(name=p.name, path=p, artifact_type=artifact_type) for p in paths]
 
 
-def _load_trial_table(ttl_csv: str, output_path: Path):
+def _load_trial_table(ttl_csv: str, output_path: Path, *, drift_rate_slope: float = 0.0):
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    trial_df, written_path = build_trial_table(ttl_csv=ttl_csv, output_csv=output_path)
+    trial_df, written_path = build_trial_table(
+        ttl_csv=ttl_csv,
+        output_csv=output_path,
+        drift_rate_slope=drift_rate_slope,
+    )
     return trial_df, Path(written_path) if written_path is not None else output_path
 
 
@@ -245,14 +249,19 @@ def run_patient_pipeline(
     artifacts: list[PipelineArtifact] = []
 
     trial_table_path = data_dir / "trial_table.csv"
-    trial_df, trial_table_path = _load_trial_table(patient_cfg.clip_ttl_csv, trial_table_path)
+    trial_df, trial_table_path = _load_trial_table(
+        patient_cfg.clip_ttl_csv,
+        trial_table_path,
+        drift_rate_slope=patient_cfg.drift_rate_slope,
+    )
     artifacts.append(PipelineArtifact(name=trial_table_path.name, path=trial_table_path, artifact_type="trial_table"))
 
     session_start_seconds = patient_cfg.start_unix_0 - patient_cfg.matLab + (patient_cfg.event_time_offset_ms / 1000.0)
+    session_duration_seconds = patient_cfg.duration * (1.0 + patient_cfg.drift_rate_slope)
     align1_files = align_session_folder_align1(
         spike_csv_dir=patient_cfg.signal_path,
         session_start_seconds=session_start_seconds,
-        session_duration_seconds=patient_cfg.duration,
+        session_duration_seconds=session_duration_seconds,
         align1_output_dir=align1_dir,
     )
     artifacts.extend(_add_artifacts_from_paths(align1_files, "align1_csv"))

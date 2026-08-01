@@ -136,7 +136,7 @@ def filter_trials(
     return df.reset_index(drop=True)
 
 
-def derive_timing_columns(df: pd.DataFrame) -> pd.DataFrame:
+def derive_timing_columns(df: pd.DataFrame, drift_rate_slope: float = 0.0) -> pd.DataFrame:
     """
     Add canonical timing columns from clipStartTime / clipEndTime.
 
@@ -167,6 +167,11 @@ def derive_timing_columns(df: pd.DataFrame) -> pd.DataFrame:
     df["clipStartTime"] = pd.to_numeric(df["clipStartTime"], errors="coerce")
     df["clipEndTime"] = pd.to_numeric(df["clipEndTime"], errors="coerce")
     df = df.dropna(subset=["clipStartTime", "clipEndTime"]).copy()
+
+    correction_factor = 1.0 + float(drift_rate_slope)
+    if correction_factor != 1.0:
+        df["clipStartTime"] = df["clipStartTime"] * correction_factor
+        df["clipEndTime"] = df["clipEndTime"] * correction_factor
 
     if df.empty:
         raise ValueError(
@@ -312,6 +317,7 @@ def build_trial_table(
     phase: str = "recog_task",
     movie_id: Optional[int] = 1,
     previous_table: Optional[str | Path] = None,
+    drift_rate_slope: float = 0.0,
 ) -> tuple[pd.DataFrame, Path]:
     """
     Build the standardized trial table from the raw TTL CSV.
@@ -323,7 +329,7 @@ def build_trial_table(
     """
     df = load_ttl_table(ttl_csv)
     df = filter_trials(df, phase=phase, movie_id=movie_id)
-    df = derive_timing_columns(df)
+    df = derive_timing_columns(df, drift_rate_slope=drift_rate_slope)
     df = derive_analysis_columns(df)
     df = restore_plot_preferences(df, previous_table)
     out_path = save_trial_table(df, output_csv)
