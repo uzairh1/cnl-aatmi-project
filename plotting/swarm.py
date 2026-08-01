@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from data_io.localization import infer_neuron_localization, load_localization_map
 from running.config import TARGET_FOLDERS, BIPOLAR_REGIONS  # noqa: E402
 
 
@@ -27,13 +28,39 @@ def load_summary_table(summary_csv: str | Path) -> pd.DataFrame:
     return df
 
 
+def _ensure_region_columns(df: pd.DataFrame, localization_file: str = "") -> pd.DataFrame:
+    out = df.copy()
+    if "Region Abbr" in out.columns and "Localization - Bipolar" in out.columns:
+        return out
+
+    loc_df = load_localization_map(localization_file) if localization_file else pd.DataFrame()
+    region_abbrs = []
+    bipolar_labels = []
+    for _, row in out.iterrows():
+        neuron_name = str(row.get("Neuron Name", ""))
+        region_abbr = "UNKNOWN"
+        if not loc_df.empty and neuron_name:
+            try:
+                _, _, region_abbr = infer_neuron_localization(neuron_name, loc_df)
+            except Exception:
+                region_abbr = "UNKNOWN"
+        bipolar_desc = BIPOLAR_REGIONS.get(region_abbr, "Unknown")
+        region_abbrs.append(region_abbr)
+        bipolar_labels.append(f"{region_abbr} - {bipolar_desc}")
+    if "Region Abbr" not in out.columns:
+        out["Region Abbr"] = region_abbrs
+    if "Localization - Bipolar" not in out.columns:
+        out["Localization - Bipolar"] = bipolar_labels
+    return out
+
+
 def _select_region_dataframe(df: pd.DataFrame, abbreviations: Optional[List[str]]) -> pd.DataFrame:
     if abbreviations is None:
         return df.copy()
-    if "Localization - Bipolar" not in df.columns:
+    if "Region Abbr" not in df.columns:
         return pd.DataFrame()
-    pattern = "^(?:" + "|".join(abbreviations) + ") -"
-    return df[df["Localization - Bipolar"].astype(str).str.contains(pattern, case=False, na=False)].copy()
+    allowed = {abbr.upper() for abbr in abbreviations}
+    return df[df["Region Abbr"].astype(str).str.upper().isin(allowed)].copy()
 
 
 def _create_swarm_and_stats(
@@ -124,11 +151,13 @@ def generate_population_swarm_plot(summary_csv: str | Path, output_dir: str | Pa
     if not Path(summary_csv).exists():
         print("Summary CSV missing. Cannot generate swarm plot.")
         return
+
     df = load_summary_table(summary_csv)
     if df.empty:
         print("Summary table is empty. Cannot generate swarm plots.")
         return
 
+    df = _ensure_region_columns(df, localization_file=localization_file)
     regions = {"global": None, **TARGET_FOLDERS}
     summary_overview_data = []
 
@@ -153,7 +182,13 @@ def generate_population_swarm_plot(summary_csv: str | Path, output_dir: str | Pa
 
         sig_pre_count = int(df_sub["Pre-Stim Significant"].sum()) if "Pre-Stim Significant" in df_sub.columns else 0
         sig_post_count = int(df_sub["Post-Stim Significant"].sum()) if "Post-Stim Significant" in df_sub.columns else 0
-        region_summary = {"Scope": region_name, "Total Patients": int(df_sub["Patient"].nunique()) if "Patient" in df_sub.columns else 0, "Total Neurons": int(len(df_sub)), "Significant Pre (-1000 to 0)": sig_pre_count, "Significant Post (200-1200)": sig_post_count}
+        region_summary = {
+            "Scope": region_name,
+            "Total Patients": int(df_sub["Patient"].nunique()) if "Patient" in df_sub.columns else 0,
+            "Total Neurons": int(len(df_sub)),
+            "Significant Pre (-1000 to 0)": sig_pre_count,
+            "Significant Post (200-1200)": sig_post_count,
+        }
         summary_overview_data.append(region_summary)
 
         if region_name != "global":
@@ -163,7 +198,11 @@ def generate_population_swarm_plot(summary_csv: str | Path, output_dir: str | Pa
         pd.DataFrame(summary_overview_data).to_csv(output_dir / "Summary_Global_and_Regional.csv", index=False)
 
     if "Patient" in df.columns and "Localization - Bipolar" in df.columns:
-        breakdown_df = df.groupby(["Patient", "Localization - Bipolar"]).agg(Num_Neurons=("Neuron Name", "count"), Sig_Pre=("Pre-Stim Significant", "sum"), Sig_Post=("Post-Stim Significant", "sum")).reset_index()
+        breakdown_df = df.groupby(["Patient", "Localization - Bipolar"]).agg(
+            Num_Neurons=("Neuron Name", "count"),
+            Sig_Pre=("Pre-Stim Significant", "sum"),
+            Sig_Post=("Post-Stim Significant", "sum"),
+        ).reset_index()
         breakdown_df.rename(columns={"Num_Neurons": "Total Neurons", "Sig_Pre": "Significant Pre", "Sig_Post": "Significant Post"}, inplace=True)
         breakdown_df.to_csv(output_dir / "Summary_Patient_Bipolar_Breakdown.csv", index=False)
 

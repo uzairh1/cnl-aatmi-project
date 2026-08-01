@@ -1,4 +1,11 @@
-"""Raster and PSTH plotting for movie/session-aligned spikes."""
+"""Raster and PSTH plotting for movie/session-aligned spikes.
+
+Outputs are routed under:
+- plots/rasters/all
+- plots/rasters/sig
+- plots/rasters/nonsig
+- plots/rasters/by_region/<region>
+"""
 
 from __future__ import annotations
 
@@ -36,15 +43,60 @@ COLOR_INCORRECT = "red"
 
 
 def load_align1_csv(csv_path: str | Path) -> pd.DataFrame:
+    """Load an Align 1 CSV and normalize time columns.
+
+    Accepts either:
+    - legacy: ms
+    - current: movieAlignedTimeMs / movieAlignedTimeS
+    """
+    csv_path = Path(csv_path)
     df = pd.read_csv(csv_path)
-    if "ms" not in df.columns:
-        raise ValueError(f"{csv_path} missing ms column")
-    df = df.copy()
-    df["ms"] = pd.to_numeric(df["ms"], errors="coerce")
-    return df.dropna(subset=["ms"]).copy()
+    df.columns = [str(c).strip() for c in df.columns]
+
+    time_candidates = ("ms", "movieAlignedTimeMs", "movieAlignedTimeS")
+    time_col = next((c for c in time_candidates if c in df.columns), None)
+    if time_col is None:
+        raise ValueError(
+            f"{csv_path.name} missing a usable aligned-time column; expected one of {time_candidates}"
+        )
+
+    out = df.copy()
+
+    if "movieAlignedTimeS" in out.columns:
+        out["movieAlignedTimeS"] = pd.to_numeric(out["movieAlignedTimeS"], errors="coerce")
+    else:
+        out["movieAlignedTimeS"] = pd.NA
+
+    if "movieAlignedTimeMs" in out.columns:
+        out["movieAlignedTimeMs"] = pd.to_numeric(out["movieAlignedTimeMs"], errors="coerce")
+    else:
+        out["movieAlignedTimeMs"] = pd.NA
+
+    if time_col == "movieAlignedTimeS":
+        out["movieAlignedTimeS"] = pd.to_numeric(out["movieAlignedTimeS"], errors="coerce")
+        out["movieAlignedTimeMs"] = out["movieAlignedTimeS"] * 1000.0
+    else:
+        out["movieAlignedTimeMs"] = pd.to_numeric(out[time_col], errors="coerce")
+        if time_col == "ms" or "movieAlignedTimeS" not in df.columns:
+            out["movieAlignedTimeS"] = out["movieAlignedTimeMs"] / 1000.0
+
+    if "spikeTimeRawS" in out.columns:
+        out["spikeTimeRawS"] = pd.to_numeric(out["spikeTimeRawS"], errors="coerce")
+    else:
+        out["spikeTimeRawS"] = pd.NA
+
+    if "units" in out.columns:
+        out["units"] = pd.to_numeric(out["units"], errors="coerce")
+    else:
+        out["units"] = pd.NA
+
+    out["ms"] = out["movieAlignedTimeMs"]
+    out = out.dropna(subset=["movieAlignedTimeMs"]).copy()
+    return out
 
 
 def load_summary_csv(summary_csv: str | Path) -> pd.DataFrame:
+    summary_csv = Path(summary_csv)
     df = pd.read_csv(summary_csv)
     df.columns = [str(c).strip() for c in df.columns]
     return df
@@ -108,7 +160,11 @@ def compute_psth_hz(clip_rows: List[List[float]], x_min: int, x_max: int, bin_ms
 
 
 def compute_smoothed_psth_hz(
-    clip_rows: List[List[float]], x_min: int, x_max: int, bin_ms: int = PSTH_BIN_MS, smooth_type: str = "none"
+    clip_rows: List[List[float]],
+    x_min: int,
+    x_max: int,
+    bin_ms: int = PSTH_BIN_MS,
+    smooth_type: str = "none",
 ) -> Tuple[np.ndarray, np.ndarray]:
     has_spikes = any(len(r) > 0 for r in clip_rows)
     all_spikes = np.concatenate([r for r in clip_rows if len(r) > 0]) if has_spikes else np.array([])
@@ -158,12 +214,6 @@ def sort_rows_accuracy_top_bottom(plot_rows: List[Dict[str, object]]) -> Tuple[L
     return correct_rows + incorrect_rows, len(correct_rows)
 
 
-def _region_abbr_from_label(label: str) -> str:
-    if not label or " - " not in label:
-        return "UNKNOWN"
-    return str(label).split(" - ", 1)[0].strip().upper() or "UNKNOWN"
-
-
 def _make_output_dirs(base_dir: Path) -> dict:
     d = {
         "all": base_dir / "all",
@@ -177,9 +227,13 @@ def _make_output_dirs(base_dir: Path) -> dict:
 
 
 def _stem_for_neuron(patient_id: str, output_tag: str, clean_loc: str, neuron_name: str) -> str:
-    if output_tag:
-        return f"P{patient_id}_{output_tag}_{clean_loc}_{neuron_name}"
-    return f"P{patient_id}_{clean_loc}_{neuron_name}"
+    return f"P{patient_id}_{output_tag}_{clean_loc}_{neuron_name}" if output_tag else f"P{patient_id}_{clean_loc}_{neuron_name}"
+
+
+def _region_abbr_from_label(label: str) -> str:
+    if not label or " - " not in label:
+        return "UNKNOWN"
+    return str(label).split(" - ", 1)[0].strip().upper() or "UNKNOWN"
 
 
 def _save_and_mirror(fig: plt.Figure, final_file_path: Path, base_dir: Path, region_abbr: str, sig_status: str) -> Path:
@@ -193,7 +247,7 @@ def _save_and_mirror(fig: plt.Figure, final_file_path: Path, base_dir: Path, reg
     if "nonsig" in sig_status:
         (dirs["nonsig"] / final_file_path.name).write_bytes(data)
 
-    if region_abbr and region_abbr in TARGET_FOLDERS:
+    if region_abbr in TARGET_FOLDERS:
         reg = dirs["by_region"] / region_abbr
         reg.mkdir(parents=True, exist_ok=True)
         (reg / final_file_path.name).write_bytes(data)
@@ -285,17 +339,14 @@ def _plot_raster_with_optional_split_and_psth(
         correct_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 1]
         incorrect_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 0]
         if len(correct_rows) > 0:
-            x_c, y_c = (compute_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none"
-                        else compute_smoothed_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS, smooth_type))
+            x_c, y_c = compute_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none" else compute_smoothed_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
             ax_psth.plot(x_c, y_c, linewidth=PSTH_LINE_WIDTH, color=COLOR_CORRECT, label="Correct (Green)")
         if len(incorrect_rows) > 0:
-            x_i, y_i = (compute_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none"
-                        else compute_smoothed_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS, smooth_type))
+            x_i, y_i = compute_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none" else compute_smoothed_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
             ax_psth.plot(x_i, y_i, linewidth=PSTH_LINE_WIDTH, color=COLOR_INCORRECT, label="Incorrect (Red)")
         ax_psth.legend(frameon=False, fontsize=10, loc="upper right")
     else:
-        x_all, y_all = (compute_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none"
-                        else compute_smoothed_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS, smooth_type))
+        x_all, y_all = compute_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none" else compute_smoothed_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
         ax_psth.plot(x_all, y_all, linewidth=PSTH_LINE_WIDTH, color=COLOR_ALL)
 
     ax_psth.set_xlabel("Time from clip start (ms)", fontsize=12)
@@ -308,6 +359,49 @@ def _plot_raster_with_optional_split_and_psth(
         return None
 
     return _save_and_mirror(fig, final_file_path, out_path.parent.parent, region_abbr, sig_status_str)
+
+
+def _row_region_abbr(summary_row: dict, loc_df: pd.DataFrame, neuron_name: str) -> str:
+    for key in ("Region Abbr", "region_abbr", "Region", "region"):
+        if key in summary_row and pd.notna(summary_row[key]):
+            val = str(summary_row[key]).strip().upper()
+            if val:
+                return val
+    if "Localization - Bipolar" in summary_row and pd.notna(summary_row["Localization - Bipolar"]):
+        return _region_abbr_from_label(str(summary_row["Localization - Bipolar"]))
+    if not loc_df.empty:
+        try:
+            _, _, region_abbr = infer_neuron_localization(neuron_name, loc_df)
+            return region_abbr
+        except Exception:
+            return "UNKNOWN"
+    return "UNKNOWN"
+
+
+def _write_companion_csvs(output_dir: Path, rows: list[dict]) -> None:
+    if not rows:
+        return
+    df = pd.DataFrame(rows)
+    all_dir = output_dir / "all"
+    sig_dir = output_dir / "sig"
+    nonsig_dir = output_dir / "nonsig"
+    by_region_dir = output_dir / "by_region"
+    for p in (all_dir, sig_dir, nonsig_dir, by_region_dir):
+        p.mkdir(parents=True, exist_ok=True)
+
+    df.to_csv(all_dir / "T_score_sheet.csv", index=False)
+    if "Sig Status" in df.columns:
+        df[df["Sig Status"].str.contains("sig", na=False)].to_csv(sig_dir / "T_score_sheet.csv", index=False)
+        df[df["Sig Status"] == "nonsig"].to_csv(nonsig_dir / "T_score_sheet.csv", index=False)
+    else:
+        df.to_csv(sig_dir / "T_score_sheet.csv", index=False)
+        df.to_csv(nonsig_dir / "T_score_sheet.csv", index=False)
+
+    if "Region Abbr" in df.columns:
+        for region_abbr, sub in df.groupby("Region Abbr"):
+            reg = by_region_dir / str(region_abbr)
+            reg.mkdir(parents=True, exist_ok=True)
+            sub.to_csv(reg / "T_score_sheet.csv", index=False)
 
 
 def plot_neuron_from_align1(
@@ -328,9 +422,13 @@ def plot_neuron_from_align1(
     align1_csv_path = Path(align1_csv_path)
     output_dir = Path(output_dir)
     neuron_name = align1_csv_path.name.replace("align1_", "").replace(".csv", "")
+
     try:
         neuron_df = load_align1_csv(align1_csv_path)
-        spikes_ms = pd.to_numeric(neuron_df["ms"], errors="coerce").dropna().to_numpy()
+        if "movieAlignedTimeMs" in neuron_df.columns:
+            spikes_ms = pd.to_numeric(neuron_df["movieAlignedTimeMs"], errors="coerce").dropna().to_numpy()
+        else:
+            spikes_ms = pd.to_numeric(neuron_df["ms"], errors="coerce").dropna().to_numpy()
     except Exception:
         return None
 
@@ -357,6 +455,7 @@ def plot_neuron_from_align1(
                 sig_status = "sig_post"
             else:
                 sig_status = "sig_both"
+
         pre_t = summary_row.get("Pre-Stim T-Score")
         pre_p = summary_row.get("Pre-Stim P-Value")
         post_t = summary_row.get("Post-Stim T-Score")
@@ -372,7 +471,14 @@ def plot_neuron_from_align1(
     if summary_row is not None and summary_row.get("Post-Stim Mean Rate (Hz)") is not None:
         title_suffix = f"Average Firing Rate: {float(summary_row['Post-Stim Mean Rate (Hz)']):.2f} Hz"
 
-    out_path = output_dir / "all" / f"{_stem_for_neuron(patient_id, output_tag, infer_neuron_localization(neuron_name, loc_df)[0].replace(' ', '_'), neuron_name)}.png"
+    clean_loc = "UNKNOWN"
+    if not loc_df.empty:
+        try:
+            clean_loc, _, _ = infer_neuron_localization(neuron_name, loc_df)
+        except Exception:
+            clean_loc = "UNKNOWN"
+
+    out_path = output_dir / "all" / f"{_stem_for_neuron(patient_id, output_tag, clean_loc.replace(' ', '_'), neuron_name)}.png"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     return _plot_raster_with_optional_split_and_psth(
         plot_rows=plot_rows,
@@ -390,34 +496,6 @@ def plot_neuron_from_align1(
         sig_status_str=sig_status,
         smooth_type=smooth_type,
     )
-
-
-def _write_companion_csvs(output_dir: Path, rows: list[dict]) -> None:
-    if not rows:
-        return
-    df = pd.DataFrame(rows)
-    all_dir = output_dir / "all"
-    sig_dir = output_dir / "sig"
-    nonsig_dir = output_dir / "nonsig"
-    by_region_dir = output_dir / "by_region"
-    all_dir.mkdir(parents=True, exist_ok=True)
-    sig_dir.mkdir(parents=True, exist_ok=True)
-    nonsig_dir.mkdir(parents=True, exist_ok=True)
-    by_region_dir.mkdir(parents=True, exist_ok=True)
-
-    df.to_csv(all_dir / "T_score_sheet.csv", index=False)
-    if "Sig Status" in df.columns:
-        df[df["Sig Status"].str.contains("sig", na=False)].to_csv(sig_dir / "T_score_sheet.csv", index=False)
-        df[df["Sig Status"] == "nonsig"].to_csv(nonsig_dir / "T_score_sheet.csv", index=False)
-    else:
-        df.to_csv(sig_dir / "T_score_sheet.csv", index=False)
-        df.to_csv(nonsig_dir / "T_score_sheet.csv", index=False)
-
-    if "Region Abbr" in df.columns:
-        for region_abbr, sub in df.groupby("Region Abbr"):
-            reg = by_region_dir / str(region_abbr)
-            reg.mkdir(parents=True, exist_ok=True)
-            sub.to_csv(reg / "T_score_sheet.csv", index=False)
 
 
 def plot_align1_folder(
@@ -467,9 +545,7 @@ def plot_align1_folder(
 
         if summary_row is not None:
             row = dict(summary_row)
-            region_label = row.get("Localization - Bipolar", "")
-            region_abbr = _region_abbr_from_label(region_label) if region_label else "UNKNOWN"
-            row["Region Abbr"] = region_abbr
+            row["Region Abbr"] = _row_region_abbr(row, loc_df, neuron_name)
             row["Sig Status"] = "sig" if bool(row.get("Pre-Stim Significant", False)) or bool(row.get("Post-Stim Significant", False)) else "nonsig"
             row["Raster Path"] = str(out_path) if out_path is not None else ""
             rows.append(row)

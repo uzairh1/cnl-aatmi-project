@@ -77,9 +77,6 @@ def _print_tree(plan: dict) -> None:
     print("canonical_files:")
     for item in plan["canonical_files"]:
         print(f"  - {item}")
-    print("raster_pngs:")
-    for item in plan["raster_pngs"]:
-        print(f"  - {item}")
     print("raster_csvs:")
     for item in plan["raster_csvs"]:
         print(f"  - {item}")

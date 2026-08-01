@@ -30,10 +30,6 @@ def find_region_summary_tables(output_root: str | Path) -> list[Path]:
     return sorted(Path(output_root).rglob("Swarm_Statistics_*.csv"))
 
 
-def find_region_overview_tables(output_root: str | Path) -> list[Path]:
-    return sorted(Path(output_root).rglob("Summary_Overview_*.csv"))
-
-
 def find_global_summary_tables(output_root: str | Path) -> list[Path]:
     output_root = Path(output_root)
     candidates = [output_root / "Summary_Global_and_Regional.csv", output_root / "Summary_Patient_Bipolar_Breakdown.csv"]
@@ -95,6 +91,7 @@ def build_dashboard_figure(plot_dir: str | Path, output_png: str | Path, title: 
     existing = [plot_dir / name for name in plot_names if (plot_dir / name).exists()]
     if not existing:
         return None
+
     n = len(existing)
     ncols = 2 if n > 1 else 1
     nrows = (n + ncols - 1) // ncols
@@ -121,9 +118,7 @@ def build_region_dashboards(output_root: str | Path, dashboard_dir: str | Path |
     dashboard_dir.mkdir(parents=True, exist_ok=True)
     outputs: list[Path] = []
     for region_dir in sorted(output_root.glob("*")):
-        if not region_dir.is_dir():
-            continue
-        if region_dir.name == "dashboards":
+        if not region_dir.is_dir() or region_dir.name == "dashboards":
             continue
         result = build_dashboard_figure(region_dir, dashboard_dir / f"{region_dir.name}_dashboard.png", title=region_dir.name)
         if result is not None:
