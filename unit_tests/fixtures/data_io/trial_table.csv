@@ -1,0 +1,3 @@
+experimentPhase,trialNumber,startTag,cueEndTag,endTag,startTimeUnixSec,cueEndTimeUnixSec,endTimeUnixSec,startTimeMat,cueEndTimeMat,endTimeMat,trialNumberMat,movieID,clipID,response,trialStartTimePTB,trialEndTimePTB,reactionTimePTB,frameOn,frameOff,clipStartTime,clipEndTime,clipStartTimeMs,clipEndTimeMs,clipDurationMs,clipDurationSec,clipFrameRange,clipTimeRangeMs,clipWindowId,isAccurate,trialOrder,plotOrder,includeInPlots
+recog_task,1,s1,c1,e1,100.0,100.2,101.0,100.0,100.2,101.0,1,1,1,2,0.0,1.0,0.2,0,30,0.0,1.0,0,1000,1000,1.0,0-30,0-1000,1-0-1000,1,1,1,1
+recog_task,2,s2,c2,e2,101.0,101.2,102.0,101.0,101.2,102.0,2,1,2,1,1.0,2.0,0.3,30,60,1.0,2.0,1000,2000,1000,1.0,30-60,1000-2000,1-1000-2000,0,2,2,1

@@ -1,1456 +1,1196 @@
 # analysis
 
-> Alignment layer for spike data.
-
-## Purpose
-
-The `analysis` package contains the alignment stages that sit between preprocessing/data_io and later statistical analysis.
-
-## Current Modules
-
-| Module | Purpose | Status |
-| --- | --- | --- |
-| `session_alignment_align1.py` | Align per-unit spike CSVs to the movie/session timebase | Complete |
-| `trial_alignment_align2.py` | Assign movie-aligned spikes to trial windows | Complete |
-| `binning.py` | Bins Align 1 data | Complete
-| `statistics.py` | Computes summary statistics before plotting | Complete
-| `README.md` | Package documentation | Complete |
-
-# session_alignment_align1.py
-
-## Running
-
-```bash
-python -m analysis.session_alignment_align1 \
-    --input-dir <raw_spike_csv_directory> \
-    --output-dir <align1_output_directory> \
-    --start-unix-0 <movie_start_unix_seconds> \
-    --matlab <matlab_reference_unix_seconds> \
-    --duration <movie_duration_seconds>
-````
-
-## Purpose
-
-The `session_alignment_align1.py` module aligns raw per-unit spike CSVs to the movie/session time base.
-
-This is the first alignment stage in the analysis pipeline.
-
-It performs the same conceptual job as the legacy UCLA Align 1 step:
-
-* load raw spike CSVs
-* compute the movie/session window
-* keep only spikes that fall inside that window
-* re-zero spike times so movie onset is time 0
-* write one aligned CSV per neuron
-
-This module does **not** assign spikes to individual trials.
-
-That belongs to `trial_alignment_align2.py`.
+> Alignment, binning, and neuron-level statistics for the CNL 24 Python Pipeline Project.
 
 ---
 
-## Inputs
+# Table of Contents
 
-Expected input directory
+- [Package Scope](#package-scope)
+- [Package Structure](#package-structure)
+- [Data Flow](#data-flow)
+- [`session_alignment_align1.py`](#session_alignment_align1py)
+- [`trial_alignment_align2.py`](#trial_alignment_align2py)
+- [`binning.py`](#binningpy)
+- [`statistics.py`](#statisticspy)
+- [Testing](#testing)
+
+---
+
+# Package Scope
+
+The `analysis` package turns standardized metadata and per-neuron spike CSVs
+into the scientifically meaningful products used by plotting and summary
+reporting.
+
+It contains three major steps:
+
+1. Align spikes to the movie/session timebase.
+2. Assign movie-aligned spikes to behavioral trial windows and summarize them.
+3. Compute neuron-level and population-level statistics.
+
+The package assumes that preprocessing and `data_io` have already produced the
+standardized inputs it consumes.
+
+---
+
+# Package Structure
 
 ```text
-times_manual*_unit_*.csv
+analysis/
+
+├── __init__.py
+├── session_alignment_align1.py
+├── trial_alignment_align2.py
+├── binning.py
+├── statistics.py
+└── README.md
 ```
 
-Expected raw spike columns
-
-| Column  | Description            |
-| ------- | ---------------------- |
-| `units` | Neuron/unit identifier |
-| `s`     | Spike time in seconds  |
-
-The module assumes the input CSVs are already produced by preprocessing.
-
-It does not read the `.mat` file directly.
+| Module | Responsibility |
+|--------|----------------|
+| `session_alignment_align1.py` | Align per-unit spike CSVs to the movie/session timebase. |
+| `trial_alignment_align2.py` | Assign movie-aligned spikes to trial windows. |
+| `binning.py` | Bin Align 1 outputs into fixed-width time windows. |
+| `statistics.py` | Compute neuron-level and population-level summary statistics. |
 
 ---
 
-## Outputs
+# Data Flow
 
-Primary output
-
-One `align1_*.csv` file per neuron.
-
-Example output file name
-
-```text
-align1_times_manual_GA1-REC3_unit_1.csv
+```mermaid
+flowchart LR
+    PRE["preprocessing/ CSVs"] --> A1["session_alignment_align1.py"]
+    DATA["data_io trial table"] --> A2["trial_alignment_align2.py"]
+    A1 --> A2
+    A1 --> BIN["binning.py"]
+    A1 --> STATS["statistics.py"]
+    DATA --> STATS
+    STATS --> PLOT["plotting/"]
 ```
 
-Typical output columns
-
-| Column               | Description                                         |
-| -------------------- | --------------------------------------------------- |
-| `units`              | Neuron/unit identifier                              |
-| `spikeTimeRawS`      | Original spike time in seconds                      |
-| `movieAlignedTimeS`  | Spike time relative to movie onset, in seconds      |
-| `movieAlignedTimeMs` | Spike time relative to movie onset, in milliseconds |
+The package is arranged so that each stage consumes the standardized outputs of
+the previous stage rather than re-reading raw files or re-deriving upstream
+metadata.
 
 ---
 
-## Public API
+# `session_alignment_align1.py`
 
-The public interface of `session_alignment_align1.py` consists of a small number of functions that together implement Align 1.
+`session_alignment_align1.py` creates Align 1 files by mapping raw per-unit
+spike CSVs onto the movie/session timebase.
 
-The intended execution order is
+The module is the first step where spike times are interpreted relative to the
+experimental movie window.
 
-```text
-Raw spike CSVs
-    ↓
-load_spike_csv()
-    ↓
-align_spikes_to_movie_window()
-    ↓
-save_aligned_spikes()
-    ↓
-align_one_neuron()
-    ↓
-align_session_folder()
-    ↓
-align1_*.csv
-```
+## Module Inputs and Outputs
 
-Although these functions may be called independently, they are normally orchestrated through `align_session_folder()` or the module CLI.
+### Inputs
 
----
+| Input | Description |
+|------|-------------|
+| `times_manual*_unit_*.csv` | Per-unit CSV files written by preprocessing. |
+| `start_unix_0` | Movie start time in Unix seconds. |
+| `matLab` | MATLAB reference timestamp in Unix seconds. |
+| `duration` | Movie duration in seconds. |
 
-### compute_session_window()
+### Outputs
 
-#### Purpose
+| Output | Description |
+|--------|-------------|
+| `align1_*.csv` | Session-aligned spike table for each neuron. |
 
-Compute the start and end of the movie/session window in seconds.
-
-This function converts the patient/session timing metadata into the
-window used for spike filtering.
-
----
-
-#### Parameters
-
-| Parameter      | Type    | Required | Description                                |
-| -------------- | ------- | -------- | ------------------------------------------ |
-| `start_unix_0` | `float` | Yes      | Movie start time in Unix seconds           |
-| `matLab`       | `float` | Yes      | MATLAB reference timestamp in Unix seconds |
-| `duration`     | `float` | Yes      | Movie duration in seconds                  |
-
----
-
-#### Returns
-
-| Name  | Type                  | Description                            |
-| ----- | --------------------- | -------------------------------------- |
-| tuple | `tuple[float, float]` | Session start and end times in seconds |
-
----
-
-#### Notes
-
-The session start is computed as
-
-```text
-session_start_seconds = start_unix_0 - matLab
-```
-
-and the session end is
-
-```text
-session_end_seconds = session_start_seconds + duration
-```
-
----
-
-### load_spike_csv()
-
-#### Purpose
-
-Load one raw spike CSV produced by preprocessing.
-
-This is the lowest-level file loading function in the module.
-
-It performs minimal validation and converts the raw spike time column into
-a standardized internal name.
-
----
-
-#### Parameters
-
-| Parameter        | Type          | Required | Description                        |
-| ---------------- | ------------- | -------- | ---------------------------------- |
-| `spike_csv_path` | `str \| Path` | Yes      | Path to one raw per-unit spike CSV |
-
----
-
-#### Returns
-
-| Name      | Type               | Description                                             |
-| --------- | ------------------ | ------------------------------------------------------- |
-| DataFrame | `pandas.DataFrame` | Standardized DataFrame with `units` and `spikeTimeRawS` |
-
----
-
-#### Raises
-
-Possible exceptions include
-
-* file not found
-* unreadable CSV
-* malformed CSV
-* missing required columns
-
-These exceptions are intentionally allowed to propagate to the caller.
-
----
-
-#### Side Effects
-
-None.
-
-The input file is never modified.
-
----
-
-### align_spikes_to_movie_window()
-
-#### Purpose
-
-Filter spikes to the movie/session window and re-zero spike times so movie
-onset becomes 0.
-
-This is the core Align 1 transformation.
-
----
-
-#### Parameters
-
-| Parameter                  | Type        | Required | Description                             |
-| -------------------------- | ----------- | -------- | --------------------------------------- |
-| `spike_df`                 | `DataFrame` | Yes      | Raw spike table from `load_spike_csv()` |
-| `session_start_seconds`    | `float`     | Yes      | Movie/session start time in seconds     |
-| `session_duration_seconds` | `float`     | Yes      | Movie/session duration in seconds       |
-
----
-
-#### Returns
-
-| Name      | Type               | Description               |
-| --------- | ------------------ | ------------------------- |
-| DataFrame | `pandas.DataFrame` | Movie-aligned spike table |
-
----
-
-#### Notes
-
-This function keeps only spikes satisfying
-
-```text
-session_start_seconds <= spikeTimeRawS <= session_end_seconds
-```
-
-It then subtracts `session_start_seconds` from each retained spike time.
-
-The resulting movie-aligned time is stored both in seconds and
-milliseconds.
-
----
-
-### save_aligned_spikes()
-
-#### Purpose
-
-Write one movie-aligned spike table to disk.
-
----
-
-#### Parameters
-
-| Parameter     | Type          | Required | Description         |
-| ------------- | ------------- | -------- | ------------------- |
-| `df`          | `DataFrame`   | Yes      | Aligned spike table |
-| `output_path` | `str \| Path` | Yes      | Output CSV path     |
-
----
-
-#### Returns
-
-| Name | Type           | Description                 |
-| ---- | -------------- | --------------------------- |
-| Path | `pathlib.Path` | Location of the written CSV |
-
----
-
-#### Side Effects
-
-Creates or overwrites the output CSV.
-
----
-
-### align_one_neuron()
-
-#### Purpose
-
-Create one Align 1 output file for a single neuron.
-
-This is the single-neuron wrapper around the lower-level loading and
-alignment functions.
-
----
-
-#### Parameters
-
-| Parameter                  | Type          | Required | Description                            |
-| -------------------------- | ------------- | -------- | -------------------------------------- |
-| `spike_csv_path`           | `str \| Path` | Yes      | Input raw spike CSV                    |
-| `session_start_seconds`    | `float`       | Yes      | Movie/session start time in seconds    |
-| `session_duration_seconds` | `float`       | Yes      | Movie/session duration in seconds      |
-| `align1_output_dir`        | `str \| Path` | Yes      | Folder where Align 1 files are written |
-
----
-
-#### Returns
-
-| Name | Type           | Description              |
-| ---- | -------------- | ------------------------ |
-| Path | `pathlib.Path` | Written Align 1 CSV path |
-
----
-
-#### Side Effects
-
-Creates the output directory if needed.
-
-Writes one `align1_*.csv` file.
-
----
-
-### align_session_folder()
-
-#### Purpose
-
-Create Align 1 files for every raw per-unit CSV in one folder.
-
-This is the folder-level wrapper for Align 1.
-
----
-
-#### Parameters
-
-| Parameter                  | Type          | Required | Description                            |
-| -------------------------- | ------------- | -------- | -------------------------------------- |
-| `spike_csv_dir`            | `str \| Path` | Yes      | Folder containing raw spike CSVs       |
-| `session_start_seconds`    | `float`       | Yes      | Movie/session start time in seconds    |
-| `session_duration_seconds` | `float`       | Yes      | Movie/session duration in seconds      |
-| `align1_output_dir`        | `str \| Path` | Yes      | Folder where Align 1 files are written |
-
----
-
-#### Returns
-
-| Name       | Type                   | Description                        |
-| ---------- | ---------------------- | ---------------------------------- |
-| list[Path] | list of `pathlib.Path` | Paths to the written Align 1 files |
-
----
-
-#### Side Effects
-
-Creates the output directory if needed.
-
-Writes one Align 1 CSV per input neuron.
-
----
-
-# trial_alignment_align2.py
-
-## Running
-
-```bash
-python -m analysis.trial_alignment_align2 \
-    --align1-dir <align1_directory> \
-    --trial-table <trial_table.csv> \
-    --output-dir <align2_output_directory>
-```
-
-## Purpose
-
-The `trial_alignment_align2.py` module assigns movie-aligned spikes to
-individual behavioral trial windows.
-
-This is the second alignment stage in the analysis pipeline.
-
-It takes `align1_*.csv` files and the standardized trial table, then writes
-one `align2_*.csv` file per neuron.
-
-This module does **not** read raw spike CSVs directly.
-
-That job belongs to `session_alignment_align1.py`.
-
----
-
-## Inputs
-
-Primary inputs
-
-* `align1_*.csv`
-* `trial_table.csv`
-
-Expected Align 1 columns
+### Output columns
 
 | Column | Description |
-| --- | --- | --- |
-| `units` | Neuron/unit identifier |
-| `spikeTimeRawS` | Original spike time in seconds |
-| `movieAlignedTimeS` | Spike time relative to movie onset, in seconds |
-| `movieAlignedTimeMs` | Spike time relative to movie onset, in milliseconds |
+|--------|-------------|
+| `units` | Neuron/unit identifier. |
+| `spikeTimeRawS` | Original spike time in seconds. |
+| `movieAlignedTimeS` | Spike time relative to movie onset in seconds. |
+| `movieAlignedTimeMs` | Spike time relative to movie onset in milliseconds. |
 
-Expected trial table columns
+## `compute_session_window()`
 
-| Column            | Description                      |
-| ----------------- | -------------------------------- |
-| `clipStartTimeMs` | Trial start time in milliseconds |
-| `clipEndTimeMs`   | Trial end time in milliseconds   |
-| `clipWindowId`    | Unique clip-window identifier    |
-| `trialOrder`      | Trial ordering                   |
-| `clipID`          | Clip identifier                  |
-| `movieID`         | Movie identifier                 |
-| `isAccurate`      | Recognition accuracy flag        |
-| `plotOrder`       | Plotting order                   |
-| `includeInPlots`  | Plot inclusion flag              |
+Computes the movie/session start and end times in seconds.
 
----
+### Inputs
 
-## Outputs
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `start_unix_0` | `float` | Movie start time in Unix seconds. |
+| `matLab` | `float` | MATLAB reference timestamp in Unix seconds. |
+| `duration` | `float` | Movie duration in seconds. |
 
-Primary output
+### Returns
 
-One `align2_*.csv` file per neuron.
+| Type | Description |
+|------|-------------|
+| `tuple[float, float]` | `(session_start_seconds, session_end_seconds)` |
 
-Example output file name
+### Implementation
 
-```text
-align2_times_manual_GA1-REC3_unit_1.csv
-```
+- subtracts the MATLAB reference timestamp from `start_unix_0`
+- treats the difference as the movie/session start in seconds
+- adds `duration` to compute the movie/session end
+- returns the start/end pair without reading any files
 
-Typical output columns
+The function keeps the session-window calculation isolated so the rest of the
+module can reuse a single derived window boundary.
 
-| Column                           | Description                                         |
-| -------------------------------- | --------------------------------------------------- |
-| `units`                          | Neuron/unit identifier                              |
-| `spikeTimeRawS`                  | Original spike time in seconds                      |
-| `movieAlignedTimeS`              | Spike time relative to movie onset, in seconds      |
-| `movieAlignedTimeMs`             | Spike time relative to movie onset, in milliseconds |
-| `trialOrder`                     | Trial ordering                                      |
-| `clipWindowId`                   | Unique clip-window identifier                       |
-| `clipID`                         | Clip identifier                                     |
-| `movieID`                        | Movie identifier                                    |
-| `isAccurate`                     | Recognition accuracy flag                           |
-| `plotOrder`                      | Plotting order                                      |
-| `includeInPlots`                 | Plot inclusion flag                                 |
-| `clipStartTimeMs`                | Trial start time in milliseconds                    |
-| `clipEndTimeMs`                  | Trial end time in milliseconds                      |
-| `spikeTimeRelativeToClipStartMs` | Spike time relative to trial start, in milliseconds |
-| `spikeTimeRelativeToClipStartS`  | Spike time relative to trial start, in seconds      |
+## `load_spike_csv()`
 
----
+Loads one preprocessing CSV and standardizes the spike-time column name.
 
-## Public API
+### Inputs
 
-The public interface of `trial_alignment_align2.py` consists of a small
-number of functions that together implement Align 2.
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `spike_csv_path` | `str | Path` | Path to one per-unit spike CSV. |
 
-The intended execution order is
+### Returns
 
-```text
-Align 1 CSVs
-    ↓
-load_align1_spike_csv()
-    ↓
-align_spikes_to_trials()
-    ↓
-save_trial_aligned_spikes()
-    ↓
-align_one_neuron()
-    ↓
-align_session_folder()
-    ↓
-align2_*.csv
-```
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Standardized DataFrame with `units` and `spikeTimeRawS`. |
 
-Although these functions may be called independently, they are normally
-orchestrated through `align_session_folder()` or the module CLI.
+### Implementation
 
----
+- reads the CSV with `pandas.read_csv`
+- verifies that `units` and `s` are present
+- converts `units` to integer values
+- converts `s` to numeric and stores it as `spikeTimeRawS`
+- drops rows where the spike time cannot be converted
+- returns only the `units` and `spikeTimeRawS` columns
 
-### load_align1_spike_csv()
+## `align_spikes_to_movie_window()`
 
-#### Purpose
+Filters spikes to the movie window and re-zeros spike times at movie onset.
 
-Load one Align 1 CSV produced by `session_alignment_align1.py`.
+### Inputs
 
-This function prepares the movie-aligned spike table for trial assignment.
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `spike_df` | `pd.DataFrame` | Raw spike table from `load_spike_csv()`. |
+| `session_start_seconds` | `float` | Movie/session start time in seconds. |
+| `session_duration_seconds` | `float` | Movie duration in seconds. |
 
----
+### Returns
 
-#### Parameters
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Movie-aligned spike table. |
 
-| Parameter        | Type          | Required | Description             |
-| ---------------- | ------------- | -------- | ----------------------- |
-| `spike_csv_path` | `str \| Path` | Yes      | Path to one Align 1 CSV |
+### Implementation
 
----
+- returns an empty table with the expected columns when the input is empty
+- computes `session_end_seconds` as `session_start_seconds + session_duration_seconds`
+- keeps only spikes whose raw spike time falls inside the session window
+- subtracts `session_start_seconds` from each retained spike
+- stores the result in `movieAlignedTimeS`
+- multiplies that value by 1000 to create `movieAlignedTimeMs`
+- returns the columns in the expected order
 
-#### Returns
+Spikes outside the movie window are discarded rather than clipped.
 
-| Name      | Type               | Description                      |
-| --------- | ------------------ | -------------------------------- |
-| DataFrame | `pandas.DataFrame` | Standardized Align 1 spike table |
+## `save_aligned_spikes()`
 
----
+Writes an Align 1 table to disk.
 
-#### Raises
+### Inputs
 
-Possible exceptions include
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `df` | `pd.DataFrame` | Movie-aligned spike table. |
+| `output_path` | `str | Path` | Destination CSV path. |
 
-* file not found
-* unreadable CSV
-* malformed CSV
-* missing required columns
+### Returns
 
-These exceptions are intentionally allowed to propagate to the caller.
+| Type | Description |
+|------|-------------|
+| `Path` | Output path that was written. |
 
----
+### Implementation
 
-#### Side Effects
+- converts `output_path` to a `Path`
+- creates the parent directory if needed
+- writes the DataFrame with `to_csv(index=False, float_format="%.4f")`
+- returns the output path
+
+## `align_one_neuron()`
+
+Creates one Align 1 file for one neuron.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `spike_csv_path` | `str | Path` | One preprocessing CSV. |
+| `session_start_seconds` | `float` | Movie/session start time. |
+| `session_duration_seconds` | `float` | Movie duration in seconds. |
+| `align1_output_dir` | `str | Path` | Directory for Align 1 output files. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `Path` | Path to the written `align1_*.csv` file. |
+
+### Implementation
+
+- loads the raw spike CSV
+- aligns the spikes to the movie/session window
+- constructs the output filename by prefixing `align1_` to the input filename
+- writes the aligned table to the output directory
+- returns the output path
+
+## `align_session_folder()`
+
+Creates Align 1 files for every preprocessing CSV in one folder.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `spike_csv_dir` | `str | Path` | Directory containing `times_manual*_unit_*.csv` files. |
+| `session_start_seconds` | `float` | Movie/session start time. |
+| `session_duration_seconds` | `float` | Movie duration in seconds. |
+| `align1_output_dir` | `str | Path` | Output directory for Align 1 files. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `list[Path]` | Paths to all written Align 1 files. |
+
+### Implementation
+
+- scans the folder for files matching `times_manual*_unit_*.csv`
+- sorts the file list for deterministic processing
+- calls `align_one_neuron()` for each file
+- returns the list of written output paths
+
+## `main()`
+
+Command-line entry point for Align 1.
+
+### Inputs
 
 None.
 
-The input file is never modified.
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `int` | Exit code. |
+
+### Implementation
+
+- builds an `argparse.ArgumentParser`
+- accepts `--input-dir`, `--output-dir`, `--start-unix-0`, `--matlab`, and `--duration`
+- computes the session start from `start_unix_0 - matlab`
+- calls `align_session_folder()`
+- prints a summary of how many files were written
+- returns `0`
 
 ---
 
-### align_spikes_to_trials()
+# `trial_alignment_align2.py`
 
-#### Purpose
+`trial_alignment_align2.py` creates Align 2 files by assigning movie-aligned
+spikes to behavioral trial windows.
 
-Assign each movie-aligned spike to the trial window or windows that contain
-it.
+The module consumes Align 1 output and the canonical trial table produced by
+`data_io`.
 
-This is the core Align 2 transformation.
+## Module Inputs and Outputs
+
+### Inputs
+
+| Input | Description |
+|------|-------------|
+| `align1_*.csv` | Session-aligned spike table for each neuron. |
+| `trial_table.csv` | Canonical behavioral trial table from `data_io`. |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `align2_*.csv` | Trial-aligned spike table for each neuron. |
+
+### Output columns
+
+| Column | Description |
+|--------|-------------|
+| `units` | Neuron/unit identifier. |
+| `spikeTimeRawS` | Original spike time in seconds. |
+| `movieAlignedTimeS` | Spike time relative to movie onset in seconds. |
+| `movieAlignedTimeMs` | Spike time relative to movie onset in milliseconds. |
+| `trialOrder` | Trial order from the canonical trial table. |
+| `clipWindowId` | Stable trial/window identifier. |
+| `clipID` | Clip identifier. |
+| `movieID` | Movie identifier. |
+| `isAccurate` | Accuracy label from the trial table. |
+| `plotOrder` | Plot ordering label from the trial table. |
+| `includeInPlots` | Plot inclusion flag. |
+| `clipStartTimeMs` | Trial start time in milliseconds. |
+| `clipEndTimeMs` | Trial end time in milliseconds. |
+| `spikeTimeRelativeToClipStartMs` | Spike time relative to trial start in milliseconds. |
+| `spikeTimeRelativeToClipStartS` | Spike time relative to trial start in seconds. |
+
+## `load_align1_spike_csv()`
+
+Loads one Align 1 file and standardizes its numeric columns.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `spike_csv_path` | `str | Path` | Path to one Align 1 CSV. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Standardized Align 1 DataFrame. |
+
+### Implementation
+
+- reads the CSV
+- verifies that `units`, `spikeTimeRawS`, `movieAlignedTimeS`, and `movieAlignedTimeMs` exist
+- converts `units` to integers
+- converts the timing columns to numeric values
+- drops rows where any timing column cannot be converted
+- returns only the standardized columns
+
+## `align_spikes_to_trials()`
+
+Assigns each movie-aligned spike to every matching trial window.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `movie_aligned_spikes` | `pd.DataFrame` | Align 1 spike table. |
+| `trial_table` | `pd.DataFrame` | Canonical behavioral trial table. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Trial-aligned spike table. |
+
+### Implementation
+
+- returns an empty table with the expected columns when either input is empty
+- verifies that the trial table contains `clipStartTimeMs`, `clipEndTimeMs`, and `clipWindowId`
+- iterates over each trial row
+- selects spikes whose `movieAlignedTimeMs` falls inside the trial window
+- creates one output row per matching spike and trial
+- computes `spikeTimeRelativeToClipStartMs` by subtracting the trial start time
+- computes `spikeTimeRelativeToClipStartS` by dividing the relative milliseconds by 1000
+- carries through the trial metadata columns from the canonical trial table
+- returns the rows in the fixed output column order
+
+The membership rule is inclusive on both ends of the clip window.
+
+## `save_trial_aligned_spikes()`
+
+Writes an Align 2 table to disk.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `df` | `pd.DataFrame` | Trial-aligned spike table. |
+| `output_path` | `str | Path` | Destination CSV path. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `Path` | Output path that was written. |
+
+### Implementation
+
+- creates the parent output directory if needed
+- writes the table with `float_format="%.4f"`
+- returns the output path
+
+## `align_one_neuron()`
+
+Creates one Align 2 file for one neuron.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `align1_csv_path` | `str | Path` | One Align 1 CSV. |
+| `trial_table` | `pd.DataFrame` | Canonical behavioral trial table. |
+| `align2_output_dir` | `str | Path` | Destination directory for Align 2 files. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `Path` | Path to the written `align2_*.csv` file. |
+
+### Implementation
+
+- loads the Align 1 CSV
+- assigns spikes to trial windows
+- builds the Align 2 filename by replacing the `align1_` prefix with `align2_`
+- writes the trial-aligned table
+- returns the output path
+
+## `align_session_folder()`
+
+Creates Align 2 files for every Align 1 file in one folder.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `align1_input_dir` | `str | Path` | Folder containing `align1_*.csv` files. |
+| `trial_table` | `pd.DataFrame` | Canonical behavioral trial table. |
+| `align2_output_dir` | `str | Path` | Destination directory for Align 2 files. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `list[Path]` | Paths to all written Align 2 files. |
+
+### Implementation
+
+- scans the input directory for `align1_*.csv`
+- sorts the file list
+- runs `align_one_neuron()` for each file
+- returns the written file paths
+
+## `main()`
+
+Command-line entry point for Align 2.
+
+### Inputs
+
+None.
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `int` | Exit code. |
+
+### Implementation
+
+- creates an argument parser
+- accepts `--align1-dir`, `--trial-table`, and `--output-dir`
+- loads `trial_table.csv`
+- calls `align_session_folder()`
+- prints how many neuron files were processed
+- returns `0`
 
 ---
 
-#### Parameters
+# `binning.py`
 
-| Parameter              | Type        | Required | Description                            |
-| ---------------------- | ----------- | -------- | -------------------------------------- |
-| `movie_aligned_spikes` | `DataFrame` | Yes      | Movie-aligned spike table from Align 1 |
-| `trial_table`          | `DataFrame` | Yes      | Standardized trial/clip table          |
+`binning.py` bins movie-aligned spikes from Align 1 into fixed-width firing
+rate tables.
+
+The module is intentionally lightweight and works directly from the Align 1
+timing column.
+
+## Module Inputs and Outputs
+
+### Inputs
+
+| Input | Description |
+|------|-------------|
+| `align1_*.csv` | Movie-aligned spike files. |
+| `bin_size_s` | Bin width in seconds. Default: `10`. |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `*_binned.csv` | Binned spike-count and firing-rate table. |
+
+## `load_align1_csv()`
+
+Loads one Align 1 file and guarantees that the data contain an `ms` column.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `csv_path` | `str | Path` | Path to an Align 1 CSV. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Align 1 table with a numeric `ms` column. |
+
+### Implementation
+
+- reads the CSV
+- if `ms` already exists, keeps it
+- otherwise creates `ms` from `movieAlignedTimeMs`
+- if that is absent, creates `ms` from `movieAlignedTimeS * 1000`
+- raises an error if neither timing column exists
+- converts `ms` to numeric
+- drops rows where `ms` is missing
+
+## `bin_firing_rate_from_df()`
+
+Bins spike times into fixed-width windows and computes firing rate.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `df` | `pd.DataFrame` | Align 1 spike table containing `ms`. |
+| `bin_size_s` | `int` | Bin width in seconds. Default: `10`. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Table with spike counts and firing rates per bin. |
+
+### Implementation
+
+- rejects nonpositive bin sizes
+- returns an empty table with the expected columns when the input is empty
+- verifies that `ms` exists
+- converts spike times from milliseconds to seconds
+- uses `np.floor(spike_time / bin_size_s)` to assign each spike to a bin
+- counts spikes per bin with `value_counts()`
+- fills missing bins with zeros so the output is contiguous
+- computes `firing_rate_hz` as `spike_count / bin_size_s`
+
+## `bin_firing_rate()`
+
+Convenience wrapper that bins spikes directly from a CSV path.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `csv_path` | `str | Path` | Align 1 CSV path. |
+| `bin_size_s` | `int` | Bin width in seconds. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Binned firing-rate table. |
+
+### Implementation
+
+- loads the CSV using `load_align1_csv()`
+- passes the DataFrame to `bin_firing_rate_from_df()`
+
+## `bin_align1_file()`
+
+Writes one binned output file for one Align 1 CSV.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `align1_csv_path` | `str | Path` | Input Align 1 file. |
+| `output_csv_path` | `str | Path` | Destination path for the binned table. |
+| `bin_size_s` | `int` | Bin width in seconds. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `Path` | Written output path. |
+
+### Implementation
+
+- creates the output directory if needed
+- bins the input CSV
+- writes the resulting table to disk
+- returns the output path
+
+## `bin_align1_folder()`
+
+Bins every Align 1 CSV in one folder.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `align1_dir` | `str | Path` | Directory containing `align1_*.csv`. |
+| `output_dir` | `str | Path` | Output directory. |
+| `bin_size_s` | `int` | Bin width in seconds. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `list[Path]` | Paths to all written binned CSVs. |
+
+### Implementation
+
+- creates the output directory if needed
+- scans for files matching `align1_*.csv`
+- sorts the file list
+- writes output files named `*_binned_{bin_size_s}s.csv`
+- returns the written paths
+
+## `main()`
+
+Command-line entry point for binning.
+
+### Inputs
+
+None.
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `int` | Exit code. |
+
+### Implementation
+
+- accepts `--align1-dir`, `--output-dir`, and `--bin-size-s`
+- runs `bin_align1_folder()`
+- prints how many files were written
+- returns `0`
 
 ---
 
-#### Returns
+# `statistics.py`
 
-| Name      | Type               | Description               |
-| --------- | ------------------ | ------------------------- |
-| DataFrame | `pandas.DataFrame` | Trial-aligned spike table |
+`statistics.py` computes the neuron-level and population-level summary tables
+used by plotting.
+
+The module reads Align 1 outputs and the canonical trial table, then computes
+per-neuron statistics over the pre-stimulus and post-stimulus windows.
+
+## Module Inputs and Outputs
+
+### Inputs
+
+| Input | Description |
+|------|-------------|
+| `align1_*.csv` | Movie-aligned spike files. |
+| Canonical trial table | Behavioral timing and trial metadata from `data_io`. |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `neuron_summary.csv` | Per-neuron summary table. |
+| Population summary dicts | Statistical summaries used for reporting. |
+
+### Default windows and thresholds
+
+| Name | Value |
+|------|------|
+| `DEFAULT_PRE_WINDOW_MS` | `(-1000, 0)` |
+| `DEFAULT_POST_WINDOW_MS` | `(200, 1200)` |
+| `DEFAULT_MIN_RATE_HZ` | `0.25` |
+| `DEFAULT_ALPHA` | `0.05` |
+| `DEFAULT_SIG_T_SCORE` | `1.96` |
+
+## `load_clip_table()`
+
+Loads and standardizes the canonical trial table for statistics.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `csv_path` | `str | Path` | Path to the canonical trial table. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Standardized trial table. |
+
+### Implementation
+
+- reads the CSV
+- strips whitespace from column names
+- renames canonical columns into the legacy-style names expected by the rest of the module:
+  - `clipStartTimeMs` → `ms start`
+  - `clipEndTimeMs` → `ms end`
+  - `isAccurate` → `Accurate`
+  - `plotOrder` → `Plot Y-Axis`
+  - `includeInPlots` → `Plot Toggle`
+- converts timing and plotting columns to numeric values
+- fills missing `Accurate` values with `0`
+- fills missing `Plot Toggle` values with `1`
+
+This keeps statistics compatible with the historical plotting and summary logic.
+
+## `_load_align1_for_stats()`
+
+Loads Align 1 data in either DataFrame or CSV form and guarantees an `ms` column.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `df_or_path` | `pd.DataFrame | str | Path` | Align 1 data source. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Align 1 table with a numeric `ms` column. |
+
+### Implementation
+
+- reads the CSV if a path is supplied
+- copies the DataFrame if one is supplied directly
+- creates `ms` from `movieAlignedTimeMs` when needed
+- otherwise creates `ms` from `movieAlignedTimeS * 1000`
+- raises an error if neither timing column exists
+- converts `ms` to numeric
+- drops rows without valid `ms` values
+
+## `compute_rate_hz_in_window()`
+
+Computes the average firing rate inside a time window across clips.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `spikes_ms` | `np.ndarray` | Spike times in milliseconds. |
+| `clips_df` | `pd.DataFrame` | Trial table with `ms start` values. |
+| `win_start` | `int` | Window start relative to clip onset in ms. |
+| `win_end` | `int` | Window end relative to clip onset in ms. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `Optional[float]` | Average firing rate in Hz, or `None` when not computable. |
+
+### Implementation
+
+- computes the window duration in seconds
+- returns `None` when the duration is nonpositive or the clip table is empty
+- iterates over each clip row
+- skips clips without a valid `ms start`
+- converts the relative window into absolute spike-time boundaries
+- counts spikes inside the absolute window for each valid clip
+- averages across the number of valid clips and the window duration
+
+## `compute_correct_vs_wrong_ttest()`
+
+Compares firing rates in correct and incorrect trials.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `spikes_ms` | `np.ndarray` | Spike times in milliseconds. |
+| `clips_df` | `pd.DataFrame` | Trial table with `Accurate` values. |
+| `window_start_ms` | `int` | Window start relative to clip onset. |
+| `window_end_ms` | `int` | Window end relative to clip onset. |
+| `alpha` | `float` | Significance threshold. |
+| `significance_method` | `str` | Either `p_value` or `t_score`. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `dict[str, object]` | Dictionary containing t-test results and significance. |
+
+### Implementation
+
+- splits clips into correct and incorrect groups using the `Accurate` column
+- computes a firing rate for each clip in the requested window
+- requires at least two rates in each group
+- runs Welch’s two-sample t-test with `ttest_ind(..., equal_var=False)`
+- marks significance using either:
+  - `p_value < alpha`, or
+  - `abs(t_stat) >= DEFAULT_SIG_T_SCORE`
+- returns a dictionary containing the test result, group sizes, and significance flag
+
+## `build_neuron_summary_row()`
+
+Builds one row of the neuron summary table.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `align1_df` | `pd.DataFrame` | Align 1 table for one neuron. |
+| `clips_df` | `pd.DataFrame` | Canonical trial table. |
+| `neuron_name` | `str` | Neuron file name without the `align1_` prefix. |
+| `patient_id` | `str` | Patient identifier. |
+| `output_tag` | `str` | Optional tag appended to the patient label. |
+| `min_rate_hz` | `float` | Minimum post-stimulus mean firing rate. |
+| `pre_window_ms` | `tuple[int, int]` | Pre-stimulus analysis window. |
+| `post_window_ms` | `tuple[int, int]` | Post-stimulus analysis window. |
+| `alpha` | `float` | Significance threshold. |
+| `significance_method` | `str` | `p_value` or `t_score`. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `Optional[dict]` | Summary row, or `None` when the neuron does not meet criteria. |
+
+### Implementation
+
+- returns `None` when the Align 1 table is empty
+- loads Align 1 data into a numeric `ms` representation
+- returns `None` when no valid spike times remain
+- computes post-stimulus mean firing rate
+- returns `None` when the post-stimulus rate is below `min_rate_hz`
+- computes pre-stimulus and post-stimulus correct-vs-wrong t-tests
+- extracts t-statistics, p-values, and significance flags
+- builds a summary dictionary containing:
+  - patient label
+  - neuron name
+  - pre/post t-scores and p-values
+  - pre/post significance flags
+  - `T-Score Diff (Pre - Post)`
+  - `Post-Stim Mean Rate (Hz)`
+  - number of clips
+
+## `analyze_align1_file()`
+
+Analyzes one Align 1 file.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `align1_csv_path` | `str | Path` | Align 1 CSV path. |
+| `clips_df` | `pd.DataFrame` | Canonical trial table. |
+| `patient_id` | `str` | Patient identifier. |
+| `output_tag` | `str` | Optional tag appended to the patient label. |
+| `min_rate_hz` | `float` | Minimum post-stimulus firing rate. |
+| `pre_window_ms` | `tuple[int, int]` | Pre-stimulus window. |
+| `post_window_ms` | `tuple[int, int]` | Post-stimulus window. |
+| `alpha` | `float` | Significance threshold. |
+| `significance_method` | `str` | `p_value` or `t_score`. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `Optional[dict]` | Summary row for one neuron, or `None`. |
+
+### Implementation
+
+- reads the Align 1 CSV
+- derives the neuron name from the file name
+- passes the data to `build_neuron_summary_row()`
+
+## `analyze_align1_folder()`
+
+Analyzes every Align 1 file in a folder and writes the summary table.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `align1_dir` | `str | Path` | Folder containing `align1_*.csv`. |
+| `clips_df` | `pd.DataFrame` | Canonical trial table. |
+| `patient_id` | `str` | Patient identifier. |
+| `output_csv` | `str | Path` | Destination for `neuron_summary.csv`. |
+| `output_tag` | `str` | Optional tag appended to the patient label. |
+| `min_rate_hz` | `float` | Minimum post-stimulus rate. |
+| `pre_window_ms` | `tuple[int, int]` | Pre-stimulus window. |
+| `post_window_ms` | `tuple[int, int]` | Post-stimulus window. |
+| `alpha` | `float` | Significance threshold. |
+| `significance_method` | `str` | `p_value` or `t_score`. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `pd.DataFrame` | Final neuron summary table. |
+
+### Implementation
+
+- scans the folder for `align1_*.csv`
+- sorts the file list
+- analyzes each file with `analyze_align1_file()`
+- collects non-`None` rows into a list
+- writes the resulting DataFrame to `output_csv`
+- returns the DataFrame
+
+## `population_chisq_vs_chance()`
+
+Runs a chi-square test comparing significant and non-significant neurons
+against a chance expectation.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `df` | `pd.DataFrame` | Summary table. |
+| `metric_col` | `str` | Metric column to examine. |
+| `thresh` | `Optional[float]` | Threshold used when `sig_col` is absent. |
+| `sig_col` | `Optional[str]` | Boolean significance column. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `dict` | Population summary dictionary. |
+
+### Implementation
+
+- removes rows with missing metric values
+- counts the number of positive and negative significant values
+- uses `sig_col` when available
+- otherwise uses `thresh`
+- compares the significant count against a 5% expected rate
+- returns mean, SEM, counts, expected counts, chi-square statistic, and p-value
+
+## `population_chisq_vs_5050()`
+
+Runs a chi-square test against a 50/50 split.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `df` | `pd.DataFrame` | Summary table. |
+| `metric_col` | `str` | Metric column to examine. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `dict` | Population summary dictionary. |
+
+### Implementation
+
+- removes missing metric rows
+- counts positive, negative, and exact-zero values
+- ignores exact zeros when computing the expected 50/50 split
+- runs chi-square on the positive and negative counts
+- returns summary statistics and the test result
+
+## `population_one_sample_ttest()`
+
+Runs a one-sample t-test against a population mean.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `df` | `pd.DataFrame` | Summary table. |
+| `metric_col` | `str` | Metric column to examine. |
+| `popmean` | `float` | Population mean for the test. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `dict` | Population summary dictionary. |
+
+### Implementation
+
+- removes missing metric rows
+- converts the selected metric to numeric values
+- returns early when there are fewer than two valid samples
+- runs `ttest_1samp`
+- returns the sample size, mean, SEM, t-statistic, p-value, and population mean
+
+## `analyze_population_table()`
+
+Chooses the population-level test to run.
+
+### Inputs
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `summary_csv` | `str | Path` | Path to the neuron summary table. |
+| `metric_col` | `str` | Metric column to analyze. |
+| `test_mode` | `str` | One of `chisq_vs_chance`, `chisq_vs_5050`, or `one_sample_ttest`. |
+| `thresh` | `Optional[float]` | Threshold used by `chisq_vs_chance`. |
+| `sig_col` | `Optional[str]` | Boolean significance column. |
+| `popmean` | `float` | Population mean for the t-test. |
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `dict` | Population summary dictionary. |
+
+### Implementation
+
+- reads the summary CSV
+- dispatches to the requested test helper
+- raises `ValueError` for an unknown test mode
+
+## `main()`
+
+Command-line entry point for statistics.
+
+### Inputs
+
+None.
+
+### Returns
+
+| Type | Description |
+|------|-------------|
+| `int` | Exit code. |
+
+### Implementation
+
+- accepts `--align1-dir`, `--clips-table`, `--patient-id`, and `--output-csv`
+- accepts analysis parameters for windows, alpha, and significance method
+- accepts population-test parameters
+- loads the canonical trial table
+- runs `analyze_align1_folder()`
+- prints how many neuron summary rows were written
+- computes and prints a population summary from `T-Score Diff (Pre - Post)`
+- returns `0`
 
 ---
 
-#### Notes
-
-A spike is assigned to a trial when
-
-```text
-clipStartTimeMs <= movieAlignedTimeMs <= clipEndTimeMs
-```
-
-The module also computes spike time relative to clip start in both
-milliseconds and seconds.
-
 ---
 
-### save_trial_aligned_spikes()
+# Running the Package
 
-#### Purpose
+Although the complete repository is normally executed through
+`running/setup_and_run.py`, each analysis module can also be run
+independently.
 
-Write one trial-aligned spike table to disk.
+This is useful when debugging a single stage of the pipeline or regenerating
+only one class of outputs.
 
----
+## Align 1
 
-#### Parameters
+Generates movie/session-aligned spike tables from the preprocessing CSV files.
 
-| Parameter     | Type          | Required | Description               |
-| ------------- | ------------- | -------- | ------------------------- |
-| `df`          | `DataFrame`   | Yes      | Trial-aligned spike table |
-| `output_path` | `str \| Path` | Yes      | Output CSV path           |
-
----
-
-#### Returns
-
-| Name | Type           | Description              |
-| ---- | -------------- | ------------------------ |
-| Path | `pathlib.Path` | Written Align 2 CSV path |
-
----
-
-#### Side Effects
-
-Creates or overwrites the output CSV.
-
----
-
-### align_one_neuron()
-
-#### Purpose
-
-Create one Align 2 output file for a single neuron.
-
-This is the single-neuron wrapper around the lower-level loading and trial
-assignment functions.
-
----
-
-#### Parameters
-
-| Parameter           | Type          | Required | Description                            |
-| ------------------- | ------------- | -------- | -------------------------------------- |
-| `align1_csv_path`   | `str \| Path` | Yes      | Input Align 1 CSV                      |
-| `trial_table`       | `DataFrame`   | Yes      | Standardized trial table               |
-| `align2_output_dir` | `str \| Path` | Yes      | Folder where Align 2 files are written |
-
----
-
-#### Returns
-
-| Name | Type           | Description              |
-| ---- | -------------- | ------------------------ |
-| Path | `pathlib.Path` | Written Align 2 CSV path |
-
----
-
-#### Side Effects
-
-Creates the output directory if needed.
-
-Writes one Align 2 CSV.
-
----
-
-### align_session_folder()
-
-#### Purpose
-
-Create Align 2 files for every Align 1 CSV in one folder.
-
-This is the folder-level wrapper for Align 2.
-
----
-
-#### Parameters
-
-| Parameter           | Type          | Required | Description                            |
-| ------------------- | ------------- | -------- | -------------------------------------- |
-| `align1_input_dir`  | `str \| Path` | Yes      | Folder containing Align 1 CSVs         |
-| `trial_table`       | `DataFrame`   | Yes      | Standardized trial table               |
-| `align2_output_dir` | `str \| Path` | Yes      | Folder where Align 2 files are written |
-
----
-
-#### Returns
-
-| Name       | Type                   | Description                        |
-| ---------- | ---------------------- | ---------------------------------- |
-| list[Path] | list of `pathlib.Path` | Paths to the written Align 2 files |
-
----
-
-#### Side Effects
-
-Creates the output directory if needed.
-
-Writes one Align 2 CSV per input neuron.
-
----
-
-
-### Running
 ```bash
-  python analysis/trial_alignment_align2.py \
-  --align1-dir "path/to/align1_output" \
-  --trial-table "path/to/trial_table.csv" \
-  --output-dir "path/to/align2_output"
+python analysis/session_alignment_align1.py \
+    --input-dir preprocessing_output \
+    --output-dir align1 \
+    --start-unix-0 <movie_start_unix_seconds> \
+    --matlab <matlab_reference_seconds> \
+    --duration <movie_duration_seconds>
 ```
-Inputs:
-- Align 1 CSVs
-- `trial_table.csv`
 
 Output:
-- `align2_*.csv`
 
-Columns:
-- `units`
-- `spikeTimeRawS`
-- `movieAlignedTimeS`
-- `movieAlignedTimeMs`
-- `trialOrder`
-- `clipWindowId`
-- `clipID`
-- `movieID`
-- `isAccurate`
-- `plotOrder`
-- `includeInPlots`
-- `clipStartTimeMs`
-- `clipEndTimeMs`
-- `spikeTimeRelativeToClipStartMs`
-- `spikeTimeRelativeToClipStartS`
+```text
+align1/
+    align1_times_manual_*_unit_#.csv
+```
 
-Rule:
-- a spike is assigned to a trial when `clipStartTimeMs <= movieAlignedTimeMs <= clipEndTimeMs`
+---
 
-# binning.py
+## Align 2
 
-## Running
+Assigns Align 1 spikes to behavioral trial windows.
 
 ```bash
-python -m analysis.binning \
-    --align1-dir <align1_directory> \
-    --output-dir <output_directory> \
-    [--bin-size-s 10]
+python analysis/trial_alignment_align2.py \
+    --align1-dir align1 \
+    --trial-table trial_table.csv \
+    --output-dir align2
 ```
 
-## Purpose
-
-The `binning.py` module reproduces the legacy movie-level firing-rate
-binning behavior used by the old UCLA helper `bin_firing_rate()`.
-
-It takes movie/session-aligned spike tables and converts them into fixed-width
-time bins.
-
-This stage is not trial-based.
-
-It does not use `align2_*.csv`.
-
-Instead, it operates directly on `align1_*.csv` outputs.
-
----
-
-## Inputs
-
-Primary input
-
-```
-align1_*.csv
-```
-
-Expected input column
-
-| Column | Description                                      |
-| ------ | ------------------------------------------------ |
-| `ms`   | Movie/session-aligned spike time in milliseconds |
-
-The module assumes that the input CSV already contains spikes aligned to the
-movie/session timeline.
-
----
-
-## Outputs
-
-Primary output
-
-One binned CSV per Align 1 input file.
-
-Typical output columns
-
-| Column           | Description                                 |
-| ---------------- | ------------------------------------------- |
-| `bin_<N>s`       | Bin index                                   |
-| `spike_count`    | Number of spikes in the bin                 |
-| `firing_rate_hz` | Spike count divided by bin width in seconds |
-
-Missing bins are retained and filled with zero spike counts.
-
----
-
-## Public API
-
-The public interface of `binning.py` consists of a small number of
-functions that together implement legacy-style movie-level spike binning.
-
-The intended execution order is
+Output:
 
 ```text
-Align 1 CSV
-    ↓
-load_align1_csv()
-    ↓
-bin_firing_rate_from_df()
-    ↓
-bin_firing_rate()
-    ↓
-bin_align1_file()
-    ↓
-bin_align1_folder()
-```
-
-Although these functions may be called independently, they are normally
-orchestrated through `bin_align1_folder()` or the module CLI.
-
----
-
-### load_align1_csv()
-
-#### Purpose
-
-Load one Align 1 CSV and validate that it contains the expected aligned
-spike-time column.
-
-This function performs the minimum amount of processing necessary to prepare
-the table for binning.
-
----
-
-#### Parameters
-
-| Parameter  | Type          | Required | Description                     |
-| ---------- | ------------- | -------- | ------------------------------- |
-| `csv_path` | `str \| Path` | Yes      | Path to one `align1_*.csv` file |
-
----
-
-#### Returns
-
-| Name      | Type               | Description                                    |
-| --------- | ------------------ | ---------------------------------------------- |
-| DataFrame | `pandas.DataFrame` | Align 1 table with cleaned numeric `ms` values |
-
----
-
-#### Raises
-
-Possible exceptions include
-
-* file not found
-* unreadable CSV
-* malformed CSV
-* missing `ms` column
-
-These exceptions are intentionally allowed to propagate to the caller.
-
----
-
-#### Side Effects
-
-None.
-
-The input file is never modified.
-
----
-
-### bin_firing_rate_from_df()
-
-#### Purpose
-
-Convert a movie-aligned spike DataFrame into a fixed-width binned firing-rate
-table.
-
-This function mirrors the behavior of the legacy UCLA helper.
-
----
-
-#### Parameters
-
-| Parameter    | Type      | Description          |
-| ------------ | --------- | -------------------- |
-| `df`         | DataFrame | Align 1 spike table  |
-| `bin_size_s` | `int`     | Bin width in seconds |
-
----
-
-#### Binning Rule
-
-Spike times are converted from milliseconds to seconds and assigned to bins
-using
-
-```text
-bin_index = floor(time_seconds / bin_size_s)
+align2/
+    align2_times_manual_*_unit_#.csv
 ```
 
 ---
 
-#### Returns
+## Movie Binning
 
-A DataFrame containing one row per bin.
-
-Typical columns
-
-| Column           | Description                         |
-| ---------------- | ----------------------------------- |
-| `bin_<N>s`       | Bin index                           |
-| `spike_count`    | Number of spikes in the bin         |
-| `firing_rate_hz` | Spike count divided by `bin_size_s` |
-
----
-
-#### Notes
-
-Bins with no spikes are retained.
-
-This function does not use trial windows.
-
----
-
-### bin_firing_rate()
-
-#### Purpose
-
-Legacy-compatible helper that loads an Align 1 CSV and bins it in one step.
-
-This exists for convenience and for compatibility with older calling
-patterns.
-
----
-
-#### Parameters
-
-| Parameter    | Type          | Description                     |
-| ------------ | ------------- | ------------------------------- |
-| `csv_path`   | `str \| Path` | Path to one `align1_*.csv` file |
-| `bin_size_s` | `int`         | Bin width in seconds            |
-
----
-
-#### Returns
-
-Binned DataFrame.
-
----
-
-#### Notes
-
-This is the most direct single-file entry point for the module.
-
----
-
-### bin_align1_file()
-
-#### Purpose
-
-Bin one Align 1 CSV and write the binned output to disk.
-
----
-
-#### Parameters
-
-| Parameter         | Type          | Description                    |
-| ----------------- | ------------- | ------------------------------ |
-| `align1_csv_path` | `str \| Path` | Input Align 1 CSV              |
-| `output_csv_path` | `str \| Path` | Output path for the binned CSV |
-| `bin_size_s`      | `int`         | Bin width in seconds           |
-
----
-
-#### Returns
-
-| Name | Type           | Description                        |
-| ---- | -------------- | ---------------------------------- |
-| Path | `pathlib.Path` | Location of the written binned CSV |
-
----
-
-#### Side Effects
-
-Creates or overwrites the output CSV.
-
----
-
-### bin_align1_folder()
-
-#### Purpose
-
-Bin every Align 1 CSV in one folder.
-
----
-
-#### Parameters
-
-| Parameter    | Type          | Description                              |
-| ------------ | ------------- | ---------------------------------------- |
-| `align1_dir` | `str \| Path` | Folder containing `align1_*.csv` files   |
-| `output_dir` | `str \| Path` | Folder where binned CSVs will be written |
-| `bin_size_s` | `int`         | Bin width in seconds                     |
-
----
-
-#### Returns
-
-| Name       | Type                   | Description                       |
-| ---------- | ---------------------- | --------------------------------- |
-| list[Path] | list of `pathlib.Path` | Paths to written binned CSV files |
-
----
-
-#### Side Effects
-
-Creates the output directory if needed.
-
----
-
-# statistics.py
-
-## Running
+Bins movie-aligned spike trains into fixed-width windows.
 
 ```bash
-python -m analysis.statistics \
-    --align1-dir <align1_directory> \
-    --clips-table <trial_table.csv> \
-    --patient-id <patient_id> \
-    --output-csv <summary.csv>
+python analysis/binning.py \
+    --align1-dir align1 \
+    --output-dir binning \
+    --bin-size-s 10
 ```
 
-## Purpose
-
-The `statistics.py` module reproduces the legacy neuron-level statistics
-workflow from the monolithic script.
-
-It works from movie/session-aligned spike tables and a clip timing table.
-
-It computes pre/post window firing rates, correct-vs-wrong Welch t-tests,
-per-neuron summary rows, and population-level summaries.
-
-This module does **not** use `align2_*.csv`.
-
----
-
-## Inputs
-
-Primary inputs
-
-* `align1_*.csv`
-* clip/TTL timing table
-
-Expected aligned spike column
-
-| Column | Description                                      |
-| ------ | ------------------------------------------------ |
-| `ms`   | Movie/session-aligned spike time in milliseconds |
-
-The clip table may use either legacy or refactored timing names.
-
----
-
-## Outputs
-
-Primary output
-
-One summary CSV with one row per neuron.
-
-Typical output columns include
-
-| Column                      | Description                                |
-| --------------------------- | ------------------------------------------ |
-| `Patient`                   | Patient label                              |
-| `Neuron Name`               | Neuron identifier                          |
-| `Pre-Stim T-Score`          | Welch t-test statistic for the pre window  |
-| `Pre-Stim P-Value`          | Pre-window p-value                         |
-| `Pre-Stim Significant`      | Pre-window significance flag               |
-| `Post-Stim T-Score`         | Welch t-test statistic for the post window |
-| `Post-Stim P-Value`         | Post-window p-value                        |
-| `Post-Stim Significant`     | Post-window significance flag              |
-| `T-Score Diff (Pre - Post)` | Difference between pre and post t-scores   |
-| `Post-Stim Mean Rate (Hz)`  | Mean post-stimulus firing rate             |
-| `N Clips`                   | Number of clips used in the summary        |
-
-Population summaries may also be computed from the output table.
-
----
-
-## Public API
-
-The public interface of `statistics.py` consists of functions that together
-implement the legacy statistics workflow.
-
-The intended execution order is
+Output:
 
 ```text
-Align 1 CSV
-    ↓
-load_clip_table()
-    ↓
-analyze_align1_file()
-    ↓
-build_neuron_summary_row()
-    ↓
-analyze_align1_folder()
-    ↓
-summary CSV
-    ↓
-analyze_population_table()
+binning/
+    *_binned_10s.csv
 ```
 
-Although these functions may be called independently, they are normally
-orchestrated through `analyze_align1_folder()` or the module CLI.
+---
+
+## Statistics
+
+Computes neuron-level statistical summaries from the Align 1 outputs and the
+canonical trial table.
+
+```bash
+python analysis/statistics.py \
+    --align1-dir align1 \
+    --clips-table trial_table.csv \
+    --patient-id P570 \
+    --output-csv neuron_summary.csv
+```
+
+Output:
+
+```text
+statistics/
+    neuron_summary.csv
+```
 
 ---
 
-### load_clip_table()
+## Typical Workflow
 
-#### Purpose
+```mermaid
+flowchart LR
 
-Load a clip timing table and normalize the column names used by the
-statistics code.
+    PRE["preprocessing CSVs"]
+    TTL["trial_table.csv"]
 
-This function allows the module to accept either legacy `seen frames to ms`
-style tables or the newer refactored `trial_table.csv` naming.
+    PRE --> A1["Align 1"]
 
----
+    A1 --> A2["Align 2"]
+    TTL --> A2
 
-#### Parameters
+    A1 --> BIN["Movie Binning"]
 
-| Parameter  | Type          | Required | Description                       |
-| ---------- | ------------- | -------- | --------------------------------- |
-| `csv_path` | `str \| Path` | Yes      | Path to the clip/TTL timing table |
+    A1 --> STATS["Statistics"]
+    TTL --> STATS
+```
 
----
-
-#### Returns
-
-| Name      | Type               | Description                               |
-| --------- | ------------------ | ----------------------------------------- |
-| DataFrame | `pandas.DataFrame` | Timing table with normalized column names |
-
----
-
-#### Notes
-
-The module normalizes common timing and plotting column names to the legacy
-names used by the statistical logic.
-
----
-
-### compute_rate_hz_in_window()
-
-#### Purpose
-
-Compute the mean firing rate in one time window across all clips.
-
-This mirrors the rate calculation used by the monolithic script for neuron
-screening.
-
----
-
-#### Parameters
-
-| Parameter   | Type            | Description                                         |
-| ----------- | --------------- | --------------------------------------------------- |
-| `spikes_ms` | `numpy.ndarray` | Movie-aligned spike times in milliseconds           |
-| `clips_df`  | DataFrame       | Clip timing table                                   |
-| `win_start` | `int`           | Window start in milliseconds relative to clip start |
-| `win_end`   | `int`           | Window end in milliseconds relative to clip start   |
-
----
-
-#### Returns
-
-| Name          | Type            | Description                                         |
-| ------------- | --------------- | --------------------------------------------------- |
-| float or None | `float \| None` | Mean firing rate in Hz, or `None` if not computable |
-
----
-
-### compute_correct_vs_wrong_ttest()
-
-#### Purpose
-
-Perform the legacy correct-vs-wrong Welch t-test for one time window.
-
-This is the core statistical helper used by the monolithic script.
-
----
-
-#### Parameters
-
-| Parameter             | Type            | Description                               |
-| --------------------- | --------------- | ----------------------------------------- |
-| `spikes_ms`           | `numpy.ndarray` | Movie-aligned spike times in milliseconds |
-| `clips_df`            | DataFrame       | Clip timing table                         |
-| `window_start_ms`     | `int`           | Window start relative to clip start       |
-| `window_end_ms`       | `int`           | Window end relative to clip start         |
-| `alpha`               | `float`         | Significance threshold                    |
-| `significance_method` | `str`           | `p_value` or `t_score`                    |
-
----
-
-#### Returns
-
-A dictionary containing
-
-| Key           | Description                     |
-| ------------- | ------------------------------- |
-| `ok`          | Whether the test was computable |
-| `p_value`     | Welch t-test p-value            |
-| `t_stat`      | Welch t-test statistic          |
-| `n_correct`   | Number of correct trials        |
-| `n_incorrect` | Number of incorrect trials      |
-| `significant` | Significance flag               |
-
----
-
-#### Notes
-
-The statistical comparison is between correct and incorrect clips, not
-between pre and post windows directly.
-
----
-
-### build_neuron_summary_row()
-
-#### Purpose
-
-Build the legacy-style summary row for one neuron.
-
-This function mirrors the row creation logic that was embedded in the old
-raster/statistics pipeline.
-
----
-
-#### Parameters
-
-| Parameter             | Type              | Description                        |
-| --------------------- | ----------------- | ---------------------------------- |
-| `align1_df`           | DataFrame         | One movie-aligned spike table      |
-| `clips_df`            | DataFrame         | Clip timing table                  |
-| `neuron_name`         | `str`             | Neuron identifier                  |
-| `patient_id`          | `str`             | Patient identifier                 |
-| `output_tag`          | `str`             | Optional output tag                |
-| `min_rate_hz`         | `float`           | Minimum post-stimulus firing rate  |
-| `pre_window_ms`       | `tuple[int, int]` | Pre window relative to clip start  |
-| `post_window_ms`      | `tuple[int, int]` | Post window relative to clip start |
-| `alpha`               | `float`           | Significance threshold             |
-| `significance_method` | `str`             | `p_value` or `t_score`             |
-
----
-
-#### Returns
-
-| Name         | Type           | Description                                                    |
-| ------------ | -------------- | -------------------------------------------------------------- |
-| dict or None | `dict \| None` | Summary row for one neuron, or `None` if the neuron is skipped |
-
----
-
-#### Notes
-
-The returned dictionary is shaped to match the legacy neuron summary CSV.
-
----
-
-### analyze_align1_file()
-
-#### Purpose
-
-Analyze one Align 1 file and return a summary row.
-
----
-
-#### Parameters
-
-| Parameter             | Type              | Description                        |
-| --------------------- | ----------------- | ---------------------------------- |
-| `align1_csv_path`     | `str \| Path`     | Path to one Align 1 CSV            |
-| `clips_df`            | DataFrame         | Clip timing table                  |
-| `patient_id`          | `str`             | Patient identifier                 |
-| `output_tag`          | `str`             | Optional output tag                |
-| `min_rate_hz`         | `float`           | Minimum post-stimulus firing rate  |
-| `pre_window_ms`       | `tuple[int, int]` | Pre window relative to clip start  |
-| `post_window_ms`      | `tuple[int, int]` | Post window relative to clip start |
-| `alpha`               | `float`           | Significance threshold             |
-| `significance_method` | `str`             | `p_value` or `t_score`             |
-
----
-
-#### Returns
-
-| Name         | Type           | Description                           |
-| ------------ | -------------- | ------------------------------------- |
-| dict or None | `dict \| None` | Summary row for one neuron, or `None` |
-
----
-
-### analyze_align1_folder()
-
-#### Purpose
-
-Analyze every Align 1 file in one folder and write a summary CSV.
-
----
-
-#### Parameters
-
-| Parameter             | Type              | Description                            |
-| --------------------- | ----------------- | -------------------------------------- |
-| `align1_dir`          | `str \| Path`     | Folder containing `align1_*.csv` files |
-| `clips_df`            | DataFrame         | Clip timing table                      |
-| `patient_id`          | `str`             | Patient identifier                     |
-| `output_csv`          | `str \| Path`     | Output summary CSV                     |
-| `output_tag`          | `str`             | Optional output tag                    |
-| `min_rate_hz`         | `float`           | Minimum post-stimulus firing rate      |
-| `pre_window_ms`       | `tuple[int, int]` | Pre window relative to clip start      |
-| `post_window_ms`      | `tuple[int, int]` | Post window relative to clip start     |
-| `alpha`               | `float`           | Significance threshold                 |
-| `significance_method` | `str`             | `p_value` or `t_score`                 |
-
----
-
-#### Returns
-
-| Name      | Type               | Description             |
-| --------- | ------------------ | ----------------------- |
-| DataFrame | `pandas.DataFrame` | Aggregate summary table |
-
----
-
-#### Side Effects
-
-Writes the summary CSV to disk.
-
----
-
-### population_chisq_vs_chance()
-
-#### Purpose
-
-Perform the legacy chi-square summary used for swarm-style population plots.
-
-This mirrors the old `chisq_vs_chance` branch.
-
----
-
-#### Parameters
-
-| Parameter    | Type            | Description                  |
-| ------------ | --------------- | ---------------------------- |
-| `df`         | DataFrame       | Summary table                |
-| `metric_col` | `str`           | Metric to test               |
-| `thresh`     | `float \| None` | Optional threshold           |
-| `sig_col`    | `str \| None`   | Optional significance column |
-
----
-
-#### Returns
-
-A dictionary containing summary counts and chi-square results.
-
----
-
-### population_chisq_vs_5050()
-
-#### Purpose
-
-Perform the legacy chi-square summary for positive-vs-negative difference
-scores.
-
-This mirrors the old `chisq_vs_5050` branch.
-
----
-
-#### Parameters
-
-| Parameter    | Type      | Description    |
-| ------------ | --------- | -------------- |
-| `df`         | DataFrame | Summary table  |
-| `metric_col` | `str`     | Metric to test |
-
----
-
-#### Returns
-
-A dictionary containing summary counts and chi-square results.
-
----
-
-### population_one_sample_ttest()
-
-#### Purpose
-
-Perform a one-sample t-test on a population metric.
-
-This is a configurable alternative to the legacy chi-square summaries.
-
----
-
-#### Parameters
-
-| Parameter    | Type      | Description    |
-| ------------ | --------- | -------------- |
-| `df`         | DataFrame | Summary table  |
-| `metric_col` | `str`     | Metric to test |
-| `popmean`    | `float`   | Null mean      |
-
----
-
-#### Returns
-
-A dictionary containing the t statistic, p-value, and summary counts.
-
----
-
-### analyze_population_table()
-
-#### Purpose
-
-Load a summary table and compute one population-level summary.
-
----
-
-#### Parameters
-
-| Parameter     | Type            | Description                                               |
-| ------------- | --------------- | --------------------------------------------------------- |
-| `summary_csv` | `str \| Path`   | Summary CSV path                                          |
-| `metric_col`  | `str`           | Metric to test                                            |
-| `test_mode`   | `str`           | `chisq_vs_chance`, `chisq_vs_5050`, or `one_sample_ttest` |
-| `thresh`      | `float \| None` | Optional threshold                                        |
-| `sig_col`     | `str \| None`   | Optional significance column                              |
-| `popmean`     | `float`         | Null mean for the one-sample t-test                       |
-
----
-
-#### Returns
-
-A dictionary containing the requested population summary.
-
----
+Each analysis stage can be executed independently for debugging, although a
+normal pipeline run performs these steps automatically through
+`running/pipeline_executor.py`.
 
 # Testing
 
-Every public module inside `analysis` should have corresponding automated
-tests.
+The analysis package is covered by the repository test suite.
 
-Current automated tests should include
+The tests should verify that:
 
-| Test                        | Purpose                          |
-| --------------------------- | -------------------------------- |
-| `test_binning.py`           | Validate movie-level binning     |
-| `test_statistics.py`        | Validate neuron-level statistics |
-| `test_session_alignment.py` | Validate Align 1                 |
-| `test_trial_alignment.py`   | Validate Align 2                 |
+- Align 1 produces one output file per input neuron
+- Align 1 removes spikes outside the session window
+- Align 2 assigns spikes to trial windows correctly
+- Align 2 preserves the canonical trial metadata columns
+- binning produces contiguous fixed-width bins
+- statistics builds neuron summary rows only when the post-stimulus rate threshold is met
+- population summary helpers return the expected dictionary structure
+- the CLI entry points run successfully on valid input
 
----
-
-# Summary
-
-The `analysis` package contains the scientific computation layer of the
-pipeline.
-
-Its modules transform standardized metadata and aligned spike tables into
-binned rates, statistical summaries, and eventually figures.
-
-The package is intentionally separated from `data_io` so that metadata
-parsing, alignment, analysis, and plotting remain independent and easier to
-test.
-
+The package is intentionally structured so each module can be validated
+independently before combining it with the plotting layer.

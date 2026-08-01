@@ -1,0 +1,7 @@
+Patient,Neuron Name,Localization - Bipolar,Pre-Stim T-Score,Pre-Stim Significant,Post-Stim T-Score,Post-Stim Significant,T-Score Diff (Pre - Post)
+P570,neuron_hpc,HPC - hippocampus,2.1,True,1.4,False,0.7
+P570,neuron_erc,ERC - entorhinal cortex,2.3,True,1.2,False,1.1
+P570,neuron_fc,"FC - frontal cortex (includes SFG, MFG, IFG, OFC)",-1.5,False,-2.0,True,0.5
+P570,neuron_ltc,"LTC - lateral temporal cortex (includes STG, MTG, IFG, banksSTS and TP)",0.1,False,0.2,False,-0.1
+P570,neuron_mtl,"MTL - parahippocampal gyrus (parahippocampal, perirhinal)",1.9,True,1.0,False,0.9
+P570,neuron_amy,AMY - amygdala,0.9,False,1.6,True,-0.7
