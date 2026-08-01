@@ -13,6 +13,7 @@
 - [`trial_alignment_align2.py`](#trial_alignment_align2py)
 - [`binning.py`](#binningpy)
 - [`statistics.py`](#statisticspy)
+- [Running the Package](#running-the-package)
 - [Testing](#testing)
 
 ---
