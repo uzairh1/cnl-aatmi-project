@@ -98,7 +98,7 @@ def main() -> int:
     args = parser.parse_args()
 
     print("Interactive pipeline setup")
-    print("Enter the monolithic field names when prompted.\n")
+    print("Enter the appropriate values when prompted.\n")
 
     patients: List[Dict[str, object]] = []
     while True:
