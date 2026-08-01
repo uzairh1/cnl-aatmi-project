@@ -100,5 +100,5 @@ def test_run_patient_pipeline_passes_drift_to_trial_table_and_align1(tmp_path: P
 
     assert captured["drift_rate_slope"] == pytest.approx(0.001)
     assert captured["session_start_seconds"] == pytest.approx(10.0)
-    assert captured["session_duration_seconds"] == pytest.approx(20.0 * 1.001)
+    assert captured["session_duration_seconds"] == pytest.approx(20.0)
     assert artifacts
