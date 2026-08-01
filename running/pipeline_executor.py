@@ -68,6 +68,7 @@ def patient_dict_to_config(raw: dict) -> PatientConfig:
         start_unix_0=float(raw.get("start_unix_0", 0.0)),
         duration=float(raw.get("duration", 0.0)),
         fps=float(raw.get("fps", 29.97)),
+        drift_rate_slope=float(raw.get("drift_rate_slope", 0.0)),
         event_time_offset_ms=float(raw.get("event_time_offset_ms", 0.0)),
     )
 
@@ -257,11 +258,10 @@ def run_patient_pipeline(
     artifacts.append(PipelineArtifact(name=trial_table_path.name, path=trial_table_path, artifact_type="trial_table"))
 
     session_start_seconds = patient_cfg.start_unix_0 - patient_cfg.matLab + (patient_cfg.event_time_offset_ms / 1000.0)
-    session_duration_seconds = patient_cfg.duration * (1.0 + patient_cfg.drift_rate_slope)
     align1_files = align_session_folder_align1(
         spike_csv_dir=patient_cfg.signal_path,
         session_start_seconds=session_start_seconds,
-        session_duration_seconds=session_duration_seconds,
+        session_duration_seconds=patient_cfg.duration,
         align1_output_dir=align1_dir,
     )
     artifacts.extend(_add_artifacts_from_paths(align1_files, "align1_csv"))

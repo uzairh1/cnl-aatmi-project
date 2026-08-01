@@ -43,6 +43,17 @@ def _prompt_float(label: str) -> float:
 
 def _prompt_patient() -> Dict[str, object]:
     print("\nPatientConfig")
+    drift_rate_slope = 0.0
+    while True:
+        raw = input("drift_rate_slope [0.0]: ").strip()
+        if raw == "":
+            break
+        try:
+            drift_rate_slope = float(raw)
+            break
+        except ValueError:
+            print("Enter a number or press Enter for 0.0.")
+
     return {
         "patient_id": _prompt_str("patient_id"),
         "movie_label": _prompt_str("movie_label"),
@@ -54,6 +65,7 @@ def _prompt_patient() -> Dict[str, object]:
         "start_unix_0": _prompt_float("start_unix_0"),
         "duration": _prompt_float("duration"),
         "fps": _prompt_float("fps"),
+        "drift_rate_slope": drift_rate_slope,
     }
 
 
