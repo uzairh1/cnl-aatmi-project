@@ -1,7 +1,4 @@
-"""pipeline_executor.py
-
-Transform prompted dictionaries into pipeline objects and execute stages.
-"""
+"""Transform prompted dictionaries into pipeline objects and execute stages."""
 
 from __future__ import annotations
 
@@ -95,9 +92,7 @@ def analysis_dict_to_config(raw: dict | None) -> AnalysisConfig:
         raster_dpi=int(raw.get("raster_dpi", default.raster_dpi)),
         line_length=float(raw.get("line_length", default.line_length)),
         line_width=float(raw.get("line_width", default.line_width)),
-        clip_end_marker_half_height=float(
-            raw.get("clip_end_marker_half_height", default.clip_end_marker_half_height)
-        ),
+        clip_end_marker_half_height=float(raw.get("clip_end_marker_half_height", default.clip_end_marker_half_height)),
     )
 
 
@@ -119,7 +114,6 @@ def _load_trial_table(ttl_csv: str, output_path: Path):
 def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_path: Path) -> Path | None:
     if loc_df.empty:
         return None
-
     align1_files = sorted(align1_dir.glob("align1_*.csv"))
     if not align1_files:
         return None
@@ -131,7 +125,6 @@ def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_pat
             electrode_code, full_location, region_abbr = infer_neuron_localization(neuron_name, loc_df)
         except Exception:
             electrode_code, full_location, region_abbr = ("UNKNOWN", "Unknown", "UNKNOWN")
-
         rows.append(
             {
                 "neuron_name": neuron_name,
@@ -140,10 +133,25 @@ def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_pat
                 "region_abbr": region_abbr,
             }
         )
-
     output_path.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).to_csv(output_path, index=False)
     return output_path
+
+
+def _list_raw_neuron_csvs(raw_signal_dir: str, ttl_csv_path: str) -> list[Path]:
+    raw_dir = Path(raw_signal_dir)
+    if not raw_dir.exists():
+        return []
+    ttl_name = Path(ttl_csv_path).name.lower()
+    out = []
+    for p in sorted(raw_dir.glob("*.csv")):
+        n = p.name.lower()
+        if n == ttl_name or n.startswith("align1_") or n.startswith("align2_") or "ttl" in n or "seen frames to ms" in n:
+            continue
+        if "unit_0" in n:
+            continue
+        out.append(p)
+    return out
 
 
 def plan_patient_pipeline(
@@ -157,48 +165,92 @@ def plan_patient_pipeline(
         bin_size_s = analysis_cfg.movie_bin_size_s
 
     patient_root = _patient_root(output_root, patient_cfg)
+    data_dir = patient_root / "data"
+    align1_dir = patient_root / "align1"
+    align2_dir = patient_root / "align2"
+    binning_dir = patient_root / "binning"
+    stats_dir = patient_root / "statistics"
     plots_root = patient_root / "plots"
     rasters_root = plots_root / "rasters"
     swarm_root = plots_root / "swarm"
+    dashboards_root = plots_root / "dashboards"
+
+    folders = [
+        data_dir, align1_dir, align2_dir, binning_dir, stats_dir,
+        rasters_root / "all", rasters_root / "sig", rasters_root / "nonsig", rasters_root / "by_region",
+        swarm_root / "global", swarm_root / "HPC", swarm_root / "ERC", swarm_root / "FC", swarm_root / "LTC", swarm_root / "MTL",
+        dashboards_root,
+    ]
+
+    canonical_files = [
+        data_dir / "trial_table.csv",
+        stats_dir / "neuron_summary.csv",
+        patient_root / "localization_trace.csv",
+        patient_root / "pipeline_artifacts.json",
+        dashboards_root / "Run_Summary.csv",
+        swarm_root / "Summary_Global_and_Regional.csv",
+        swarm_root / "Summary_Patient_Bipolar_Breakdown.csv",
+    ]
+
+    raw_neuron_files = _list_raw_neuron_csvs(patient_cfg.signal_path, patient_cfg.clip_ttl_csv)
+    loc_df = load_localization_map(patient_cfg.localization_file) if patient_cfg.localization_file else pd.DataFrame()
+
+    raster_pngs = []
+    raster_csvs = {
+        "all": rasters_root / "all" / "T_score_sheet.csv",
+        "sig": rasters_root / "sig" / "T_score_sheet.csv",
+        "nonsig": rasters_root / "nonsig" / "T_score_sheet.csv",
+    }
+    region_csvs = {}
+
+    for raw_file in raw_neuron_files:
+        neuron_name = raw_file.name
+        if neuron_name.startswith("align1_"):
+            neuron_name = neuron_name[len("align1_"):]
+        if neuron_name.endswith(".csv"):
+            neuron_name = neuron_name[:-4]
+        clean_loc = "UNKNOWN"
+        region_abbr = "UNKNOWN"
+        if not loc_df.empty:
+            try:
+                clean_loc, _, region_abbr = infer_neuron_localization(neuron_name, loc_df)
+            except Exception:
+                pass
+        if patient_cfg.output_tag:
+            stem = f"P{patient_cfg.patient_id}_{patient_cfg.output_tag}_{clean_loc}_{neuron_name}"
+        else:
+            stem = f"P{patient_cfg.patient_id}_{clean_loc}_{neuron_name}"
+        raster_pngs.extend([
+            rasters_root / "all" / f"{stem}.png",
+            rasters_root / "sig" / f"{stem}.png",
+            rasters_root / "nonsig" / f"{stem}.png",
+            rasters_root / "by_region" / region_abbr / f"{stem}.png",
+        ])
+        region_csvs.setdefault(region_abbr, rasters_root / "by_region" / region_abbr / "T_score_sheet.csv")
+
+    swarm_files = []
+    for folder in ["global", "HPC", "ERC", "FC", "LTC", "MTL"]:
+        swarm_folder = swarm_root / folder
+        swarm_files.extend([
+            swarm_folder / "P1_Post-Stim_T-Scores.png",
+            swarm_folder / "P2_Pre-Stim_T-Scores.png",
+            swarm_folder / "P3_Diff_SigOnly.png",
+            swarm_folder / "P4_Diff_All.png",
+            swarm_folder / "P5_Diff_Post_GTE_1.png",
+            swarm_folder / f"Swarm_Statistics_{folder}.csv",
+            swarm_folder / f"Summary_Overview_{folder}.csv",
+        ])
 
     return {
         "patient_root": str(patient_root),
         "bin_size_s": bin_size_s,
-        "folders": [
-            str(patient_root / "data"),
-            str(patient_root / "align1"),
-            str(patient_root / "align2"),
-            str(patient_root / "binning"),
-            str(patient_root / "statistics"),
-            str(rasters_root / "all"),
-            str(rasters_root / "sig"),
-            str(rasters_root / "nonsig"),
-            str(rasters_root / "regions"),
-            str(swarm_root / "global"),
-            str(swarm_root / "HPC"),
-            str(swarm_root / "ERC"),
-            str(swarm_root / "FC"),
-            str(swarm_root / "LTC"),
-            str(swarm_root / "MTL"),
-            str(plots_root / "dashboards"),
-        ],
-        "files": [
-            str(patient_root / "data" / "trial_table.csv"),
-            str(patient_root / "statistics" / "neuron_summary.csv"),
-            str(patient_root / "localization_trace.csv"),
-            str(patient_root / "pipeline_artifacts.json"),
-        ],
-        "raster_files": [
-            "all/sig/nonsig copies generated per neuron",
-            "regional mirror copies generated per neuron",
-        ],
-        "swarm_files": [
-            "global and regional P1-P5 PNGs",
-            "global and regional statistics CSVs",
-            "Summary_Global_and_Regional.csv",
-            "Summary_Patient_Bipolar_Breakdown.csv",
-        ],
-        "dashboards": str(plots_root / "dashboards"),
+        "folders": [str(p) for p in folders],
+        "canonical_files": [str(p) for p in canonical_files],
+        "raster_pngs": [str(p) for p in raster_pngs],
+        "raster_csvs": [str(p) for p in raster_csvs.values()],
+        "raster_region_csvs": [str(p) for p in region_csvs.values()],
+        "swarm_files": [str(p) for p in swarm_files],
+        "dashboards": [str((dashboards_root / f"{name}_dashboard.png")) for name in ["global", "HPC", "ERC", "FC", "LTC", "MTL"]],
     }
 
 
@@ -211,7 +263,6 @@ def run_patient_pipeline(
 ) -> list[PipelineArtifact]:
     validate_patient_config(patient_cfg)
     validate_analysis_config(analysis_cfg)
-
     if bin_size_s is None:
         bin_size_s = analysis_cfg.movie_bin_size_s
 
@@ -226,7 +277,6 @@ def run_patient_pipeline(
     rasters_dir = patient_root / "plots" / "rasters"
     swarm_dir = patient_root / "plots" / "swarm"
     dashboards_dir = patient_root / "plots" / "dashboards"
-
     for d in (data_dir, align1_dir, align2_dir, binning_dir, stats_dir, rasters_dir, swarm_dir, dashboards_dir):
         d.mkdir(parents=True, exist_ok=True)
 
@@ -236,11 +286,7 @@ def run_patient_pipeline(
     trial_df, trial_table_path = _load_trial_table(patient_cfg.clip_ttl_csv, trial_table_path)
     artifacts.append(PipelineArtifact(name=trial_table_path.name, path=trial_table_path, artifact_type="trial_table"))
 
-    session_start_seconds = (
-        patient_cfg.start_unix_0
-        - patient_cfg.matLab
-        + (getattr(patient_cfg, "event_time_offset_ms", 0.0) / 1000.0)
-    )
+    session_start_seconds = patient_cfg.start_unix_0 - patient_cfg.matLab + (patient_cfg.event_time_offset_ms / 1000.0)
     align1_files = align_session_folder_align1(
         spike_csv_dir=patient_cfg.signal_path,
         session_start_seconds=session_start_seconds,
@@ -298,23 +344,19 @@ def run_patient_pipeline(
         if trace_path is not None:
             artifacts.append(PipelineArtifact(name=trace_path.name, path=trace_path, artifact_type="localization_trace"))
 
-    generate_population_swarm_plot(
-        summary_csv=stats_csv,
-        output_dir=swarm_dir,
-        localization_file=patient_cfg.localization_file,
-    )
+    generate_population_swarm_plot(summary_csv=stats_csv, output_dir=swarm_dir, localization_file=patient_cfg.localization_file)
     artifacts.append(PipelineArtifact(name=swarm_dir.name, path=swarm_dir, artifact_type="swarm_output_dir"))
 
     run_summary_df, dashboard_pngs = generate_summary_figures(output_root=swarm_dir, summary_csv=stats_csv)
+    dashboards_csv = dashboards_dir / "Run_Summary.csv"
     if not run_summary_df.empty:
-        run_summary_csv = swarm_dir / "Run_Summary.csv"
-        artifacts.append(PipelineArtifact(name=run_summary_csv.name, path=run_summary_csv, artifact_type="run_summary_csv"))
+        run_summary_df.to_csv(dashboards_csv, index=False)
+        artifacts.append(PipelineArtifact(name=dashboards_csv.name, path=dashboards_csv, artifact_type="run_summary_csv"))
     artifacts.extend(_add_artifacts_from_paths(dashboard_pngs, "dashboard_png"))
 
     manifest = patient_root / "pipeline_artifacts.json"
     manifest.write_text(json.dumps([a.to_dict() for a in artifacts], indent=2), encoding="utf-8")
     artifacts.append(PipelineArtifact(name=manifest.name, path=manifest, artifact_type="pipeline_artifact_manifest"))
-
     return artifacts
 
 
@@ -334,5 +376,4 @@ def run_pipeline(
         patient_cfg = patient_dict_to_config(raw_patient)
         artifacts = run_patient_pipeline(patient_cfg, analysis_cfg, output_root, bin_size_s=bin_size_s)
         all_artifacts.extend(artifacts)
-
     return all_artifacts

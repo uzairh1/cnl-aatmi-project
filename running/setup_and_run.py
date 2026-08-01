@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""setup_and_run.py
-
-Prompt for the monolithic hardcoded patient values and launch the pipeline.
-"""
+"""Interactive pipeline setup with dry-run planning."""
 
 from __future__ import annotations
 
@@ -17,10 +14,10 @@ if str(ROOT) not in sys.path:
 
 try:
     from .config import PIPELINE_ANALYSIS_CONFIG
-    from .pipeline_executor import plan_patient_pipeline, run_pipeline, patient_dict_to_config, analysis_dict_to_config
+    from .pipeline_executor import analysis_dict_to_config, plan_patient_pipeline, patient_dict_to_config, run_pipeline
 except ImportError:  # pragma: no cover
     from config import PIPELINE_ANALYSIS_CONFIG
-    from pipeline_executor import plan_patient_pipeline, run_pipeline, patient_dict_to_config, analysis_dict_to_config
+    from pipeline_executor import analysis_dict_to_config, plan_patient_pipeline, patient_dict_to_config, run_pipeline
 
 
 def _prompt_str(label: str) -> str:
@@ -72,16 +69,29 @@ def _prompt_movie_bin_size() -> int:
         return default
 
 
-def _print_plan(plan: dict) -> None:
-    print("\nDRY RUN PLAN")
+def _print_tree(plan: dict) -> None:
     print(f"patient_root: {plan['patient_root']}")
     print("folders:")
     for item in plan["folders"]:
         print(f"  - {item}")
-    print("files:")
-    for item in plan["files"]:
+    print("canonical_files:")
+    for item in plan["canonical_files"]:
         print(f"  - {item}")
-    print(f"dashboards: {plan['dashboards']}")
+    print("raster_pngs:")
+    for item in plan["raster_pngs"]:
+        print(f"  - {item}")
+    print("raster_csvs:")
+    for item in plan["raster_csvs"]:
+        print(f"  - {item}")
+    print("raster_region_csvs:")
+    for item in plan["raster_region_csvs"]:
+        print(f"  - {item}")
+    print("swarm_files:")
+    for item in plan["swarm_files"]:
+        print(f"  - {item}")
+    print("dashboards:")
+    for item in plan["dashboards"]:
+        print(f"  - {item}")
     print(f"movie_bin_size_s: {plan['bin_size_s']}")
 
 
@@ -109,7 +119,7 @@ def main() -> int:
         for raw_patient in patients:
             patient_cfg = patient_dict_to_config(raw_patient)
             plan = plan_patient_pipeline(patient_cfg, analysis_cfg, output_root_path, bin_size_s=bin_size_s)
-            _print_plan(plan)
+            _print_tree(plan)
         return 0
 
     run_pipeline(patients, None, output_root, bin_size_s=bin_size_s)

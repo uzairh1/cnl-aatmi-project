@@ -1,14 +1,4 @@
-"""rasters.py
-
-Raster and PSTH plotting for movie/session-aligned spikes.
-
-This version writes all raster outputs under plots/rasters with a minimal
-layout:
-- all/
-- sig/
-- nonsig/
-- regions/<region>/
-"""
+"""Raster and PSTH plotting for movie/session-aligned spikes."""
 
 from __future__ import annotations
 
@@ -29,9 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from analysis.statistics import load_clip_table  # noqa: E402
-from data_io.localization import infer_neuron_localization, load_localization_map  # noqa: E402
-from running.config import BIPOLAR_REGIONS, TARGET_FOLDERS  # noqa: E402
+from analysis.statistics import load_clip_table
+from data_io.localization import infer_neuron_localization, load_localization_map
+from running.config import BIPOLAR_REGIONS, TARGET_FOLDERS
 
 
 RASTER_FIGSIZE: Tuple[float, float] = (12, 8)
@@ -46,26 +36,23 @@ COLOR_INCORRECT = "red"
 
 
 def load_align1_csv(csv_path: str | Path) -> pd.DataFrame:
-    csv_path = Path(csv_path)
     df = pd.read_csv(csv_path)
-    required = {"ms"}
-    missing = required - set(df.columns)
-    if missing:
-        raise ValueError(f"{csv_path.name} is missing required columns: {sorted(missing)}")
-    out = df.copy()
-    out["ms"] = pd.to_numeric(out["ms"], errors="coerce")
-    out = out.dropna(subset=["ms"]).copy()
-    return out
+    if "ms" not in df.columns:
+        raise ValueError(f"{csv_path} missing ms column")
+    df = df.copy()
+    df["ms"] = pd.to_numeric(df["ms"], errors="coerce")
+    return df.dropna(subset=["ms"]).copy()
 
 
 def load_summary_csv(summary_csv: str | Path) -> pd.DataFrame:
-    summary_csv = Path(summary_csv)
     df = pd.read_csv(summary_csv)
     df.columns = [str(c).strip() for c in df.columns]
     return df
 
 
 def load_summary_map(summary_csv: str | Path) -> dict:
+    if not summary_csv:
+        return {}
     df = load_summary_csv(summary_csv)
     if "Neuron Name" not in df.columns:
         return {}
@@ -86,7 +73,6 @@ def build_clip_rows_for_window(
             continue
         start_ms = float(start_ms)
         end_ms = float(end_ms)
-        clip_duration_ms = end_ms - start_ms
         abs_window_start = start_ms + window_start_ms
         abs_window_end = start_ms + window_end_ms
         in_window = spikes_ms[(spikes_ms >= abs_window_start) & (spikes_ms <= abs_window_end)]
@@ -96,8 +82,7 @@ def build_clip_rows_for_window(
                 "clip_index": clip_index + 1,
                 "clipID": clip_row.get("clipID", clip_index + 1),
                 "accurate": int(clip_row.get("Accurate", 0)) if pd.notna(clip_row.get("Accurate")) else 0,
-                "clip_duration_ms": clip_duration_ms,
-                "clip_end_marker_ms": clip_duration_ms,
+                "clip_end_marker_ms": end_ms - start_ms,
                 "aligned_spikes_ms": aligned_spikes,
                 "plot_y_axis": int(clip_row.get("Plot Y-Axis", clip_index + 1)),
             }
@@ -105,38 +90,25 @@ def build_clip_rows_for_window(
     return plot_rows
 
 
-def compute_psth_hz(
-    clip_rows: List[List[float]],
-    x_min: int,
-    x_max: int,
-    bin_ms: int,
-) -> Tuple[np.ndarray, np.ndarray]:
+def compute_psth_hz(clip_rows: List[List[float]], x_min: int, x_max: int, bin_ms: int) -> Tuple[np.ndarray, np.ndarray]:
     edges = np.arange(x_min, x_max + bin_ms, bin_ms)
     if len(edges) < 2:
         edges = np.array([x_min, x_max], dtype=float)
     centers = edges[:-1] + (np.diff(edges) / 2.0)
-
     n_trials = len(clip_rows)
     if n_trials == 0:
         return centers, np.zeros(len(centers), dtype=float)
-
     counts_per_trial = np.zeros((n_trials, len(edges) - 1), dtype=float)
     for i, row in enumerate(clip_rows):
         if len(row) == 0:
             continue
         counts, _ = np.histogram(np.asarray(row, dtype=float), bins=edges)
         counts_per_trial[i, :] = counts
-
-    psth_hz = counts_per_trial.mean(axis=0) / (bin_ms / 1000.0)
-    return centers, psth_hz
+    return centers, counts_per_trial.mean(axis=0) / (bin_ms / 1000.0)
 
 
 def compute_smoothed_psth_hz(
-    clip_rows: List[List[float]],
-    x_min: int,
-    x_max: int,
-    bin_ms: int = PSTH_BIN_MS,
-    smooth_type: str = "none",
+    clip_rows: List[List[float]], x_min: int, x_max: int, bin_ms: int = PSTH_BIN_MS, smooth_type: str = "none"
 ) -> Tuple[np.ndarray, np.ndarray]:
     has_spikes = any(len(r) > 0 for r in clip_rows)
     all_spikes = np.concatenate([r for r in clip_rows if len(r) > 0]) if has_spikes else np.array([])
@@ -152,12 +124,11 @@ def compute_smoothed_psth_hz(
         centers = np.linspace(x_min, x_max, max(200, int((x_max - x_min) / 10)))
         try:
             kde = gaussian_kde(all_spikes, bw_method="scott")
-            y_hz = kde.evaluate(centers) * 1000.0 * (len(all_spikes) / n_trials)
-            return centers, y_hz
+            return centers, kde.evaluate(centers) * 1000.0 * (len(all_spikes) / n_trials)
         except np.linalg.LinAlgError:
             pass
 
-    elif smooth_type == "bin_resize_trial_1":
+    if smooth_type == "bin_resize_trial_1":
         small_bin = 50
         edges = np.arange(x_min, x_max + small_bin, small_bin)
         if len(edges) < 2:
@@ -165,13 +136,9 @@ def compute_smoothed_psth_hz(
         centers = edges[:-1] + (np.diff(edges) / 2.0)
         counts, _ = np.histogram(all_spikes, bins=edges)
         raw_hz = (counts / n_trials) / (small_bin / 1000.0)
-        window_len = 7
-        sigma = 1.5
-        x_arr = np.arange(-window_len // 2 + 1, window_len // 2 + 1)
-        kernel = np.exp(-0.5 * (x_arr / sigma) ** 2)
-        kernel = kernel / kernel.sum()
-        smooth_hz = np.convolve(raw_hz, kernel, mode="same")
-        return centers, smooth_hz
+        kernel = np.exp(-0.5 * (np.arange(-2, 3) / 1.5) ** 2)
+        kernel /= kernel.sum()
+        return centers, np.convolve(raw_hz, kernel, mode="same")
 
     small_bin = 25
     edges = np.arange(x_min, x_max + small_bin, small_bin)
@@ -180,47 +147,56 @@ def compute_smoothed_psth_hz(
     centers = edges[:-1] + (np.diff(edges) / 2.0)
     counts, _ = np.histogram(all_spikes, bins=edges)
     raw_hz = (counts / n_trials) / (small_bin / 1000.0)
-    window_len = 11
-    triangle = np.concatenate([np.arange(1, (window_len // 2) + 2), np.arange(window_len // 2, 0, -1)])
+    triangle = np.concatenate([np.arange(1, 7), np.arange(5, 0, -1)])
     triangle = triangle / triangle.sum()
-    smooth_hz = np.convolve(raw_hz, triangle, mode="same")
-    return centers, smooth_hz
+    return centers, np.convolve(raw_hz, triangle, mode="same")
 
 
-def sort_rows_accuracy_top_bottom(
-    plot_rows: List[Dict[str, object]],
-) -> Tuple[List[Dict[str, object]], int]:
+def sort_rows_accuracy_top_bottom(plot_rows: List[Dict[str, object]]) -> Tuple[List[Dict[str, object]], int]:
     correct_rows = [row for row in plot_rows if row["accurate"] == 1]
     incorrect_rows = [row for row in plot_rows if row["accurate"] == 0]
     return correct_rows + incorrect_rows, len(correct_rows)
 
 
+def _region_abbr_from_label(label: str) -> str:
+    if not label or " - " not in label:
+        return "UNKNOWN"
+    return str(label).split(" - ", 1)[0].strip().upper() or "UNKNOWN"
+
+
 def _make_output_dirs(base_dir: Path) -> dict:
-    all_dir = base_dir / "all"
-    sig_dir = base_dir / "sig"
-    nonsig_dir = base_dir / "nonsig"
-    regions_dir = base_dir / "regions"
-    for d in (all_dir, sig_dir, nonsig_dir, regions_dir):
-        d.mkdir(parents=True, exist_ok=True)
-    return {"all": all_dir, "sig": sig_dir, "nonsig": nonsig_dir, "regions": regions_dir}
+    d = {
+        "all": base_dir / "all",
+        "sig": base_dir / "sig",
+        "nonsig": base_dir / "nonsig",
+        "by_region": base_dir / "by_region",
+    }
+    for p in d.values():
+        p.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def _stem_for_neuron(patient_id: str, output_tag: str, clean_loc: str, neuron_name: str) -> str:
+    if output_tag:
+        return f"P{patient_id}_{output_tag}_{clean_loc}_{neuron_name}"
+    return f"P{patient_id}_{clean_loc}_{neuron_name}"
 
 
 def _save_and_mirror(fig: plt.Figure, final_file_path: Path, base_dir: Path, region_abbr: str, sig_status: str) -> Path:
     dirs = _make_output_dirs(base_dir)
     fig.savefig(final_file_path, dpi=RASTER_DPI, bbox_inches="tight")
+    data = final_file_path.read_bytes()
 
-    status_dir = dirs["sig"] if "sig" in sig_status else dirs["nonsig"]
-    status_dir.mkdir(parents=True, exist_ok=True)
-    status_copy = status_dir / final_file_path.name
-    status_copy.write_bytes(final_file_path.read_bytes())
-
-    all_copy = dirs["all"] / final_file_path.name
-    all_copy.write_bytes(final_file_path.read_bytes())
+    (dirs["all"] / final_file_path.name).write_bytes(data)
+    if "sig" in sig_status:
+        (dirs["sig"] / final_file_path.name).write_bytes(data)
+    if "nonsig" in sig_status:
+        (dirs["nonsig"] / final_file_path.name).write_bytes(data)
 
     if region_abbr and region_abbr in TARGET_FOLDERS:
-        region_dir = dirs["regions"] / region_abbr
-        region_dir.mkdir(parents=True, exist_ok=True)
-        (region_dir / final_file_path.name).write_bytes(final_file_path.read_bytes())
+        reg = dirs["by_region"] / region_abbr
+        reg.mkdir(parents=True, exist_ok=True)
+        (reg / final_file_path.name).write_bytes(data)
 
     plt.close(fig)
     return final_file_path
@@ -262,13 +238,12 @@ def _plot_raster_with_optional_split_and_psth(
         return None
 
     y_labels = [str(row.get("plot_y_axis", i + 1)) for i, row in enumerate(plot_rows)]
-
     electrode_code, full_location, region_abbr = infer_neuron_localization(neuron_name, loc_df)
     clean_loc = str(electrode_code).replace(" ", "_")
     bipolar_desc = BIPOLAR_REGIONS.get(region_abbr, "UNKNOWN")
     loc_bipolar_str = f"{region_abbr} - {bipolar_desc}"
-
-    std_filename = f"P{patient_id}_{output_tag}_{clean_loc}_{neuron_name}_neg3_to_5_{sig_status_str}.png"
+    stem = _stem_for_neuron(patient_id, output_tag, clean_loc, neuron_name)
+    final_file_path = out_path.parent.parent / "all" / f"{stem}.png"
 
     fig = plt.figure(figsize=RASTER_FIGSIZE)
     gs = GridSpec(2, 1, height_ratios=[4.6, 1.4], hspace=0.08)
@@ -282,16 +257,7 @@ def _plot_raster_with_optional_split_and_psth(
             clip_end_x = float(row.get("clip_end_marker_ms", 0))
             shade_end = min(clip_end_x, x_max)
             if shade_end > 0:
-                ax_raster.barh(
-                    y=row_idx,
-                    width=shade_end,
-                    left=0,
-                    height=1.0,
-                    color="lightgreen",
-                    alpha=0.3,
-                    zorder=0,
-                    edgecolor="none",
-                )
+                ax_raster.barh(y=row_idx, width=shade_end, left=0, height=1.0, color="lightgreen", alpha=0.3, zorder=0, edgecolor="none")
 
     if split_by_accuracy and 0 < n_correct < len(plot_rows):
         ax_raster.axhline(n_correct - 0.5, color="0.5", linestyle="--", linewidth=1, zorder=4)
@@ -305,17 +271,12 @@ def _plot_raster_with_optional_split_and_psth(
     ]
     if ttest_label:
         title_lines.append(ttest_label)
-
     ax_raster.set_title(chr(10).join(title_lines), fontsize=14)
     ax_raster.set_ylabel("Clip Plot Y-Axis", fontsize=12)
     ax_raster.set_xlim(x_min, x_max)
 
     n_rows = len(plot_rows)
-    if n_rows <= 40:
-        tick_positions = list(range(n_rows))
-    else:
-        step = max(1, n_rows // 20)
-        tick_positions = list(range(0, n_rows, step))
+    tick_positions = list(range(n_rows)) if n_rows <= 40 else list(range(0, n_rows, max(1, n_rows // 20)))
     ax_raster.set_yticks(tick_positions)
     ax_raster.set_yticklabels([y_labels[i] for i in tick_positions])
     ax_raster.grid(axis="x", linestyle=":", alpha=0.4)
@@ -324,23 +285,17 @@ def _plot_raster_with_optional_split_and_psth(
         correct_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 1]
         incorrect_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 0]
         if len(correct_rows) > 0:
-            if smooth_type == "none":
-                x_c, y_c = compute_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS)
-            else:
-                x_c, y_c = compute_smoothed_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
+            x_c, y_c = (compute_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none"
+                        else compute_smoothed_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS, smooth_type))
             ax_psth.plot(x_c, y_c, linewidth=PSTH_LINE_WIDTH, color=COLOR_CORRECT, label="Correct (Green)")
         if len(incorrect_rows) > 0:
-            if smooth_type == "none":
-                x_i, y_i = compute_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS)
-            else:
-                x_i, y_i = compute_smoothed_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
+            x_i, y_i = (compute_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none"
+                        else compute_smoothed_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS, smooth_type))
             ax_psth.plot(x_i, y_i, linewidth=PSTH_LINE_WIDTH, color=COLOR_INCORRECT, label="Incorrect (Red)")
         ax_psth.legend(frameon=False, fontsize=10, loc="upper right")
     else:
-        if smooth_type == "none":
-            x_all, y_all = compute_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS)
-        else:
-            x_all, y_all = compute_smoothed_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
+        x_all, y_all = (compute_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS) if smooth_type == "none"
+                        else compute_smoothed_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS, smooth_type))
         ax_psth.plot(x_all, y_all, linewidth=PSTH_LINE_WIDTH, color=COLOR_ALL)
 
     ax_psth.set_xlabel("Time from clip start (ms)", fontsize=12)
@@ -348,15 +303,11 @@ def _plot_raster_with_optional_split_and_psth(
     ax_psth.grid(axis="x", linestyle=":", alpha=0.4)
     fig.subplots_adjust(left=0.08, right=0.98, top=0.85, bottom=0.09, hspace=0.08)
 
-    base_dir = out_path.parent.parent  # plots/rasters
-    final_path = base_dir / "all" / std_filename
-    final_path.parent.mkdir(parents=True, exist_ok=True)
-
     if not _has_any_spikes(plot_rows):
         plt.close(fig)
         return None
 
-    return _save_and_mirror(fig, final_path, base_dir, region_abbr, sig_status_str)
+    return _save_and_mirror(fig, final_file_path, out_path.parent.parent, region_abbr, sig_status_str)
 
 
 def plot_neuron_from_align1(
@@ -406,7 +357,6 @@ def plot_neuron_from_align1(
                 sig_status = "sig_post"
             else:
                 sig_status = "sig_both"
-
         pre_t = summary_row.get("Pre-Stim T-Score")
         pre_p = summary_row.get("Pre-Stim P-Value")
         post_t = summary_row.get("Post-Stim T-Score")
@@ -422,7 +372,7 @@ def plot_neuron_from_align1(
     if summary_row is not None and summary_row.get("Post-Stim Mean Rate (Hz)") is not None:
         title_suffix = f"Average Firing Rate: {float(summary_row['Post-Stim Mean Rate (Hz)']):.2f} Hz"
 
-    out_path = output_dir / "all" / f"P{patient_id}_{output_tag}_{neuron_name}.png"
+    out_path = output_dir / "all" / f"{_stem_for_neuron(patient_id, output_tag, infer_neuron_localization(neuron_name, loc_df)[0].replace(' ', '_'), neuron_name)}.png"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     return _plot_raster_with_optional_split_and_psth(
         plot_rows=plot_rows,
@@ -440,6 +390,34 @@ def plot_neuron_from_align1(
         sig_status_str=sig_status,
         smooth_type=smooth_type,
     )
+
+
+def _write_companion_csvs(output_dir: Path, rows: list[dict]) -> None:
+    if not rows:
+        return
+    df = pd.DataFrame(rows)
+    all_dir = output_dir / "all"
+    sig_dir = output_dir / "sig"
+    nonsig_dir = output_dir / "nonsig"
+    by_region_dir = output_dir / "by_region"
+    all_dir.mkdir(parents=True, exist_ok=True)
+    sig_dir.mkdir(parents=True, exist_ok=True)
+    nonsig_dir.mkdir(parents=True, exist_ok=True)
+    by_region_dir.mkdir(parents=True, exist_ok=True)
+
+    df.to_csv(all_dir / "T_score_sheet.csv", index=False)
+    if "Sig Status" in df.columns:
+        df[df["Sig Status"].str.contains("sig", na=False)].to_csv(sig_dir / "T_score_sheet.csv", index=False)
+        df[df["Sig Status"] == "nonsig"].to_csv(nonsig_dir / "T_score_sheet.csv", index=False)
+    else:
+        df.to_csv(sig_dir / "T_score_sheet.csv", index=False)
+        df.to_csv(nonsig_dir / "T_score_sheet.csv", index=False)
+
+    if "Region Abbr" in df.columns:
+        for region_abbr, sub in df.groupby("Region Abbr"):
+            reg = by_region_dir / str(region_abbr)
+            reg.mkdir(parents=True, exist_ok=True)
+            sub.to_csv(reg / "T_score_sheet.csv", index=False)
 
 
 def plot_align1_folder(
@@ -460,12 +438,12 @@ def plot_align1_folder(
     align1_dir = Path(align1_dir)
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-
     clips_df = load_clip_table(clips_table)
     loc_df = load_localization_map(localization_file) if localization_file else pd.DataFrame()
     summary_map = load_summary_map(summary_csv) if summary_csv else {}
 
     outputs: list[Path] = []
+    rows: list[dict] = []
     for align1_csv_path in sorted(align1_dir.glob("align1_*.csv")):
         neuron_name = align1_csv_path.name.replace("align1_", "").replace(".csv", "")
         summary_row = summary_map.get(neuron_name)
@@ -486,11 +464,22 @@ def plot_align1_folder(
         )
         if out_path is not None:
             outputs.append(out_path)
+
+        if summary_row is not None:
+            row = dict(summary_row)
+            region_label = row.get("Localization - Bipolar", "")
+            region_abbr = _region_abbr_from_label(region_label) if region_label else "UNKNOWN"
+            row["Region Abbr"] = region_abbr
+            row["Sig Status"] = "sig" if bool(row.get("Pre-Stim Significant", False)) or bool(row.get("Post-Stim Significant", False)) else "nonsig"
+            row["Raster Path"] = str(out_path) if out_path is not None else ""
+            rows.append(row)
+
+    _write_companion_csvs(output_dir, rows)
     return outputs
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Create legacy-style raster/PSTH plots from Align 1 CSVs.")
+    parser = argparse.ArgumentParser(description="Create raster/PSTH plots from Align 1 CSVs.")
     parser.add_argument("--align1-dir", required=True)
     parser.add_argument("--clips-table", required=True)
     parser.add_argument("--output-dir", required=True)
@@ -502,11 +491,7 @@ def main() -> int:
     parser.add_argument("--window-end-ms", type=int, default=5000)
     parser.add_argument("--no-split-by-accuracy", action="store_true")
     parser.add_argument("--no-clip-end-marker", action="store_true")
-    parser.add_argument(
-        "--smooth-type",
-        default="triangle",
-        choices=["none", "triangle", "gaussian_kde", "bin_resize_trial_1"],
-    )
+    parser.add_argument("--smooth-type", default="triangle", choices=["none", "triangle", "gaussian_kde", "bin_resize_trial_1"])
     parser.add_argument("--min-rate-hz", type=float, default=0.25)
     args = parser.parse_args()
 
@@ -525,7 +510,7 @@ def main() -> int:
         smooth_type=args.smooth_type,
         min_rate_hz=args.min_rate_hz,
     )
-    print(f"Wrote {len(outputs)} raster/PSTH plots to {args.output_dir}")
+    print(f"Wrote {len(outputs)} raster plots to {args.output_dir}")
     return 0
 
 

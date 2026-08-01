@@ -56,31 +56,74 @@ The movie bin size defaults to the project standard from `PIPELINE_ANALYSIS_CONF
 
 # Planned output structure
 
-The dry run shows the planned filesystem layout without creating files.
-
-Typical top-level structure:
-
 ```text
-P570_exp4presleep/
+P570/
+
     data/
+        trial_table.csv
+
     align1/
     align2/
     binning/
+
     statistics/
+        neuron_summary.csv
+
     plots/
+
         rasters/
             all/
+                *.png
+                T_score_sheet.csv
             sig/
+                *.png
+                T_score_sheet.csv
             nonsig/
-            regions/
+                *.png
+                T_score_sheet.csv
+            by_region/
+                HPC/
+                    *.png
+                    T_score_sheet.csv
+                ERC/
+                    ...
+                FC/
+                    ...
+                LTC/
+                    ...
+                MTL/
+                    ...
+
         swarm/
             global/
+                P1_Post-Stim_T-Scores.png
+                P2_Pre-Stim_T-Scores.png
+                P3_Diff_SigOnly.png
+                P4_Diff_All.png
+                P5_Diff_Post_GTE_1.png
+                Swarm_Statistics_global.csv
+                Summary_Overview_global.csv
             HPC/
+                ...
             ERC/
+                ...
             FC/
+                ...
             LTC/
+                ...
             MTL/
+                ...
+
         dashboards/
+            global_dashboard.png
+            HPC_dashboard.png
+            ERC_dashboard.png
+            FC_dashboard.png
+            LTC_dashboard.png
+            MTL_dashboard.png
+            Run_Summary.csv
+
+    localization_trace.csv
     pipeline_artifacts.json
 ```
 

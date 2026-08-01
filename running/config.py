@@ -1,7 +1,4 @@
-"""config.py
-
-Shared configuration and schema objects for the pipeline.
-"""
+"""Shared configuration and schema objects for the pipeline."""
 
 from __future__ import annotations
 
@@ -39,8 +36,6 @@ TARGET_FOLDERS: Dict[str, List[str]] = {
 
 @dataclass(frozen=True)
 class PatientConfig:
-    """Patient-specific run metadata."""
-
     patient_id: str
     movie_label: str
     signal_path: str
@@ -56,8 +51,6 @@ class PatientConfig:
 
 @dataclass(frozen=True)
 class AnalysisConfig:
-    """Analysis-wide parameters."""
-
     pre_window_ms: Tuple[int, int] = (-1000, 0)
     post_window_ms: Tuple[int, int] = (200, 1200)
     raster_window_ms: Tuple[int, int] = (-3000, 5000)

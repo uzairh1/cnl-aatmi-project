@@ -1,15 +1,4 @@
-"""swarm.py
-
-Population swarm plots and legacy-style summary statistics.
-
-This version writes outputs under plots/swarm with region folders:
-- global/
-- HPC/
-- ERC/
-- FC/
-- LTC/
-- MTL/
-"""
+"""Population swarm plots and summary statistics."""
 
 from __future__ import annotations
 
@@ -33,19 +22,13 @@ from running.config import TARGET_FOLDERS, BIPOLAR_REGIONS  # noqa: E402
 
 
 def load_summary_table(summary_csv: str | Path) -> pd.DataFrame:
-    summary_csv = Path(summary_csv)
     df = pd.read_csv(summary_csv)
     df.columns = [str(c).strip() for c in df.columns]
     return df
 
 
-def _ensure_output_dir(path: Path) -> Path:
-    path.mkdir(parents=True, exist_ok=True)
-    return path
-
-
-def _select_region_dataframe(df: pd.DataFrame, region_name: str, abbreviations: Optional[List[str]]) -> pd.DataFrame:
-    if region_name == "global" or abbreviations is None:
+def _select_region_dataframe(df: pd.DataFrame, abbreviations: Optional[List[str]]) -> pd.DataFrame:
+    if abbreviations is None:
         return df.copy()
     if "Localization - Bipolar" not in df.columns:
         return pd.DataFrame()
@@ -71,14 +54,7 @@ def _create_swarm_and_stats(
     n_total = len(df_clean)
     mean_val = df_clean[metric_col].mean()
     sem_val = df_clean[metric_col].sem()
-
-    stat_dict = {
-        "Plot ID": plot_id,
-        "Metric": metric_col,
-        "N Total": n_total,
-        "Mean": mean_val,
-        "SEM": sem_val,
-    }
+    stat_dict = {"Plot ID": plot_id, "Metric": metric_col, "N Total": n_total, "Mean": mean_val, "SEM": sem_val}
 
     if test_type == "chisq_vs_chance":
         if sig_col and sig_col in df_clean.columns:
@@ -89,57 +65,21 @@ def _create_swarm_and_stats(
             n_sig_pos = int((df_clean[metric_col] >= thresh).sum())
             n_sig_neg = int((df_clean[metric_col] <= -thresh).sum())
         else:
-            n_sig_pos = 0
-            n_sig_neg = 0
-
+            n_sig_pos = n_sig_neg = 0
         n_sig = n_sig_pos + n_sig_neg
         n_nonsig = n_total - n_sig
         expected_sig = n_total * 0.05
         expected_nonsig = n_total * 0.95
-
-        if expected_sig > 0:
-            chi2, p_val = chisquare([n_sig, n_nonsig], f_exp=[expected_sig, expected_nonsig])
-        else:
-            chi2, p_val = None, None
-
-        stat_dict.update(
-            {
-                "Sig Positive": n_sig_pos,
-                "Sig Negative": n_sig_neg,
-                "Total Sig": n_sig,
-                "Expected Sig (5%)": expected_sig,
-                "Chi2 Stat": chi2,
-                "P-Value": p_val,
-            }
-        )
-
+        chi2, p_val = chisquare([n_sig, n_nonsig], f_exp=[expected_sig, expected_nonsig]) if expected_sig > 0 else (None, None)
+        stat_dict.update({"Sig Positive": n_sig_pos, "Sig Negative": n_sig_neg, "Total Sig": n_sig, "Expected Sig (5%)": expected_sig, "Chi2 Stat": chi2, "P-Value": p_val})
     elif test_type == "chisq_vs_5050":
         n_pre_driven = int((df_clean[metric_col] > 0).sum())
         n_post_driven = int((df_clean[metric_col] < 0).sum())
         n_exact_zero = int((df_clean[metric_col] == 0).sum())
-
         valid_n = n_pre_driven + n_post_driven
         expected = valid_n / 2.0
-
-        if expected > 0:
-            chi2, p_val = chisquare([n_pre_driven, n_post_driven], f_exp=[expected, expected])
-        else:
-            chi2, p_val = None, None
-
-        stat_dict.update(
-            {
-                "Pre-Driven (>0)": n_pre_driven,
-                "Post-Driven (<0)": n_post_driven,
-                "Exact Zero": n_exact_zero,
-                "Valid N (excluding 0)": valid_n,
-                "Expected (50/50)": expected,
-                "Chi2 Stat": chi2,
-                "P-Value": p_val,
-            }
-        )
-    else:
-        raise ValueError(f"Unknown test_type: {test_type}")
-
+        chi2, p_val = chisquare([n_pre_driven, n_post_driven], f_exp=[expected, expected]) if expected > 0 else (None, None)
+        stat_dict.update({"Pre-Driven (>0)": n_pre_driven, "Post-Driven (<0)": n_post_driven, "Exact Zero": n_exact_zero, "Valid N (excluding 0)": valid_n, "Expected (50/50)": expected, "Chi2 Stat": chi2, "P-Value": p_val})
     stats_rows.append(stat_dict)
 
     fig = plt.figure(figsize=(7, 8))
@@ -149,34 +89,8 @@ def _create_swarm_and_stats(
 
     df_clean = df_clean.copy()
     df_clean["Group"] = "Neurons"
-
-    sns.stripplot(
-        x="Group",
-        y=metric_col,
-        data=df_clean,
-        color="#2c3e50",
-        size=4.0,
-        alpha=0.6,
-        jitter=0.25,
-        edgecolor="white",
-        linewidth=0.3,
-        zorder=2,
-        ax=ax_swarm,
-    )
-
-    ax_swarm.errorbar(
-        x=0,
-        y=mean_val,
-        yerr=sem_val,
-        color="#e74c3c",
-        capsize=6,
-        elinewidth=2.5,
-        capthick=2.5,
-        marker="_",
-        markersize=18,
-        label="Mean +/- SEM",
-        zorder=4,
-    )
+    sns.stripplot(x="Group", y=metric_col, data=df_clean, color="#2c3e50", size=4.0, alpha=0.6, jitter=0.25, edgecolor="white", linewidth=0.3, zorder=2, ax=ax_swarm)
+    ax_swarm.errorbar(x=0, y=mean_val, yerr=sem_val, color="#e74c3c", capsize=6, elinewidth=2.5, capthick=2.5, marker="_", markersize=18, label="Mean +/- SEM", zorder=4)
 
     ax_hist.hist(df_clean[metric_col], bins=30, orientation="horizontal", color="gray", alpha=0.7)
     ax_hist.tick_params(axis="y", left=False, labelleft=False)
@@ -190,15 +104,12 @@ def _create_swarm_and_stats(
 
     ax_swarm.axhline(0, color="gray", linestyle="-", alpha=0.3)
     ax_hist.axhline(0, color="gray", linestyle="-", alpha=0.3)
-
     ax_swarm.set_title(title_label, fontsize=13, pad=20)
     ax_swarm.set_ylabel(metric_col, fontsize=12)
     ax_swarm.set_xlabel("")
     ax_swarm.set_xticks([])
-
     sns.despine(ax=ax_swarm, bottom=True)
     sns.despine(ax=ax_hist, left=True, bottom=False)
-
     ax_swarm.legend(frameon=True, loc="upper center", bbox_to_anchor=(0.5, -0.05), ncol=2)
     ax_swarm.grid(axis="y", linestyle="-", alpha=0.15)
 
@@ -207,141 +118,53 @@ def _create_swarm_and_stats(
     plt.close(fig)
 
 
-def _canonical_region_name(region_name: str) -> str:
-    return "global" if region_name == "Global" else region_name
-
-
-def generate_population_swarm_plot(
-    summary_csv: str | Path,
-    output_dir: str | Path,
-    localization_file: str = "",
-) -> None:
+def generate_population_swarm_plot(summary_csv: str | Path, output_dir: str | Path, localization_file: str = "") -> None:
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-
     if not Path(summary_csv).exists():
         print("Summary CSV missing. Cannot generate swarm plot.")
         return
-
     df = load_summary_table(summary_csv)
     if df.empty:
         print("Summary table is empty. Cannot generate swarm plots.")
         return
 
-    regions = {"Global": None, **TARGET_FOLDERS}
+    regions = {"global": None, **TARGET_FOLDERS}
     summary_overview_data = []
 
     for region_name, abbr_list in regions.items():
-        folder_name = _canonical_region_name(region_name)
-        if region_name == "Global":
-            df_sub = df.copy()
-        else:
-            df_sub = _select_region_dataframe(df, region_name, abbr_list)
-
+        df_sub = df.copy() if region_name == "global" else _select_region_dataframe(df, abbr_list)
         if df_sub.empty:
             continue
-
-        out_dir = _ensure_output_dir(output_dir / folder_name)
+        out_dir = output_dir / region_name
+        out_dir.mkdir(parents=True, exist_ok=True)
         stats_rows = []
 
-        _create_swarm_and_stats(
-            df_sub,
-            "Post-Stim T-Score",
-            "P1_Post-Stim_T-Scores",
-            f"[{region_name}] Stim-Locked Post-Clip (200-1200ms)\nT-Scores",
-            1.96,
-            out_dir,
-            stats_rows,
-            test_type="chisq_vs_chance",
-            sig_col="Post-Stim Significant",
-        )
-
-        _create_swarm_and_stats(
-            df_sub,
-            "Pre-Stim T-Score",
-            "P2_Pre-Stim_T-Scores",
-            f"[{region_name}] Pre-Stimulus (-1000 to 0ms)\nT-Scores",
-            1.96,
-            out_dir,
-            stats_rows,
-            test_type="chisq_vs_chance",
-            sig_col="Pre-Stim Significant",
-        )
-
-        df_p3 = df_sub[(df_sub["Pre-Stim Significant"] == True) | (df_sub["Post-Stim Significant"] == True)]
-        _create_swarm_and_stats(
-            df_p3,
-            "T-Score Diff (Pre - Post)",
-            "P3_Diff_SigOnly",
-            f"[{region_name}] T-Score Diff (Pre - Post)\n[Significant Pre OR Post Neurons]",
-            None,
-            out_dir,
-            stats_rows,
-            test_type="chisq_vs_5050",
-        )
-
-        _create_swarm_and_stats(
-            df_sub,
-            "T-Score Diff (Pre - Post)",
-            "P4_Diff_All",
-            f"[{region_name}] T-Score Diff (Pre - Post)\n[All Active Neurons]",
-            None,
-            out_dir,
-            stats_rows,
-            test_type="chisq_vs_5050",
-        )
-
+        _create_swarm_and_stats(df_sub, "Post-Stim T-Score", "P1_Post-Stim_T-Scores", f"[{region_name}] Stim-Locked Post-Clip (200-1200ms)\nT-Scores", 1.96, out_dir, stats_rows, test_type="chisq_vs_chance", sig_col="Post-Stim Significant")
+        _create_swarm_and_stats(df_sub, "Pre-Stim T-Score", "P2_Pre-Stim_T-Scores", f"[{region_name}] Pre-Stimulus (-1000 to 0ms)\nT-Scores", 1.96, out_dir, stats_rows, test_type="chisq_vs_chance", sig_col="Pre-Stim Significant")
+        df_p3 = df_sub[(df_sub["Pre-Stim Significant"] == True) | (df_sub["Post-Stim Significant"] == True)] if "Pre-Stim Significant" in df_sub.columns and "Post-Stim Significant" in df_sub.columns else pd.DataFrame()
+        _create_swarm_and_stats(df_p3, "T-Score Diff (Pre - Post)", "P3_Diff_SigOnly", f"[{region_name}] T-Score Diff (Pre - Post)\n[Significant Pre OR Post Neurons]", None, out_dir, stats_rows, test_type="chisq_vs_5050")
+        _create_swarm_and_stats(df_sub, "T-Score Diff (Pre - Post)", "P4_Diff_All", f"[{region_name}] T-Score Diff (Pre - Post)\n[All Active Neurons]", None, out_dir, stats_rows, test_type="chisq_vs_5050")
         df_p5 = df_sub[df_sub["Post-Stim T-Score"] >= 1.0] if "Post-Stim T-Score" in df_sub.columns else pd.DataFrame()
-        _create_swarm_and_stats(
-            df_p5,
-            "T-Score Diff (Pre - Post)",
-            "P5_Diff_Post_GTE_1",
-            f"[{region_name}] T-Score Diff (Pre - Post)\n[Post-Stim T-Score >= +1.0]",
-            None,
-            out_dir,
-            stats_rows,
-            test_type="chisq_vs_5050",
-        )
+        _create_swarm_and_stats(df_p5, "T-Score Diff (Pre - Post)", "P5_Diff_Post_GTE_1", f"[{region_name}] T-Score Diff (Pre - Post)\n[Post-Stim T-Score >= +1.0]", None, out_dir, stats_rows, test_type="chisq_vs_5050")
 
         if stats_rows:
-            pd.DataFrame(stats_rows).to_csv(out_dir / f"Swarm_Statistics_{folder_name}.csv", index=False)
+            pd.DataFrame(stats_rows).to_csv(out_dir / f"Swarm_Statistics_{region_name}.csv", index=False)
 
         sig_pre_count = int(df_sub["Pre-Stim Significant"].sum()) if "Pre-Stim Significant" in df_sub.columns else 0
         sig_post_count = int(df_sub["Post-Stim Significant"].sum()) if "Post-Stim Significant" in df_sub.columns else 0
-
-        region_summary = {
-            "Scope": region_name,
-            "Total Patients": int(df_sub["Patient"].nunique()) if "Patient" in df_sub.columns else 0,
-            "Total Neurons": int(len(df_sub)),
-            "Significant Pre (-1000 to 0)": sig_pre_count,
-            "Significant Post (200-1200)": sig_post_count,
-        }
+        region_summary = {"Scope": region_name, "Total Patients": int(df_sub["Patient"].nunique()) if "Patient" in df_sub.columns else 0, "Total Neurons": int(len(df_sub)), "Significant Pre (-1000 to 0)": sig_pre_count, "Significant Post (200-1200)": sig_post_count}
         summary_overview_data.append(region_summary)
 
-        if region_name != "Global":
-            pd.DataFrame([region_summary]).to_csv(out_dir / f"Summary_Overview_{folder_name}.csv", index=False)
+        if region_name != "global":
+            pd.DataFrame([region_summary]).to_csv(out_dir / f"Summary_Overview_{region_name}.csv", index=False)
 
     if summary_overview_data:
         pd.DataFrame(summary_overview_data).to_csv(output_dir / "Summary_Global_and_Regional.csv", index=False)
 
     if "Patient" in df.columns and "Localization - Bipolar" in df.columns:
-        breakdown_df = (
-            df.groupby(["Patient", "Localization - Bipolar"])
-            .agg(
-                Num_Neurons=("Neuron Name", "count"),
-                Sig_Pre=("Pre-Stim Significant", "sum"),
-                Sig_Post=("Post-Stim Significant", "sum"),
-            )
-            .reset_index()
-        )
-        breakdown_df.rename(
-            columns={
-                "Num_Neurons": "Total Neurons",
-                "Sig_Pre": "Significant Pre",
-                "Sig_Post": "Significant Post",
-            },
-            inplace=True,
-        )
+        breakdown_df = df.groupby(["Patient", "Localization - Bipolar"]).agg(Num_Neurons=("Neuron Name", "count"), Sig_Pre=("Pre-Stim Significant", "sum"), Sig_Post=("Post-Stim Significant", "sum")).reset_index()
+        breakdown_df.rename(columns={"Num_Neurons": "Total Neurons", "Sig_Pre": "Significant Pre", "Sig_Post": "Significant Post"}, inplace=True)
         breakdown_df.to_csv(output_dir / "Summary_Patient_Bipolar_Breakdown.csv", index=False)
 
 
@@ -351,12 +174,7 @@ def main() -> int:
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--localization-file", default="")
     args = parser.parse_args()
-
-    generate_population_swarm_plot(
-        summary_csv=args.summary_csv,
-        output_dir=args.output_dir,
-        localization_file=args.localization_file,
-    )
+    generate_population_swarm_plot(args.summary_csv, args.output_dir, args.localization_file)
     return 0
 
 
