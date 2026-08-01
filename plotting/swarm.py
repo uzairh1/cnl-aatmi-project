@@ -2,39 +2,23 @@
 
 Population swarm plots and legacy-style summary statistics.
 
-Purpose
--------
-This module reproduces the population-level swarm figures from the monolithic
-UCLA script.
-
-It works from a neuron summary CSV, not from raw spikes.
-
-The plotting logic is intentionally close to the old code:
-- load the summary table
-- split by region using `Localization - Bipolar`
-- draw swarm plots with mean ± SEM
-- draw a side histogram
-- compute legacy chi-square summaries for the same metrics
-- write per-region summary CSVs and global summary CSVs
-
-This module does not perform spike alignment.
-
-It does not require Align 2.
-
-No config objects are wired in here yet.
-No dataclass models are wired in here yet.
+This version restores the legacy region folder structure and optionally
+reconstructs localization labels from the localization workbook.
 """
 
 from __future__ import annotations
 
 import argparse
+import shutil
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from scipy.stats import chisquare
+
+from data_io.localization import BIPOLAR_REGIONS, infer_neuron_localization, load_localization_map
 
 
 TARGET_FOLDERS: Dict[str, List[str]] = {
@@ -59,6 +43,17 @@ def _ensure_output_dir(path: Path) -> Path:
     return path
 
 
+def _resolve_patient_root(output_dir: str | Path) -> Path:
+    output_dir = Path(output_dir)
+    if output_dir.name == "swarm" and len(output_dir.parents) >= 2:
+        return output_dir.parents[1]
+    return output_dir
+
+
+def _aggregate_root(output_dir: str | Path) -> Path:
+    return _resolve_patient_root(output_dir) / "Aggregate Patients outputs"
+
+
 def _select_region_dataframe(df: pd.DataFrame, region_name: str, abbreviations: Optional[List[str]]) -> pd.DataFrame:
     """Filter the summary table to one region or return the full table."""
     if region_name == "Global" or abbreviations is None:
@@ -69,6 +64,42 @@ def _select_region_dataframe(df: pd.DataFrame, region_name: str, abbreviations: 
 
     pattern = "^(?:" + "|".join(abbreviations) + ") -"
     return df[df["Localization - Bipolar"].astype(str).str.contains(pattern, case=False, na=False)].copy()
+
+
+def _enrich_localization_columns(df: pd.DataFrame, localization_file: str = "") -> pd.DataFrame:
+    """Add Localization and Localization - Bipolar columns if they are missing."""
+    out = df.copy()
+    if "Neuron Name" not in out.columns:
+        return out
+
+    if "Localization" in out.columns and "Localization - Bipolar" in out.columns and not localization_file:
+        return out
+
+    if not localization_file:
+        if "Localization" not in out.columns:
+            out["Localization"] = "Unknown"
+        if "Localization - Bipolar" not in out.columns:
+            out["Localization - Bipolar"] = "UNKNOWN - Unknown"
+        return out
+
+    loc_df = load_localization_map(localization_file)
+    if loc_df.empty:
+        if "Localization" not in out.columns:
+            out["Localization"] = "Unknown"
+        if "Localization - Bipolar" not in out.columns:
+            out["Localization - Bipolar"] = "UNKNOWN - Unknown"
+        return out
+
+    loc_values = []
+    bipolar_values = []
+    for neuron_name in out["Neuron Name"].astype(str):
+        electrode_code, full_location, region_abbr = infer_neuron_localization(neuron_name, loc_df)
+        loc_values.append(full_location)
+        bipolar_values.append(f"{region_abbr} - {BIPOLAR_REGIONS.get(region_abbr, 'Unknown')}")
+
+    out["Localization"] = loc_values
+    out["Localization - Bipolar"] = bipolar_values
+    return out
 
 
 def _create_swarm_and_stats(
@@ -82,10 +113,7 @@ def _create_swarm_and_stats(
     test_type: str,
     sig_col: Optional[str] = None,
 ) -> None:
-    """Create one swarm plot and append one statistics row.
-
-    This mirrors the legacy `_create_swarm_and_stats()` helper.
-    """
+    """Create one swarm plot and append one statistics row."""
     df_clean = df.dropna(subset=[metric_col]).copy()
     if df_clean.empty:
         return
@@ -164,7 +192,6 @@ def _create_swarm_and_stats(
 
     stats_rows.append(stat_dict)
 
-    # Plot generation
     fig = plt.figure(figsize=(7, 8))
     gs = fig.add_gridspec(1, 2, width_ratios=[4, 1.5], wspace=0.05)
     ax_swarm = fig.add_subplot(gs[0])
@@ -230,12 +257,32 @@ def _create_swarm_and_stats(
     plt.close(fig)
 
 
+def _copy_tree_contents(src: Path, dst: Path) -> None:
+    if not src.exists():
+        return
+    dst.mkdir(parents=True, exist_ok=True)
+    for item in src.rglob("*"):
+        rel = item.relative_to(src)
+        target = dst / rel
+        if item.is_dir():
+            target.mkdir(parents=True, exist_ok=True)
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(item, target)
+
+
 def generate_population_swarm_plot(
     summary_csv: str | Path,
     output_dir: str | Path,
+    localization_file: str = "",
 ) -> None:
     """Generate global and region-specific swarm plots from a summary CSV."""
     output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    patient_root = _resolve_patient_root(output_dir)
+    agg_root = _aggregate_root(output_dir)
+    agg_root.mkdir(parents=True, exist_ok=True)
+
     if not Path(summary_csv).exists():
         raise FileNotFoundError(f"Summary CSV not found: {summary_csv}")
 
@@ -244,24 +291,31 @@ def generate_population_swarm_plot(
         print("Summary table is empty. Cannot generate swarm plots.")
         return
 
-    agg_dir = _ensure_output_dir(output_dir)
-    global_sig_dir = _ensure_output_dir(agg_dir / "All significant plots")
-    global_non_sig_dir = _ensure_output_dir(agg_dir / "All Non significant plots")
+    df = _enrich_localization_columns(df, localization_file)
+
+    # Mirror the global summary sheet used by the monolithic pipeline.
+    df.to_csv(output_dir / "Aggregate T score sheet across patients.csv", index=False)
+    df.to_csv(agg_root / "Aggregate T score sheet across patients.csv", index=False)
+
+    global_sig_dir = _ensure_output_dir(output_dir / "All significant plots")
+    global_non_sig_dir = _ensure_output_dir(output_dir / "All Non significant plots")
+    agg_global_sig_dir = _ensure_output_dir(agg_root / "All significant plots")
+    agg_global_non_sig_dir = _ensure_output_dir(agg_root / "All Non significant plots")
 
     summary_overview_data = []
-
     regions = {"Global": None, **TARGET_FOLDERS}
 
     for region_name, abbr_list in regions.items():
         if region_name == "Global":
             df_sub = df.copy()
-            out_dir = agg_dir
         else:
             df_sub = _select_region_dataframe(df, region_name, abbr_list)
-            out_dir = _ensure_output_dir(agg_dir / f"{region_name} plots")
 
         if df_sub.empty:
             continue
+
+        base_region_dir = _ensure_output_dir(output_dir / f"{region_name} plots")
+        agg_region_dir = _ensure_output_dir(agg_root / f"{region_name} plots")
 
         stats_rows: list[dict] = []
 
@@ -271,7 +325,7 @@ def generate_population_swarm_plot(
             "P1_Post-Stim_T-Scores",
             f"[{region_name}] Stim-Locked Post-Clip (200-1200ms)\nT-Scores",
             1.96,
-            out_dir,
+            base_region_dir,
             stats_rows,
             test_type="chisq_vs_chance",
             sig_col="Post-Stim Significant",
@@ -283,7 +337,7 @@ def generate_population_swarm_plot(
             "P2_Pre-Stim_T-Scores",
             f"[{region_name}] Pre-Stimulus (-1000 to 0ms)\nT-Scores",
             1.96,
-            out_dir,
+            base_region_dir,
             stats_rows,
             test_type="chisq_vs_chance",
             sig_col="Pre-Stim Significant",
@@ -296,7 +350,7 @@ def generate_population_swarm_plot(
             "P3_Diff_SigOnly",
             f"[{region_name}] T-Score Diff (Pre - Post)\n[Significant Pre OR Post Neurons]",
             None,
-            out_dir,
+            base_region_dir,
             stats_rows,
             test_type="chisq_vs_5050",
         )
@@ -307,7 +361,7 @@ def generate_population_swarm_plot(
             "P4_Diff_All",
             f"[{region_name}] T-Score Diff (Pre - Post)\n[All Active Neurons]",
             None,
-            out_dir,
+            base_region_dir,
             stats_rows,
             test_type="chisq_vs_5050",
         )
@@ -319,18 +373,18 @@ def generate_population_swarm_plot(
             "P5_Diff_Post_GTE_1",
             f"[{region_name}] T-Score Diff (Pre - Post)\n[Post-Stim T-Score >= +1.0]",
             None,
-            out_dir,
+            base_region_dir,
             stats_rows,
             test_type="chisq_vs_5050",
         )
 
         if stats_rows:
-            pd.DataFrame(stats_rows).to_csv(out_dir / f"Swarm_Statistics_{region_name}.csv", index=False)
-            print(f"Generated {region_name} swarm plots and statistics in {out_dir}")
+            region_stats = pd.DataFrame(stats_rows)
+            region_stats.to_csv(base_region_dir / f"Swarm_Statistics_{region_name}.csv", index=False)
+            print(f"Generated {region_name} swarm plots and statistics in {base_region_dir}")
 
         sig_pre_count = int(df_sub["Pre-Stim Significant"].sum()) if "Pre-Stim Significant" in df_sub.columns else 0
         sig_post_count = int(df_sub["Post-Stim Significant"].sum()) if "Post-Stim Significant" in df_sub.columns else 0
-
         region_summary = {
             "Scope": region_name,
             "Total Patients": int(df_sub["Patient"].nunique()) if "Patient" in df_sub.columns else 0,
@@ -341,10 +395,15 @@ def generate_population_swarm_plot(
         summary_overview_data.append(region_summary)
 
         if region_name != "Global":
-            pd.DataFrame([region_summary]).to_csv(out_dir / f"Summary_Overview_{region_name}.csv", index=False)
+            pd.DataFrame([region_summary]).to_csv(base_region_dir / f"Summary_Overview_{region_name}.csv", index=False)
+
+        _copy_tree_contents(base_region_dir, agg_region_dir)
 
     if summary_overview_data:
-        pd.DataFrame(summary_overview_data).to_csv(agg_dir / "Summary_Global_and_Regional.csv", index=False)
+        summary_overview_df = pd.DataFrame(summary_overview_data)
+        summary_overview_df.to_csv(output_dir / "Summary_Global_and_Regional.csv", index=False)
+        summary_overview_df.to_csv(agg_root / "Summary_Global_and_Regional.csv", index=False)
+        print("Generated Master Overview Summary (Summary_Global_and_Regional.csv).")
 
     if "Patient" in df.columns and "Localization - Bipolar" in df.columns:
         breakdown_df = (
@@ -365,31 +424,26 @@ def generate_population_swarm_plot(
             },
             inplace=True,
         )
-        breakdown_df.to_csv(agg_dir / "Summary_Patient_Bipolar_Breakdown.csv", index=False)
+        breakdown_df.to_csv(output_dir / "Summary_Patient_Bipolar_Breakdown.csv", index=False)
+        breakdown_df.to_csv(agg_root / "Summary_Patient_Bipolar_Breakdown.csv", index=False)
+        print("Generated Detailed Patient/Bipolar Breakdown (Summary_Patient_Bipolar_Breakdown.csv).")
 
-    # Copy global outputs into the legacy "all sig / all nonsig" folders
-    # only when the file names imply significance; this is just the same
-    # directory convention as the legacy script.
-    for png in agg_dir.glob("P*.png"):
-        if "nonsig" in png.name:
-            target = global_non_sig_dir / png.name
-        else:
-            target = global_sig_dir / png.name
-        try:
-            target.write_bytes(png.read_bytes())
-        except Exception:
-            pass
+    # Copy global sig / nonsig directories into the aggregate mirror to match the legacy layout.
+    _copy_tree_contents(global_sig_dir, agg_global_sig_dir)
+    _copy_tree_contents(global_non_sig_dir, agg_global_non_sig_dir)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate population swarm plots from a neuron summary CSV.")
     parser.add_argument("--summary-csv", required=True, help="Path to the neuron summary CSV.")
     parser.add_argument("--output-dir", required=True, help="Folder where swarm plots and summary CSVs will be written.")
+    parser.add_argument("--localization-file", default="", help="Optional localization workbook.")
     args = parser.parse_args()
 
     generate_population_swarm_plot(
         summary_csv=args.summary_csv,
         output_dir=args.output_dir,
+        localization_file=args.localization_file,
     )
     return 0
 

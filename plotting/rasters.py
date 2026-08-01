@@ -2,29 +2,14 @@
 
 Raster and PSTH plotting for movie/session-aligned spikes.
 
-Purpose
--------
-This module reproduces the legacy-style single-neuron raster figures from the
-monolithic UCLA script.
-
-It works from Align 1 spike CSVs (movie/session-aligned spikes) and the clip
-timing table. It does not require Align 2.
-
-The plot logic is intentionally close to the old code:
-- build per-clip spike rows in a fixed time window around clip start
-- split correct vs incorrect clips when requested
-- draw raster lines
-- draw PSTH curves underneath
-- optionally overlay clip-end markers
-- optionally use a neuron summary CSV to add pre/post statistics to titles
-
-No config objects are wired in here yet.
-No dataclass models are wired in here yet.
+This version keeps the legacy-style output structure used by the monolithic
+pipeline so that apples-to-apples comparisons are easier.
 """
 
 from __future__ import annotations
 
 import argparse
+import shutil
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -33,9 +18,9 @@ import numpy as np
 import pandas as pd
 from matplotlib.gridspec import GridSpec
 from scipy.stats import gaussian_kde
-
-from data_io.localization import infer_neuron_localization, load_localization_map
 from analysis.statistics import load_clip_table
+from data_io.localization import infer_neuron_localization, load_localization_map
+from running.config import TARGET_FOLDERS, BIPOLAR_REGIONS
 
 
 RASTER_FIGSIZE: Tuple[float, float] = (12, 8)
@@ -54,15 +39,19 @@ def load_align1_csv(csv_path: str | Path) -> pd.DataFrame:
     csv_path = Path(csv_path)
     df = pd.read_csv(csv_path)
 
-    out = df.copy()
-    if "ms" not in out.columns:
-        if "movieAlignedTimeMs" in out.columns:
-            out["ms"] = pd.to_numeric(out["movieAlignedTimeMs"], errors="coerce")
-        elif "movieAlignedTimeS" in out.columns:
-            out["ms"] = pd.to_numeric(out["movieAlignedTimeS"], errors="coerce") * 1000.0
+    required = {"ms"}
+    missing = required - set(df.columns)
+    if missing:
+        if "movieAlignedTimeMs" in df.columns:
+            df = df.copy()
+            df["ms"] = pd.to_numeric(df["movieAlignedTimeMs"], errors="coerce")
+        elif "movieAlignedTimeS" in df.columns:
+            df = df.copy()
+            df["ms"] = pd.to_numeric(df["movieAlignedTimeS"], errors="coerce") * 1000.0
         else:
-            raise ValueError(f"{csv_path.name} is missing required columns: ['ms' or 'movieAlignedTimeMs']")
+            raise ValueError(f"{csv_path.name} is missing required columns: {sorted(missing)}")
 
+    out = df.copy()
     out["ms"] = pd.to_numeric(out["ms"], errors="coerce")
     out = out.dropna(subset=["ms"]).copy()
     return out
@@ -86,6 +75,26 @@ def load_summary_map(summary_csv: str | Path) -> dict:
         neuron_name = str(row["Neuron Name"])
         out[neuron_name] = row.to_dict()
     return out
+
+
+def _resolve_patient_root(output_dir: str | Path) -> Path:
+    output_dir = Path(output_dir)
+    if output_dir.name == "rasters" and len(output_dir.parents) >= 2:
+        return output_dir.parents[1]
+    return output_dir
+
+
+def _plot_tag_from(output_tag: str, patient_root: Path) -> str:
+    return output_tag if output_tag else patient_root.name
+
+
+def _patient_plot_root(patient_root: Path, patient_id: str, output_tag: str) -> Path:
+    tag = _plot_tag_from(output_tag, patient_root)
+    return patient_root / f"p{patient_id} plots {tag}" / "Individual_Neuron_Rasters"
+
+
+def _aggregate_root(patient_root: Path) -> Path:
+    return patient_root / "Aggregate Patients outputs"
 
 
 def build_clip_rows_for_window(
@@ -242,132 +251,76 @@ def has_any_spikes(plot_rows: List[Dict[str, object]]) -> bool:
     return any(len(row["aligned_spikes_ms"]) > 0 for row in plot_rows)
 
 
-def _plot_raster_with_optional_split_and_psth(
-    plot_rows: List[Dict[str, object]],
-    out_path: Path,
+def _save_figure_and_mirror(
+    fig: plt.Figure,
+    final_file_path: Path,
+    patient_root: Path,
+    region_abbr: str,
+    sig_status_str: str,
+) -> Path:
+    final_file_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(final_file_path, dpi=RASTER_DPI, bbox_inches="tight")
+
+    agg_root = _aggregate_root(patient_root)
+    agg_root.mkdir(parents=True, exist_ok=True)
+
+    is_sig_overall = "nonsig" not in sig_status_str
+    status_folder_name = "All significant plots" if is_sig_overall else "All Non significant plots"
+    status_dir = agg_root / status_folder_name
+    status_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(final_file_path, status_dir / final_file_path.name)
+
+    for region_name, abbr_list in TARGET_FOLDERS.items():
+        if region_abbr in abbr_list:
+            region_raster_dir = agg_root / f"{region_name} plots" / "Individual_Rasters"
+            region_raster_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(final_file_path, region_raster_dir / final_file_path.name)
+
+    return final_file_path
+
+
+def _write_summary_tables(
+    rows: List[Dict[str, object]],
+    patient_root: Path,
     patient_id: str,
-    neuron_name: str,
-    title_suffix: str,
-    x_min: int,
-    x_max: int,
-    split_by_accuracy: bool,
-    show_clip_end_marker: bool,
-    ttest_label: str = "",
-    loc_df: pd.DataFrame = pd.DataFrame(),
-    output_tag: str = "",
-    sig_status_str: str = "nonsig",
-    smooth_type: str = "none",
-) -> Optional[Path]:
-    if len(plot_rows) == 0:
-        return None
+    output_tag: str,
+) -> None:
+    if not rows:
+        return
 
-    if split_by_accuracy:
-        plot_rows, n_correct = sort_rows_accuracy_top_bottom(plot_rows)
-        raster_rows = [row["aligned_spikes_ms"] for row in plot_rows]
-        raster_colors = [
-            COLOR_CORRECT if row["accurate"] == 1 else COLOR_INCORRECT
-            for row in plot_rows
-        ]
-    else:
-        n_correct = 0
-        raster_rows = [row["aligned_spikes_ms"] for row in plot_rows]
-        raster_colors = COLOR_ALL
+    df_all = pd.DataFrame(rows)
+    df_sig = df_all[(df_all["Post-Stim Significant"] == True) | (df_all["Pre-Stim Significant"] == True)].copy()
+    df_nonsig = df_all[(df_all["Post-Stim Significant"] == False) & (df_all["Pre-Stim Significant"] == False)].copy()
 
-    if not any(len(row) > 0 for row in raster_rows):
-        return None
+    tag = _plot_tag_from(output_tag, patient_root)
+    key_root = _patient_plot_root(patient_root, patient_id, output_tag) / "FINAL KEY PLOTS" / "neg3 to 5 sec"
+    all_raster_dir = key_root / "All Rasters"
+    sig_dir = key_root / "Significant"
+    nonsig_dir = key_root / "Non Significant"
 
-    y_labels = [str(row.get("plot_y_axis", i + 1)) for i, row in enumerate(plot_rows)]
+    all_raster_dir.mkdir(parents=True, exist_ok=True)
+    sig_dir.mkdir(parents=True, exist_ok=True)
+    nonsig_dir.mkdir(parents=True, exist_ok=True)
 
-    if not loc_df.empty:
-        electrode_code, full_location, region_abbr = infer_neuron_localization(neuron_name, loc_df)
-    else:
-        electrode_code, full_location, region_abbr = ("Unknown", "Unknown Location", "UNKNOWN")
-    loc_bipolar_str = f"{region_abbr}"
+    df_all.to_csv(all_raster_dir / "T score sheet.csv", index=False)
+    if not df_sig.empty:
+        df_sig.to_csv(sig_dir / "T score sheet.csv", index=False)
+    if not df_nonsig.empty:
+        df_nonsig.to_csv(nonsig_dir / "T score sheet.csv", index=False)
 
-    std_filename = f"P{patient_id}_{output_tag}_{electrode_code}_{neuron_name}_neg3_to_5_{sig_status_str}.png"
+    agg_root = _aggregate_root(patient_root)
+    agg_root.mkdir(parents=True, exist_ok=True)
+    df_all.to_csv(agg_root / "Aggregate T score sheet across patients.csv", index=False)
 
-    fig = plt.figure(figsize=RASTER_FIGSIZE)
-    gs = GridSpec(2, 1, height_ratios=[4.6, 1.4], hspace=0.08)
+    all_sig_dir = agg_root / "All significant plots"
+    all_non_sig_dir = agg_root / "All Non significant plots"
+    all_sig_dir.mkdir(parents=True, exist_ok=True)
+    all_non_sig_dir.mkdir(parents=True, exist_ok=True)
 
-    ax_raster = fig.add_subplot(gs[0])
-    ax_psth = fig.add_subplot(gs[1], sharex=ax_raster)
-
-    ax_raster.eventplot(
-        raster_rows,
-        colors=raster_colors,
-        linelengths=LINE_LENGTH,
-        linewidths=LINE_WIDTH,
-        zorder=3,
-    )
-
-    if show_clip_end_marker:
-        draw_clip_end_markers(ax_raster, plot_rows, x_max)
-
-    if split_by_accuracy and 0 < n_correct < len(plot_rows):
-        ax_raster.axhline(n_correct - 0.5, color="0.5", linestyle="--", linewidth=1, zorder=4)
-
-    ax_raster.axvline(0, color="0.5", linestyle="--", linewidth=1, zorder=4)
-    ax_psth.axvline(0, color="0.5", linestyle="--", linewidth=1)
-
-    title_lines = [
-        f"Patient {patient_id} | {full_location} ({electrode_code}) | Region: {loc_bipolar_str} | Neuron {neuron_name}",
-        title_suffix,
-    ]
-    if ttest_label:
-        title_lines.append(ttest_label)
-
-    newline = chr(10)
-    full_title = newline.join(title_lines)
-    ax_raster.set_title(full_title, fontsize=14)
-    ax_raster.set_ylabel("Clip Plot Y-Axis", fontsize=12)
-    ax_raster.set_xlim(x_min, x_max)
-
-    n_rows = len(plot_rows)
-    if n_rows <= 40:
-        tick_positions = list(range(n_rows))
-    else:
-        step = max(1, n_rows // 20)
-        tick_positions = list(range(0, n_rows, step))
-    ax_raster.set_yticks(tick_positions)
-    ax_raster.set_yticklabels([y_labels[i] for i in tick_positions])
-    ax_raster.grid(axis="x", linestyle=":", alpha=0.4)
-
-    if split_by_accuracy:
-        correct_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 1]
-        incorrect_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 0]
-
-        if len(correct_rows) > 0:
-            if smooth_type == "none":
-                x_c, y_c = compute_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS)
-            else:
-                x_c, y_c = compute_smoothed_psth_hz(correct_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
-            ax_psth.plot(x_c, y_c, linewidth=PSTH_LINE_WIDTH, color=COLOR_CORRECT, label="Correct (Green)")
-
-        if len(incorrect_rows) > 0:
-            if smooth_type == "none":
-                x_i, y_i = compute_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS)
-            else:
-                x_i, y_i = compute_smoothed_psth_hz(incorrect_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
-            ax_psth.plot(x_i, y_i, linewidth=PSTH_LINE_WIDTH, color=COLOR_INCORRECT, label="Incorrect (Red)")
-
-        ax_psth.legend(frameon=False, fontsize=10, loc="upper right")
-    else:
-        if smooth_type == "none":
-            x_all, y_all = compute_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS)
-        else:
-            x_all, y_all = compute_smoothed_psth_hz(raster_rows, x_min, x_max, PSTH_BIN_MS, smooth_type)
-        ax_psth.plot(x_all, y_all, linewidth=PSTH_LINE_WIDTH, color=COLOR_ALL)
-
-    ax_psth.set_xlabel("Time from clip start (ms)", fontsize=12)
-    ax_psth.set_ylabel("Hz", fontsize=12)
-    ax_psth.grid(axis="x", linestyle=":", alpha=0.4)
-
-    fig.subplots_adjust(left=0.08, right=0.98, top=0.85, bottom=0.09, hspace=0.08)
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path, dpi=RASTER_DPI, bbox_inches="tight")
-    plt.close(fig)
-    return out_path
+    if not df_sig.empty:
+        df_sig.to_csv(all_sig_dir / "Aggregate significant T score sheet.csv", index=False)
+    if not df_nonsig.empty:
+        df_nonsig.to_csv(all_non_sig_dir / "Aggregate non significant T score sheet.csv", index=False)
 
 
 def plot_neuron_from_align1(
@@ -387,7 +340,8 @@ def plot_neuron_from_align1(
 ) -> Optional[Path]:
     """Plot one neuron from one Align 1 CSV."""
     align1_csv_path = Path(align1_csv_path)
-    output_dir = Path(output_dir)
+    patient_root = _resolve_patient_root(output_dir)
+    plot_root = _patient_plot_root(patient_root, patient_id, output_tag)
 
     neuron_name = align1_csv_path.name.replace("align1_", "").replace(".csv", "")
     try:
@@ -440,23 +394,108 @@ def plot_neuron_from_align1(
     if summary_row is not None and summary_row.get("Post-Stim Mean Rate (Hz)") is not None:
         title_suffix = f"Average Firing Rate: {float(summary_row['Post-Stim Mean Rate (Hz)']):.2f} Hz"
 
-    out_path = output_dir / f"P{patient_id}_{output_tag}_{neuron_name}.png"
-    return _plot_raster_with_optional_split_and_psth(
-        plot_rows=plot_rows,
-        out_path=out_path,
-        patient_id=patient_id,
-        neuron_name=neuron_name,
-        title_suffix=title_suffix,
-        x_min=window_start_ms,
-        x_max=window_end_ms,
-        split_by_accuracy=split_by_accuracy,
-        show_clip_end_marker=show_clip_end_marker,
-        ttest_label=ttest_label,
-        loc_df=loc_df,
-        output_tag=output_tag,
-        sig_status_str=sig_status,
-        smooth_type=smooth_type,
+    if not loc_df.empty:
+        electrode_code, full_location, region_abbr = infer_neuron_localization(neuron_name, loc_df)
+    else:
+        electrode_code, full_location, region_abbr = ("Unknown", "Unknown Location", "UNKNOWN")
+    _ = f"{region_abbr} - {BIPOLAR_REGIONS.get(region_abbr, 'Unknown')}"
+
+    std_filename = f"P{patient_id}_{_plot_tag_from(output_tag, patient_root)}_{electrode_code}_{neuron_name}_neg3_to_5_{sig_status}.png"
+    final_file_path = plot_root / "FINAL KEY PLOTS" / "neg3 to 5 sec" / "All Rasters" / std_filename
+
+    fig = plt.figure(figsize=RASTER_FIGSIZE)
+    gs = GridSpec(2, 1, height_ratios=[4.6, 1.4], hspace=0.08)
+
+    ax_raster = fig.add_subplot(gs[0])
+    ax_psth = fig.add_subplot(gs[1], sharex=ax_raster)
+
+    if split_by_accuracy:
+        plot_rows, n_correct = sort_rows_accuracy_top_bottom(plot_rows)
+        raster_rows = [row["aligned_spikes_ms"] for row in plot_rows]
+        raster_colors = [COLOR_CORRECT if row["accurate"] == 1 else COLOR_INCORRECT for row in plot_rows]
+    else:
+        n_correct = 0
+        raster_rows = [row["aligned_spikes_ms"] for row in plot_rows]
+        raster_colors = COLOR_ALL
+
+    if not any(len(row) > 0 for row in raster_rows):
+        return None
+
+    y_labels = [str(row.get("plot_y_axis", i + 1)) for i, row in enumerate(plot_rows)]
+
+    ax_raster.eventplot(
+        raster_rows,
+        colors=raster_colors,
+        linelengths=LINE_LENGTH,
+        linewidths=LINE_WIDTH,
+        zorder=3,
     )
+
+    if show_clip_end_marker:
+        draw_clip_end_markers(ax_raster, plot_rows, window_end_ms)
+
+    if split_by_accuracy and 0 < n_correct < len(plot_rows):
+        ax_raster.axhline(n_correct - 0.5, color="0.5", linestyle="--", linewidth=1, zorder=4)
+
+    ax_raster.axvline(0, color="0.5", linestyle="--", linewidth=1, zorder=4)
+    ax_psth.axvline(0, color="0.5", linestyle="--", linewidth=1)
+
+    title_lines = [
+        f"Patient {patient_id} | {full_location} ({electrode_code}) | Region: {region_abbr} | Neuron {neuron_name}",
+        title_suffix,
+    ]
+    if ttest_label:
+        title_lines.append(ttest_label)
+
+    ax_raster.set_title(chr(10).join(title_lines), fontsize=14)
+    ax_raster.set_ylabel("Clip Plot Y-Axis", fontsize=12)
+    ax_raster.set_xlim(window_start_ms, window_end_ms)
+
+    n_rows = len(plot_rows)
+    if n_rows <= 40:
+        tick_positions = list(range(n_rows))
+    else:
+        step = max(1, n_rows // 20)
+        tick_positions = list(range(0, n_rows, step))
+    ax_raster.set_yticks(tick_positions)
+    ax_raster.set_yticklabels([y_labels[i] for i in tick_positions])
+    ax_raster.grid(axis="x", linestyle=":", alpha=0.4)
+
+    if split_by_accuracy:
+        correct_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 1]
+        incorrect_rows = [row["aligned_spikes_ms"] for row in plot_rows if row["accurate"] == 0]
+
+        if len(correct_rows) > 0:
+            if smooth_type == "none":
+                x_c, y_c = compute_psth_hz(correct_rows, window_start_ms, window_end_ms, PSTH_BIN_MS)
+            else:
+                x_c, y_c = compute_smoothed_psth_hz(correct_rows, window_start_ms, window_end_ms, PSTH_BIN_MS, smooth_type)
+            ax_psth.plot(x_c, y_c, linewidth=PSTH_LINE_WIDTH, color=COLOR_CORRECT, label="Correct (Green)")
+
+        if len(incorrect_rows) > 0:
+            if smooth_type == "none":
+                x_i, y_i = compute_psth_hz(incorrect_rows, window_start_ms, window_end_ms, PSTH_BIN_MS)
+            else:
+                x_i, y_i = compute_smoothed_psth_hz(incorrect_rows, window_start_ms, window_end_ms, PSTH_BIN_MS, smooth_type)
+            ax_psth.plot(x_i, y_i, linewidth=PSTH_LINE_WIDTH, color=COLOR_INCORRECT, label="Incorrect (Red)")
+
+        ax_psth.legend(frameon=False, fontsize=10, loc="upper right")
+    else:
+        if smooth_type == "none":
+            x_all, y_all = compute_psth_hz(raster_rows, window_start_ms, window_end_ms, PSTH_BIN_MS)
+        else:
+            x_all, y_all = compute_smoothed_psth_hz(raster_rows, window_start_ms, window_end_ms, PSTH_BIN_MS, smooth_type)
+        ax_psth.plot(x_all, y_all, linewidth=PSTH_LINE_WIDTH, color=COLOR_ALL)
+
+    ax_psth.set_xlabel("Time from clip start (ms)", fontsize=12)
+    ax_psth.set_ylabel("Hz", fontsize=12)
+    ax_psth.grid(axis="x", linestyle=":", alpha=0.4)
+
+    fig.subplots_adjust(left=0.08, right=0.98, top=0.85, bottom=0.09, hspace=0.08)
+
+    _save_figure_and_mirror(fig, final_file_path, patient_root, region_abbr, sig_status)
+    plt.close(fig)
+    return final_file_path
 
 
 def plot_align1_folder(
@@ -479,14 +518,28 @@ def plot_align1_folder(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    patient_root = _resolve_patient_root(output_dir)
     clips_df = load_clip_table(clips_table)
+    if "Plot Toggle" in clips_df.columns:
+        clips_df = clips_df[clips_df["Plot Toggle"] == 1].copy()
     loc_df = load_localization_map(localization_file) if localization_file else pd.DataFrame()
     summary_map = load_summary_map(summary_csv) if summary_csv else {}
 
+    plotted_rows: List[Dict[str, object]] = []
     outputs: list[Path] = []
+
     for align1_csv_path in sorted(align1_dir.glob("align1_*.csv")):
         neuron_name = align1_csv_path.name.replace("align1_", "").replace(".csv", "")
         summary_row = summary_map.get(neuron_name)
+
+        if summary_csv and summary_row is None:
+            continue
+
+        if summary_row is not None:
+            post_rate_hz = summary_row.get("Post-Stim Mean Rate (Hz)")
+            if post_rate_hz is not None and pd.notna(post_rate_hz) and float(post_rate_hz) < min_rate_hz:
+                continue
+
         out_path = plot_neuron_from_align1(
             align1_csv_path=align1_csv_path,
             clips_df=clips_df,
@@ -504,6 +557,20 @@ def plot_align1_folder(
         )
         if out_path is not None:
             outputs.append(out_path)
+
+            if summary_row is not None:
+                row = dict(summary_row)
+                if not loc_df.empty:
+                    electrode_code, full_location, region_abbr = infer_neuron_localization(neuron_name, loc_df)
+                else:
+                    electrode_code, full_location, region_abbr = ("Unknown", "Unknown Location", "UNKNOWN")
+                row["Localization"] = full_location
+                row["Localization - Bipolar"] = f"{region_abbr} - {BIPOLAR_REGIONS.get(region_abbr, 'Unknown')}"
+                plotted_rows.append(row)
+
+    if plotted_rows:
+        _write_summary_tables(plotted_rows, patient_root, patient_id, output_tag)
+
     return outputs
 
 

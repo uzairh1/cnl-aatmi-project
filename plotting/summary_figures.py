@@ -2,30 +2,16 @@
 
 Final summary dashboards and report assembly for the plotting layer.
 
-Purpose
--------
-This module is intentionally thin.
-
-It does not perform new scientific analysis.
-It reads outputs already produced by statistics.py and swarm.py and then:
-
-- verifies that expected summary artifacts exist
-- loads the region/global summary tables
-- assembles a simple dashboard from the existing P1--P5 swarm plots
-- writes a compact run summary CSV
-- optionally writes a small text report
-
-This module is the last presentation stage in the plotting package.
-
-No config objects are wired in here yet.
-No dataclass models are wired in here yet.
+This version prefers the legacy aggregate output directory when it exists,
+so the same code can read both the new and old folder layouts.
 """
 
 from __future__ import annotations
 
 import argparse
+import shutil
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import List, Optional, Sequence
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -40,6 +26,17 @@ DEFAULT_SWARM_PLOTS = [
 ]
 
 
+def _preferred_root(output_root: str | Path) -> Path:
+    """Prefer Aggregate Patients outputs if it exists anywhere above output_root."""
+    output_root = Path(output_root)
+    candidates = [output_root, *output_root.parents]
+    for candidate in candidates:
+        agg = candidate / "Aggregate Patients outputs"
+        if agg.exists():
+            return agg
+    return output_root
+
+
 def load_summary_csv(csv_path: str | Path) -> pd.DataFrame:
     """Load a summary CSV produced by the statistics or swarm stage."""
     csv_path = Path(csv_path)
@@ -50,22 +47,23 @@ def load_summary_csv(csv_path: str | Path) -> pd.DataFrame:
 
 def find_region_summary_tables(output_root: str | Path) -> list[Path]:
     """Find swarm summary CSVs in an output tree."""
-    output_root = Path(output_root)
-    return sorted(output_root.rglob("Swarm_Statistics_*.csv"))
+    root = _preferred_root(output_root)
+    return sorted(root.rglob("Swarm_Statistics_*.csv"))
 
 
 def find_region_overview_tables(output_root: str | Path) -> list[Path]:
     """Find region overview CSVs in an output tree."""
-    output_root = Path(output_root)
-    return sorted(output_root.rglob("Summary_Overview_*.csv"))
+    root = _preferred_root(output_root)
+    return sorted(root.rglob("Summary_Overview_*.csv"))
 
 
 def find_global_summary_tables(output_root: str | Path) -> list[Path]:
     """Find run-level summary CSVs in an output tree."""
-    output_root = Path(output_root)
+    root = _preferred_root(output_root)
     candidates = [
-        output_root / "Summary_Global_and_Regional.csv",
-        output_root / "Summary_Patient_Bipolar_Breakdown.csv",
+        root / "Summary_Global_and_Regional.csv",
+        root / "Summary_Patient_Bipolar_Breakdown.csv",
+        root / "Aggregate T score sheet across patients.csv",
     ]
     return [p for p in candidates if p.exists()]
 
@@ -74,13 +72,8 @@ def build_run_summary(
     output_root: str | Path,
     summary_csv: str | Path | None = None,
 ) -> pd.DataFrame:
-    """Build a compact run summary from existing summary tables.
-
-    If `summary_csv` is provided, it is treated as the neuron-level summary
-    table from statistics.py and is used for overall counts. Otherwise the
-    function uses the summary tables already present under `output_root`.
-    """
-    output_root = Path(output_root)
+    """Build a compact run summary from existing summary tables."""
+    root = _preferred_root(output_root)
     rows: list[dict] = []
 
     if summary_csv is not None:
@@ -96,12 +89,11 @@ def build_run_summary(
             }
         )
 
-    for path in find_region_summary_tables(output_root):
+    for path in find_region_summary_tables(root):
         try:
             df = load_summary_csv(path)
         except Exception:
             continue
-
         rows.append(
             {
                 "scope": path.stem,
@@ -113,12 +105,11 @@ def build_run_summary(
             }
         )
 
-    for path in find_global_summary_tables(output_root):
+    for path in find_global_summary_tables(root):
         try:
             df = load_summary_csv(path)
         except Exception:
             continue
-
         rows.append(
             {
                 "scope": path.stem,
@@ -149,11 +140,7 @@ def build_dashboard_figure(
     title: str = "",
     plot_names: Sequence[str] = DEFAULT_SWARM_PLOTS,
 ) -> Optional[Path]:
-    """Build one dashboard figure from existing P1--P5 swarm plots.
-
-    The function looks for plot names inside `plot_dir` and composes them into
-    a simple gallery figure. Missing plots are ignored.
-    """
+    """Build one dashboard figure from existing P1--P5 swarm plots."""
     plot_dir = Path(plot_dir)
     output_png = Path(output_png)
 
@@ -192,14 +179,18 @@ def build_region_dashboards(
     dashboard_dir: str | Path | None = None,
 ) -> list[Path]:
     """Build dashboard figures for every region folder that contains swarm plots."""
-    output_root = Path(output_root)
-    dashboard_dir = Path(dashboard_dir) if dashboard_dir is not None else (output_root / "dashboards")
+    root = _preferred_root(output_root)
+    dashboard_dir = Path(dashboard_dir) if dashboard_dir is not None else (Path(output_root) / "dashboards")
     dashboard_dir.mkdir(parents=True, exist_ok=True)
 
     outputs: list[Path] = []
-    for region_dir in sorted(output_root.glob("* plots")):
+    seen: set[str] = set()
+    for region_dir in sorted(root.rglob("* plots")):
         if not region_dir.is_dir():
             continue
+        if region_dir.name in seen:
+            continue
+        seen.add(region_dir.name)
         out_png = dashboard_dir / f"{region_dir.name.replace(' ', '_')}_dashboard.png"
         result = build_dashboard_figure(
             plot_dir=region_dir,
@@ -211,17 +202,41 @@ def build_region_dashboards(
     return outputs
 
 
+def _mirror_outputs(src_files: list[Path], src_root: Path, dst_root: Path) -> None:
+    for src in src_files:
+        rel = src.relative_to(src_root)
+        dst = dst_root / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+
+
 def generate_summary_figures(
     output_root: str | Path,
     summary_csv: str | Path | None = None,
 ) -> tuple[pd.DataFrame, list[Path]]:
     """Generate run summaries and dashboard figures from existing outputs."""
     output_root = Path(output_root)
+    preferred_root = _preferred_root(output_root)
+
     run_summary = build_run_summary(output_root=output_root, summary_csv=summary_csv)
     if not run_summary.empty:
-        run_summary.to_csv(output_root / "Run_Summary.csv", index=False)
+        out_csv = output_root / "Run_Summary.csv"
+        out_csv.parent.mkdir(parents=True, exist_ok=True)
+        run_summary.to_csv(out_csv, index=False)
+        if preferred_root != output_root:
+            preferred_csv = preferred_root / "Run_Summary.csv"
+            preferred_csv.parent.mkdir(parents=True, exist_ok=True)
+            run_summary.to_csv(preferred_csv, index=False)
 
     dashboards = build_region_dashboards(output_root=output_root)
+    if preferred_root != output_root:
+        src_dashboard_dir = output_root / "dashboards"
+        dst_dashboard_dir = preferred_root / "dashboards"
+        if src_dashboard_dir.exists():
+            dst_dashboard_dir.mkdir(parents=True, exist_ok=True)
+            for png in src_dashboard_dir.glob("*.png"):
+                shutil.copy2(png, dst_dashboard_dir / png.name)
+
     return run_summary, dashboards
 
 
