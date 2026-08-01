@@ -43,11 +43,10 @@ COLOR_INCORRECT = "red"
 
 
 def load_align1_csv(csv_path: str | Path) -> pd.DataFrame:
-    """Load an Align 1 CSV and normalize time columns.
+    """Load an Align 1 CSV and normalize its time columns.
 
-    Accepts either:
-    - legacy: ms
-    - current: movieAlignedTimeMs / movieAlignedTimeS
+    Accepts either the legacy schema ("ms") or the current schema
+    ("movieAlignedTimeMs" / "movieAlignedTimeS").
     """
     csv_path = Path(csv_path)
     df = pd.read_csv(csv_path)
@@ -108,7 +107,7 @@ def load_summary_map(summary_csv: str | Path) -> dict:
     df = load_summary_csv(summary_csv)
     if "Neuron Name" not in df.columns:
         return {}
-    return {str(row["Neuron Name"]): row.to_dict() for _, row in df.iterrows()}
+    return {str(row["Neuron Name"]).strip(): row.to_dict() for _, row in df.iterrows()}
 
 
 def build_clip_rows_for_window(
@@ -242,10 +241,12 @@ def _save_and_mirror(fig: plt.Figure, final_file_path: Path, base_dir: Path, reg
     data = final_file_path.read_bytes()
 
     (dirs["all"] / final_file_path.name).write_bytes(data)
-    if "sig" in sig_status:
+    if sig_status == "sig":
         (dirs["sig"] / final_file_path.name).write_bytes(data)
-    if "nonsig" in sig_status:
+    elif sig_status == "nonsig":
         (dirs["nonsig"] / final_file_path.name).write_bytes(data)
+    else:
+        raise ValueError(f"Unknown sig_status: {sig_status}")
 
     if region_abbr in TARGET_FOLDERS:
         reg = dirs["by_region"] / region_abbr
@@ -391,7 +392,7 @@ def _write_companion_csvs(output_dir: Path, rows: list[dict]) -> None:
 
     df.to_csv(all_dir / "T_score_sheet.csv", index=False)
     if "Sig Status" in df.columns:
-        df[df["Sig Status"].str.contains("sig", na=False)].to_csv(sig_dir / "T_score_sheet.csv", index=False)
+        df[df["Sig Status"] == "sig"].to_csv(sig_dir / "T_score_sheet.csv", index=False)
         df[df["Sig Status"] == "nonsig"].to_csv(nonsig_dir / "T_score_sheet.csv", index=False)
     else:
         df.to_csv(sig_dir / "T_score_sheet.csv", index=False)
@@ -425,10 +426,10 @@ def plot_neuron_from_align1(
 
     try:
         neuron_df = load_align1_csv(align1_csv_path)
-        if "movieAlignedTimeMs" in neuron_df.columns:
-            spikes_ms = pd.to_numeric(neuron_df["movieAlignedTimeMs"], errors="coerce").dropna().to_numpy()
-        else:
-            spikes_ms = pd.to_numeric(neuron_df["ms"], errors="coerce").dropna().to_numpy()
+        spikes_ms = pd.to_numeric(
+            neuron_df["movieAlignedTimeMs"] if "movieAlignedTimeMs" in neuron_df.columns else neuron_df["ms"],
+            errors="coerce",
+        ).dropna().to_numpy()
     except Exception:
         return None
 
@@ -447,15 +448,7 @@ def plot_neuron_from_align1(
     if summary_row is not None:
         pre_sig = bool(summary_row.get("Pre-Stim Significant", False))
         post_sig = bool(summary_row.get("Post-Stim Significant", False))
-        if pre_sig or post_sig:
-            sig_status = "sig"
-            if pre_sig and not post_sig:
-                sig_status = "sig_pre"
-            elif post_sig and not pre_sig:
-                sig_status = "sig_post"
-            else:
-                sig_status = "sig_both"
-
+        sig_status = "sig" if (pre_sig or post_sig) else "nonsig"
         pre_t = summary_row.get("Pre-Stim T-Score")
         pre_p = summary_row.get("Pre-Stim P-Value")
         post_t = summary_row.get("Post-Stim T-Score")
@@ -498,6 +491,20 @@ def plot_neuron_from_align1(
     )
 
 
+def _summary_neuron_names(summary_csv: str | Path) -> list[str]:
+    if not summary_csv or not Path(summary_csv).exists():
+        return []
+    df = load_summary_csv(summary_csv)
+    if "Neuron Name" not in df.columns:
+        return []
+    names: list[str] = []
+    for value in df["Neuron Name"].tolist():
+        if pd.isna(value):
+            continue
+        names.append(str(value).strip())
+    return names
+
+
 def plot_align1_folder(
     align1_dir: str | Path,
     clips_table: str | Path,
@@ -520,10 +527,16 @@ def plot_align1_folder(
     loc_df = load_localization_map(localization_file) if localization_file else pd.DataFrame()
     summary_map = load_summary_map(summary_csv) if summary_csv else {}
 
+    all_align1_files = {p.name.replace("align1_", "").replace(".csv", ""): p for p in sorted(align1_dir.glob("align1_*.csv"))}
+    if summary_map:
+        neuron_names = [name for name in _summary_neuron_names(summary_csv) if name in all_align1_files]
+    else:
+        neuron_names = list(all_align1_files.keys())
+
     outputs: list[Path] = []
     rows: list[dict] = []
-    for align1_csv_path in sorted(align1_dir.glob("align1_*.csv")):
-        neuron_name = align1_csv_path.name.replace("align1_", "").replace(".csv", "")
+    for neuron_name in neuron_names:
+        align1_csv_path = all_align1_files[neuron_name]
         summary_row = summary_map.get(neuron_name)
         out_path = plot_neuron_from_align1(
             align1_csv_path=align1_csv_path,
@@ -567,7 +580,11 @@ def main() -> int:
     parser.add_argument("--window-end-ms", type=int, default=5000)
     parser.add_argument("--no-split-by-accuracy", action="store_true")
     parser.add_argument("--no-clip-end-marker", action="store_true")
-    parser.add_argument("--smooth-type", default="triangle", choices=["none", "triangle", "gaussian_kde", "bin_resize_trial_1"])
+    parser.add_argument(
+        "--smooth-type",
+        default="triangle",
+        choices=["none", "triangle", "gaussian_kde", "bin_resize_trial_1"],
+    )
     parser.add_argument("--min-rate-hz", type=float, default=0.25)
     args = parser.parse_args()
 
