@@ -17,7 +17,7 @@ if str(ROOT) not in sys.path:
 try:
     from .config import PIPELINE_ANALYSIS_CONFIG
     from .pipeline_executor import run_pipeline
-except ImportError:
+except ImportError:  # pragma: no cover
     from config import PIPELINE_ANALYSIS_CONFIG
     from pipeline_executor import run_pipeline
 
@@ -56,7 +56,6 @@ def _prompt_patient() -> Dict[str, object]:
         "start_unix_0": _prompt_float("start_unix_0"),
         "duration": _prompt_float("duration"),
         "fps": _prompt_float("fps"),
-        "event_time_offset_ms": _prompt_float("event_time_offset_ms"),
     }
 
 

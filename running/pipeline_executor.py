@@ -241,7 +241,11 @@ def run_patient_pipeline(
         if trace_path is not None:
             artifacts.append(PipelineArtifact(name=trace_path.name, path=trace_path, artifact_type="localization_trace"))
 
-    generate_population_swarm_plot(summary_csv=stats_csv, output_dir=swarm_dir)
+    generate_population_swarm_plot(
+        summary_csv=stats_csv,
+        output_dir=swarm_dir,
+        localization_file=patient_cfg.localization_file,
+    )
     artifacts.append(PipelineArtifact(name=swarm_dir.name, path=swarm_dir, artifact_type="swarm_output_dir"))
 
     run_summary_df, dashboard_pngs = generate_summary_figures(output_root=swarm_dir, summary_csv=stats_csv)
