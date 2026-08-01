@@ -19,6 +19,7 @@
 - [Supported Input Files](#supported-input-files)
 - [MATLAB File Assumptions](#matlab-file-assumptions)
 - [Output CSV Schema](#output-csv-schema)
+- [Running the Package](#running-the-package)
 - [Testing](#testing)
 
 ---
