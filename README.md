@@ -8,22 +8,22 @@
 
 # Table of Contents
 
--   [Project Overview](#project-overview)
--   [Project Goals](#project-goals)
--   [Scientific Background](#scientific-background)
--   [Repository Structure](#repository-structure)
--   [Current Project Status](#current-project-status)
--   [End-to-End Pipeline](#end-to-end-pipeline)
--   [Repository Layout](#repository-layout)
--   [Major Data Products](#major-data-products)
--   [Environment Setup](#environment-setup)
--   [Running the Pipeline](#running-the-pipeline)
--   [Understanding the Outputs](#understanding-the-outputs)
--   [Testing](#testing)
--   [Coding Standards](#coding-standards)
--   [Roadmap](#roadmap)
--   [License](#license)
--   [Acknowledgements](#acknowledgements)
+- [Project Overview](#project-overview)
+- [Project Goals](#project-goals)
+- [Scientific Background](#scientific-background)
+- [Repository Structure](#repository-structure)
+- [Current Project Status](#current-project-status)
+- [End-to-End Pipeline](#end-to-end-pipeline)
+- [Repository Layout](#repository-layout)
+- [Major Data Products](#major-data-products)
+- [Environment Setup](#environment-setup)
+- [Running the Pipeline](#running-the-pipeline)
+- [Understanding the Outputs](#understanding-the-outputs)
+- [Testing](#testing)
+- [Coding Standards](#coding-standards)
+- [Roadmap](#roadmap)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 ------------------------------------------------------------------------
 
@@ -38,13 +38,13 @@ Neurophysiology Laboratory (CNL) / Fried Laboratory.
 The original codebase consisted primarily of a single monolithic Python
 script responsible for:
 
--   loading spike trains
--   reading behavioral timing files
--   converting stimulus timing into analysis windows
--   aligning spikes to behavioral events
--   computing neuron-level statistics
--   generating raster plots
--   producing summary figures
+- loading spike trains
+- reading behavioral timing files
+- converting stimulus timing into analysis windows
+- aligning spikes to behavioral events
+- computing neuron-level statistics
+- generating raster plots
+- producing summary figures
 
 While scientifically correct, the monolithic implementation became
 difficult to understand, modify, test, and extend.
@@ -68,11 +68,11 @@ The original experimental paradigm is intentionally preserved.
 
 This includes:
 
--   naturalistic movie viewing
--   recognition task
--   spike alignment
--   localization lookup
--   neuron-by-neuron analyses
+- naturalistic movie viewing
+- recognition task
+- spike alignment
+- localization lookup
+- neuron-by-neuron analyses
 
 The refactor should produce equivalent scientific results whenever
 possible.
@@ -86,15 +86,15 @@ single script.
 
 These responsibilities have been separated into independent packages.
 
-  Original Responsibility          Refactored Module
-  -------------------------------- -------------------------------
-  MATLAB preprocessing             `preprocessing/`
-  Behavioral metadata              `data_io/`
-  Localization lookup              `data_io/localization.py`
-  TTL parsing                      `data_io/ttl_table_parser.py`
-  Align 1 / Align 2 / statistics   `analysis/`
-  Plot generation                  `plotting/`
-  Pipeline orchestration           `running/`
+| Original Responsibility        | Refactored Module             |
+|:-------------------------------|:------------------------------|
+| MATLAB preprocessing           | `preprocessing/`              |
+| Behavioral metadata            | `data_io/`                    |
+| Localization lookup            | `data_io/localization.py`     |
+| TTL parsing                    | `data_io/ttl_table_parser.py` |
+| Align 1 / Align 2 / statistics | `analysis/`                   |
+| Plot generation                | `plotting/`                   |
+| Pipeline orchestration         | `running/`                    |
 
 Each module is responsible for a single stage of the pipeline.
 
@@ -105,11 +105,11 @@ Each module is responsible for a single stage of the pipeline.
 The refactor introduces explicit intermediate outputs so each stage can
 be checked independently:
 
--   preprocessing writes one CSV per neuron
--   `data_io` standardizes timing metadata
--   `analysis` creates alignment outputs and summary statistics
--   `plotting` consumes analysis outputs to generate figures
--   `running` provides a reproducible end-to-end entry point
+- preprocessing writes one CSV per neuron
+- `data_io` standardizes timing metadata
+- `analysis` creates alignment outputs and summary statistics
+- `plotting` consumes analysis outputs to generate figures
+- `running` provides a reproducible end-to-end entry point
 
 That separation makes it possible to validate each stage without
 rerunning the entire pipeline.
@@ -124,8 +124,8 @@ Patients view naturalistic movie clips while intracranial microelectrode
 recordings are collected.
 
 Following movie presentation, subjects complete a recognition task in
-which previously viewed clips ("seen") are intermixed with novel clips
-("unseen").
+which previously viewed clips (“seen”) are intermixed with novel clips
+(“unseen”).
 
 The primary scientific objective is to determine whether individual
 neurons or neuronal populations exhibit differential activity related to
@@ -145,18 +145,11 @@ combined during spike alignment and statistical analysis.
 
 ## Primary Data Sources
 
-  ----------------------------------------------------------------------------
-  Source                       Description             Produced By
-  ---------------------------- ----------------------- -----------------------
-  `times_manual*.mat`          MATLAB spike sorting    Offline spike sorting
-                               output                  
-
-  `TTL_table.csv`              Behavioral timing table Experimental
-                                                       acquisition software
-
-  `sub-*_localizations.xlsx`   Electrode localization  Clinical localization
-                               workbook                pipeline
-  ----------------------------------------------------------------------------
+| Source                     | Description                     | Produced By                       |
+|:---------------------------|:--------------------------------|:----------------------------------|
+| `times_manual*.mat`        | MATLAB spike sorting output     | Offline spike sorting             |
+| `TTL_table.csv`            | Behavioral timing table         | Experimental acquisition software |
+| `sub-*_localizations.xlsx` | Electrode localization workbook | Clinical localization pipeline    |
 
 These files are treated as immutable raw experimental data.
 
@@ -171,30 +164,23 @@ analysis.
 
 ## Package Documentation
 
-  Package           Documentation
-  ----------------- ----------------------------------------------------
-  `preprocessing`   [preprocessing/README.md](preprocessing/README.md)
-  `data_io`         [data_io/README.md](data_io/README.md)
-  `analysis`        [analysis/README.md](analysis/README.md)
-  `plotting`        [plotting/README.md](plotting/README.md)
-  `running`         [running/README.md](running/README.md)
-  `unit_tests`      [unit_tests/README.md](unit_tests/README.md)
+| Package         | Documentation                                      |
+|:----------------|:---------------------------------------------------|
+| `preprocessing` | [preprocessing/README.md](preprocessing/README.md) |
+| `data_io`       | [data_io/README.md](data_io/README.md)             |
+| `analysis`      | [analysis/README.md](analysis/README.md)           |
+| `plotting`      | [plotting/README.md](plotting/README.md)           |
+| `running`       | [running/README.md](running/README.md)             |
+| `unit_tests`    | [unit_tests/README.md](unit_tests/README.md)       |
 
 ## Entry Points
 
-  -----------------------------------------------------------------------
-  File                                Purpose
-  ----------------------------------- -----------------------------------
-  `running/setup_and_run.py`          Interactive pipeline launcher and
-                                      dry-run planner
-
-  `running/pipeline_executor.py`      Converts prompted values into
-                                      objects and runs the pipeline
-
-  `requirements.txt`                  Python dependencies
-
-  `pyproject.toml`                    Package configuration
-  -----------------------------------------------------------------------
+| File                           | Purpose                                                     |
+|:-------------------------------|:------------------------------------------------------------|
+| `running/setup_and_run.py`     | Interactive pipeline launcher and dry-run planner           |
+| `running/pipeline_executor.py` | Converts prompted values into objects and runs the pipeline |
+| `requirements.txt`             | Python dependencies                                         |
+| `pyproject.toml`               | Package configuration                                       |
 
 ## Repository Layout
 
@@ -249,58 +235,21 @@ implementation to a modular analysis pipeline.
 
 ## Module Status
 
-  ------------------------------------------------------------------------------------------
-  Module                                     Purpose                 Status
-  ------------------------------------------ ----------------------- -----------------------
-  `preprocessing/convert_matlab_to_csv.py`   Convert MATLAB spike    Complete
-                                             sorting output into     
-                                             per-unit CSV files      
-
-  `data_io/ttl_table_parser.py`              Parse behavioral TTL    Complete
-                                             tables into             
-                                             standardized trial      
-                                             tables                  
-
-  `data_io/localization.py`                  Load localization       Complete
-                                             workbooks and infer     
-                                             neuron anatomy          
-
-  `analysis/session_alignment_align1.py`     Align per-unit spike    Complete
-                                             CSVs to the             
-                                             movie/session timeline  
-                                             (Align 1)               
-
-  `analysis/trial_alignment_align2.py`       Assign movie-aligned    Complete
-                                             spikes to behavioral    
-                                             trial windows (Align 2) 
-
-  `analysis/binning.py`                      Bin movie-aligned       Complete
-                                             spikes at fixed widths  
-
-  `analysis/statistics.py`                   Compute neuron-level    Complete
-                                             summary statistics      
-
-  `plotting/rasters.py`                      Generate raster/PSTH    Complete
-                                             figures                 
-
-  `plotting/swarm.py`                        Generate population     Complete
-                                             swarm plots and         
-                                             regional summaries      
-
-  `plotting/summary_figures.py`              Assemble summary        Complete
-                                             dashboards and          
-                                             run-level summaries     
-
-  `running/setup_and_run.py`                 Interactive launch and  Complete
-                                             dry-run planning        
-
-  `running/pipeline_executor.py`             Object conversion,      Complete
-                                             output planning, and    
-                                             pipeline execution      
-
-  `unit_tests/`                              Pytest-based validation Complete
-                                             suite                   
-  ------------------------------------------------------------------------------------------
+| Module                                   | Purpose                                                           | Status   |
+|:-----------------------------------------|:------------------------------------------------------------------|:---------|
+| `preprocessing/convert_matlab_to_csv.py` | Convert MATLAB spike sorting output into per-unit CSV files       | Complete |
+| `data_io/ttl_table_parser.py`            | Parse behavioral TTL tables into standardized trial tables        | Complete |
+| `data_io/localization.py`                | Load localization workbooks and infer neuron anatomy              | Complete |
+| `analysis/session_alignment_align1.py`   | Align per-unit spike CSVs to the movie/session timeline (Align 1) | Complete |
+| `analysis/trial_alignment_align2.py`     | Assign movie-aligned spikes to behavioral trial windows (Align 2) | Complete |
+| `analysis/binning.py`                    | Bin movie-aligned spikes at fixed widths                          | Complete |
+| `analysis/statistics.py`                 | Compute neuron-level summary statistics                           | Complete |
+| `plotting/rasters.py`                    | Generate raster/PSTH figures                                      | Complete |
+| `plotting/swarm.py`                      | Generate population swarm plots and regional summaries            | Complete |
+| `plotting/summary_figures.py`            | Assemble summary dashboards and run-level summaries               | Complete |
+| `running/setup_and_run.py`               | Interactive launch and dry-run planning                           | Complete |
+| `running/pipeline_executor.py`           | Object conversion, output planning, and pipeline execution        | Complete |
+| `unit_tests/`                            | Pytest-based validation suite                                     | Complete |
 
 ------------------------------------------------------------------------
 
@@ -312,9 +261,9 @@ visualization.
 
 The three raw experimental inputs are:
 
--   MATLAB spike sorting output
--   Behavioral timing information
--   Electrode localization information
+- MATLAB spike sorting output
+- Behavioral timing information
+- Electrode localization information
 
 These are processed independently before being merged later in the
 analysis pipeline.
@@ -364,25 +313,25 @@ flowchart TD
 
 ### How to read the diagram
 
--   `preprocessing` produces one per-neuron CSV for each raw MATLAB
-    spike file.
--   `data_io/ttl_table_parser.py` standardizes the behavioral timing
-    table into `trial_table.csv`.
--   `data_io/localization.py` loads the localization workbook and
-    produces the neuron-to-region mapping used downstream.
--   `analysis/session_alignment_align1.py` combines per-neuron spike
-    CSVs with the movie/session timing to create Align 1 outputs.
--   `analysis/trial_alignment_align2.py` combines Align 1 with
-    `trial_table.csv` to create trial-aligned outputs.
--   `analysis/binning.py` summarizes Align 1 spike trains into fixed
-    movie bins.
--   `analysis/statistics.py` produces the canonical neuron summary used
-    by the plotting stage.
--   `plotting/rasters.py`, `plotting/swarm.py`, and
-    `plotting/summary_figures.py` consume the analysis outputs to build
-    figures and summary tables.
--   `running/setup_and_run.py` connects all stages into a single
-    end-to-end execution path.
+- `preprocessing` produces one per-neuron CSV for each raw MATLAB spike
+  file.
+- `data_io/ttl_table_parser.py` standardizes the behavioral timing table
+  into `trial_table.csv`.
+- `data_io/localization.py` loads the localization workbook and produces
+  the neuron-to-region mapping used downstream.
+- `analysis/session_alignment_align1.py` combines per-neuron spike CSVs
+  with the movie/session timing to create Align 1 outputs.
+- `analysis/trial_alignment_align2.py` combines Align 1 with
+  `trial_table.csv` to create trial-aligned outputs.
+- `analysis/binning.py` summarizes Align 1 spike trains into fixed movie
+  bins.
+- `analysis/statistics.py` produces the canonical neuron summary used by
+  the plotting stage.
+- `plotting/rasters.py`, `plotting/swarm.py`, and
+  `plotting/summary_figures.py` consume the analysis outputs to build
+  figures and summary tables.
+- `running/setup_and_run.py` connects all stages into a single
+  end-to-end execution path.
 
 Each stage is intentionally isolated so that preprocessing, behavioral
 metadata, localization metadata, statistics, and plotting can be
@@ -402,11 +351,11 @@ testing and debugging.
 
 These files are never modified.
 
-  File                         Description
-  ---------------------------- ---------------------------------
-  `times_manual*.mat`          MATLAB spike sorting output
-  `TTL_table.csv`              Behavioral timing table
-  `sub-*_localizations.xlsx`   Electrode localization workbook
+| File                       | Description                     |
+|:---------------------------|:--------------------------------|
+| `times_manual*.mat`        | MATLAB spike sorting output     |
+| `TTL_table.csv`            | Behavioral timing table         |
+| `sub-*_localizations.xlsx` | Electrode localization workbook |
 
 ------------------------------------------------------------------------
 
@@ -414,40 +363,18 @@ These files are never modified.
 
 These files are produced by the repository.
 
-  -------------------------------------------------------------------------------------
-  File                          Produced By                     Purpose
-  ----------------------------- ------------------------------- -----------------------
-  `times_manual_*_unit_#.csv`   `convert_matlab_to_csv.py`      One spike train per
-                                                                neuron
-
-  `trial_table.csv`             `ttl_table_parser.py`           Canonical behavioral
-                                                                trial table
-
-  `align1_*.csv`                `session_alignment_align1.py`   Movie/session-aligned
-                                                                spike trains
-
-  `align2_*.csv`                `trial_alignment_align2.py`     Trial-aligned spike
-                                                                trains
-
-  `*_binned.csv`                `binning.py`                    Fixed-width movie-bin
-                                                                summaries
-
-  `neuron_summary.csv`          `statistics.py`                 Canonical neuron-level
-                                                                statistics
-
-  `plots/rasters/*/*.png`       `rasters.py`                    Neuron-level
-                                                                visualizations
-
-  `plots/swarm/*/*.png`         `swarm.py`                      Population-level
-                                                                visualizations
-
-  `plots/dashboards/*.png`      `summary_figures.py`            Summary dashboard
-                                                                figures
-
-  `pipeline_artifacts.json`     `pipeline_executor.py`          Machine-readable
-                                                                manifest of produced
-                                                                files
-  -------------------------------------------------------------------------------------
+| File                        | Produced By                   | Purpose                                     |
+|:----------------------------|:------------------------------|:--------------------------------------------|
+| `times_manual_*_unit_#.csv` | `convert_matlab_to_csv.py`    | One spike train per neuron                  |
+| `trial_table.csv`           | `ttl_table_parser.py`         | Canonical behavioral trial table            |
+| `align1_*.csv`              | `session_alignment_align1.py` | Movie/session-aligned spike trains          |
+| `align2_*.csv`              | `trial_alignment_align2.py`   | Trial-aligned spike trains                  |
+| `*_binned.csv`              | `binning.py`                  | Fixed-width movie-bin summaries             |
+| `neuron_summary.csv`        | `statistics.py`               | Canonical neuron-level statistics           |
+| `plots/rasters/*/*.png`     | `rasters.py`                  | Neuron-level visualizations                 |
+| `plots/swarm/*/*.png`       | `swarm.py`                    | Population-level visualizations             |
+| `plots/dashboards/*.png`    | `summary_figures.py`          | Summary dashboard figures                   |
+| `pipeline_artifacts.json`   | `pipeline_executor.py`        | Machine-readable manifest of produced files |
 
 ------------------------------------------------------------------------
 
@@ -565,10 +492,10 @@ This file is the timing reference for the rest of the pipeline.
 
 Use it to determine:
 
--   clip start and end times
--   clip ordering
--   accuracy labels
--   which clip rows should be included in plots
+- clip start and end times
+- clip ordering
+- accuracy labels
+- which clip rows should be included in plots
 
 ------------------------------------------------------------------------
 
@@ -583,10 +510,10 @@ because it places spikes on the same timebase as the movie session.
 
 Use it for:
 
--   movie binning
--   statistics
--   raster generation
--   debugging alignment
+- movie binning
+- statistics
+- raster generation
+- debugging alignment
 
 ------------------------------------------------------------------------
 
@@ -610,10 +537,10 @@ This is the slow-timescale summary of the Align 1 spike train.
 
 Interpretation:
 
--   each row is one time bin
--   the counts/rates show how firing changes across the session
--   the default bin width is 10 seconds unless overridden in
-    `running/setup_and_run.py`
+- each row is one time bin
+- the counts/rates show how firing changes across the session
+- the default bin width is 10 seconds unless overridden in
+  `running/setup_and_run.py`
 
 ------------------------------------------------------------------------
 
@@ -625,22 +552,22 @@ This is the most important derived table in the repository.
 
 It determines:
 
--   which neurons are plotted
--   which neurons are considered significant
--   which neurons appear in regional swarm analyses
--   which neurons pass the plotting eligibility threshold
+- which neurons are plotted
+- which neurons are considered significant
+- which neurons appear in regional swarm analyses
+- which neurons pass the plotting eligibility threshold
 
 The plotting stage uses this file as its source of truth rather than
 recomputing significance.
 
 ### How to interpret it
 
--   `Post-Stim Mean Rate (Hz)` is the firing-rate filter used by raster
-    generation.
--   `Pre-Stim Significant` and `Post-Stim Significant` indicate whether
-    the statistical tests crossed the significance threshold.
--   `T-Score Diff (Pre - Post)` is used by the swarm plots to compare
-    pre-stimulus and post-stimulus effects.
+- `Post-Stim Mean Rate (Hz)` is the firing-rate filter used by raster
+  generation.
+- `Pre-Stim Significant` and `Post-Stim Significant` indicate whether
+  the statistical tests crossed the significance threshold.
+- `T-Score Diff (Pre - Post)` is used by the swarm plots to compare
+  pre-stimulus and post-stimulus effects.
 
 ### Implementation Note
 
@@ -678,14 +605,14 @@ clip onset.
 
 Typical elements:
 
--   raster panel
--   PSTH panel
--   split by correct vs incorrect trials when available
--   clip-end marker when enabled
--   title information including location and summary statistics when
-    available
+- raster panel
+- PSTH panel
+- split by correct vs incorrect trials when available
+- clip-end marker when enabled
+- title information including location and summary statistics when
+  available
 
-Use raster figures to inspect whether a neuron's modulation is
+Use raster figures to inspect whether a neuron’s modulation is
 concentrated around clip onset, whether it differs by trial correctness,
 and whether the summary statistics match the visual pattern.
 
@@ -697,28 +624,28 @@ Population-level summary figures.
 
 Each regional folder includes:
 
--   `P1_Post-Stim_T-Scores.png`
--   `P2_Pre-Stim_T-Scores.png`
--   `P3_Diff_SigOnly.png`
--   `P4_Diff_All.png`
--   `P5_Diff_Post_GTE_1.png`
--   `Swarm_Statistics_<region>.csv`
--   `Summary_Overview_<region>.csv`
+- `P1_Post-Stim_T-Scores.png`
+- `P2_Pre-Stim_T-Scores.png`
+- `P3_Diff_SigOnly.png`
+- `P4_Diff_All.png`
+- `P5_Diff_Post_GTE_1.png`
+- `Swarm_Statistics_<region>.csv`
+- `Summary_Overview_<region>.csv`
 
 The top-level `plots/swarm/` folder also contains:
 
--   `Summary_Global_and_Regional.csv`
--   `Summary_Patient_Bipolar_Breakdown.csv`
+- `Summary_Global_and_Regional.csv`
+- `Summary_Patient_Bipolar_Breakdown.csv`
 
 ### How to interpret the swarm figures
 
--   **P1**: post-stimulus T-scores across the population.
--   **P2**: pre-stimulus T-scores across the population.
--   **P3**: T-score difference for the subset of neurons significant in
-    either epoch.
--   **P4**: T-score difference for all analyzed neurons.
--   **P5**: T-score difference for the subset with strong post-stimulus
-    response.
+- **P1**: post-stimulus T-scores across the population.
+- **P2**: pre-stimulus T-scores across the population.
+- **P3**: T-score difference for the subset of neurons significant in
+  either epoch.
+- **P4**: T-score difference for all analyzed neurons.
+- **P5**: T-score difference for the subset with strong post-stimulus
+  response.
 
 These plots are used to compare population-level activity overall and by
 anatomical region.
@@ -779,14 +706,14 @@ pytest
 
 The unit tests cover:
 
--   TTL parsing
--   localization lookup
--   Align 1
--   Align 2
--   binning
--   statistics
--   plotting
--   pipeline planning
+- TTL parsing
+- localization lookup
+- Align 1
+- Align 2
+- binning
+- statistics
+- plotting
+- pipeline planning
 
 The tests are intended to verify both individual functions and the
 filesystem layout produced by the pipeline planner.
@@ -799,22 +726,22 @@ The repository follows a single-responsibility structure.
 
 ## Package boundaries
 
--   `preprocessing` converts raw MATLAB output into per-neuron CSVs.
--   `data_io` standardizes timing and localization metadata.
--   `analysis` performs the scientific calculations.
--   `plotting` turns analysis outputs into figures.
--   `running` orchestrates the full pipeline.
+- `preprocessing` converts raw MATLAB output into per-neuron CSVs.
+- `data_io` standardizes timing and localization metadata.
+- `analysis` performs the scientific calculations.
+- `plotting` turns analysis outputs into figures.
+- `running` orchestrates the full pipeline.
 
 ## Documentation principle
 
 Public modules should document:
 
--   purpose
--   inputs
--   outputs
--   public API
--   implementation details that are not obvious from the code
--   testing expectations
+- purpose
+- inputs
+- outputs
+- public API
+- implementation details that are not obvious from the code
+- testing expectations
 
 ## Implementation principle
 
@@ -823,10 +750,10 @@ reaching back into upstream internals.
 
 Examples:
 
--   plotting consumes `neuron_summary.csv`
--   Align 2 consumes Align 1 plus `trial_table.csv`
--   summary outputs are generated from the statistics tables, not
-    recomputed in plotting
+- plotting consumes `neuron_summary.csv`
+- Align 2 consumes Align 1 plus `trial_table.csv`
+- summary outputs are generated from the statistics tables, not
+  recomputed in plotting
 
 ------------------------------------------------------------------------
 
