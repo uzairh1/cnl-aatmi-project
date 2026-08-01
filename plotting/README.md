@@ -12,6 +12,7 @@
 - [`rasters.py`](#rasterspy)
 - [`swarm.py`](#swarmpy)
 - [`summary_figures.py`](#summary_figurespy)
+- [Running the Package](#running-the-package)
 - [Testing](#testing)
 
 ---
