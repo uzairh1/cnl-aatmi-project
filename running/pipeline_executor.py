@@ -146,6 +146,62 @@ def _write_localization_trace(align1_dir: Path, loc_df: pd.DataFrame, output_pat
     return output_path
 
 
+def plan_patient_pipeline(
+    patient_cfg: PatientConfig,
+    analysis_cfg: AnalysisConfig,
+    output_root: Path,
+    *,
+    bin_size_s: int | None = None,
+) -> dict:
+    if bin_size_s is None:
+        bin_size_s = analysis_cfg.movie_bin_size_s
+
+    patient_root = _patient_root(output_root, patient_cfg)
+    plots_root = patient_root / "plots"
+    rasters_root = plots_root / "rasters"
+    swarm_root = plots_root / "swarm"
+
+    return {
+        "patient_root": str(patient_root),
+        "bin_size_s": bin_size_s,
+        "folders": [
+            str(patient_root / "data"),
+            str(patient_root / "align1"),
+            str(patient_root / "align2"),
+            str(patient_root / "binning"),
+            str(patient_root / "statistics"),
+            str(rasters_root / "all"),
+            str(rasters_root / "sig"),
+            str(rasters_root / "nonsig"),
+            str(rasters_root / "regions"),
+            str(swarm_root / "global"),
+            str(swarm_root / "HPC"),
+            str(swarm_root / "ERC"),
+            str(swarm_root / "FC"),
+            str(swarm_root / "LTC"),
+            str(swarm_root / "MTL"),
+            str(plots_root / "dashboards"),
+        ],
+        "files": [
+            str(patient_root / "data" / "trial_table.csv"),
+            str(patient_root / "statistics" / "neuron_summary.csv"),
+            str(patient_root / "localization_trace.csv"),
+            str(patient_root / "pipeline_artifacts.json"),
+        ],
+        "raster_files": [
+            "all/sig/nonsig copies generated per neuron",
+            "regional mirror copies generated per neuron",
+        ],
+        "swarm_files": [
+            "global and regional P1-P5 PNGs",
+            "global and regional statistics CSVs",
+            "Summary_Global_and_Regional.csv",
+            "Summary_Patient_Bipolar_Breakdown.csv",
+        ],
+        "dashboards": str(plots_root / "dashboards"),
+    }
+
+
 def run_patient_pipeline(
     patient_cfg: PatientConfig,
     analysis_cfg: AnalysisConfig,
@@ -169,8 +225,9 @@ def run_patient_pipeline(
     stats_dir = patient_root / "statistics"
     rasters_dir = patient_root / "plots" / "rasters"
     swarm_dir = patient_root / "plots" / "swarm"
+    dashboards_dir = patient_root / "plots" / "dashboards"
 
-    for d in (data_dir, align1_dir, align2_dir, binning_dir, stats_dir, rasters_dir, swarm_dir):
+    for d in (data_dir, align1_dir, align2_dir, binning_dir, stats_dir, rasters_dir, swarm_dir, dashboards_dir):
         d.mkdir(parents=True, exist_ok=True)
 
     artifacts: list[PipelineArtifact] = []
@@ -254,6 +311,10 @@ def run_patient_pipeline(
         artifacts.append(PipelineArtifact(name=run_summary_csv.name, path=run_summary_csv, artifact_type="run_summary_csv"))
     artifacts.extend(_add_artifacts_from_paths(dashboard_pngs, "dashboard_png"))
 
+    manifest = patient_root / "pipeline_artifacts.json"
+    manifest.write_text(json.dumps([a.to_dict() for a in artifacts], indent=2), encoding="utf-8")
+    artifacts.append(PipelineArtifact(name=manifest.name, path=manifest, artifact_type="pipeline_artifact_manifest"))
+
     return artifacts
 
 
@@ -274,6 +335,4 @@ def run_pipeline(
         artifacts = run_patient_pipeline(patient_cfg, analysis_cfg, output_root, bin_size_s=bin_size_s)
         all_artifacts.extend(artifacts)
 
-    manifest = output_root / "pipeline_artifacts.json"
-    manifest.write_text(json.dumps([a.to_dict() for a in all_artifacts], indent=2), encoding="utf-8")
     return all_artifacts

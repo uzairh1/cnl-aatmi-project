@@ -6,6 +6,7 @@ Prompt for the monolithic hardcoded patient values and launch the pipeline.
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 from typing import Dict, List
@@ -16,10 +17,10 @@ if str(ROOT) not in sys.path:
 
 try:
     from .config import PIPELINE_ANALYSIS_CONFIG
-    from .pipeline_executor import run_pipeline
+    from .pipeline_executor import plan_patient_pipeline, run_pipeline, patient_dict_to_config, analysis_dict_to_config
 except ImportError:  # pragma: no cover
     from config import PIPELINE_ANALYSIS_CONFIG
-    from pipeline_executor import run_pipeline
+    from pipeline_executor import plan_patient_pipeline, run_pipeline, patient_dict_to_config, analysis_dict_to_config
 
 
 def _prompt_str(label: str) -> str:
@@ -71,7 +72,24 @@ def _prompt_movie_bin_size() -> int:
         return default
 
 
+def _print_plan(plan: dict) -> None:
+    print("\nDRY RUN PLAN")
+    print(f"patient_root: {plan['patient_root']}")
+    print("folders:")
+    for item in plan["folders"]:
+        print(f"  - {item}")
+    print("files:")
+    for item in plan["files"]:
+        print(f"  - {item}")
+    print(f"dashboards: {plan['dashboards']}")
+    print(f"movie_bin_size_s: {plan['bin_size_s']}")
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Interactive pipeline setup.")
+    parser.add_argument("--dry-run", action="store_true", help="Print the planned output tree without running the pipeline.")
+    args = parser.parse_args()
+
     print("Interactive pipeline setup")
     print("Enter the monolithic field names when prompted.\n")
 
@@ -84,6 +102,15 @@ def main() -> int:
 
     output_root = _prompt_str("\noutput_root")
     bin_size_s = _prompt_movie_bin_size()
+
+    if args.dry_run:
+        analysis_cfg = analysis_dict_to_config(None)
+        output_root_path = Path(output_root)
+        for raw_patient in patients:
+            patient_cfg = patient_dict_to_config(raw_patient)
+            plan = plan_patient_pipeline(patient_cfg, analysis_cfg, output_root_path, bin_size_s=bin_size_s)
+            _print_plan(plan)
+        return 0
 
     run_pipeline(patients, None, output_root, bin_size_s=bin_size_s)
     print(f"Pipeline launched to: {output_root}")
