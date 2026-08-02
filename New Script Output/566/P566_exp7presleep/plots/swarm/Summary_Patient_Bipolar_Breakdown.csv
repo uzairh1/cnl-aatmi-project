@@ -1,0 +1,6 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P566_exp7presleep,AMY - amygdala,2,0,1
+P566_exp7presleep,"FC - frontal cortex (includes SFG, MFG, IFG, OFC)",19,7,0
+P566_exp7presleep,FUS - fusiform cortex,14,2,0
+P566_exp7presleep,HPC - hippocampus,4,1,0
+P566_exp7presleep,"LTC - lateral temporal cortex (includes STG, MTG, IFG, banksSTS and TP)",4,0,0
