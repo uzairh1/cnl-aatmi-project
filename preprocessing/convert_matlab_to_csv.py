@@ -156,7 +156,6 @@ def convert_mat_file(
         df.to_csv(outfile, index=False, float_format="%.4f")
         written_files.append(outfile)
 
-        print(f"Created {outfile.name}")
 
     return written_files
 
@@ -167,25 +166,101 @@ def convert_folder(folder: Path, skip_unit0: bool = True) -> list[Path]:
     """
     folder = Path(folder)
     written: list[Path] = []
+    skipped_errors: list[tuple[str, str]] = []
+    no_csv_files: list[str] = []
 
     mat_files = sorted(folder.glob("times_manual*.mat"))
 
+    log_path = folder / "skipped_mat_files.txt"
+
     if not mat_files:
-        print(f"No MAT files found in {folder}")
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        log_path.write_text(
+            "Movie SME Preprocessing\n"
+            "=======================\n\n"
+            f"Folder:\n{folder}\n\n"
+            "Summary\n"
+            "-------\n"
+            "MAT files found: 0\n"
+            "MAT files read successfully: 0\n"
+            "CSV files written: 0\n"
+            "Skipped due to errors: 0\n"
+            "No CSVs written after filtering: 0\n",
+            encoding="utf-8",
+        )
         return written
 
-    print(f"\nProcessing {folder}")
-
     for mat_file in mat_files:
-        written.extend(
-            convert_mat_file(
+        try:
+            written_this_file = convert_mat_file(
                 mat_file,
                 output_dir=folder,
                 skip_unit0=skip_unit0,
             )
-        )
+        except Exception as exc:
+            skipped_errors.append((mat_file.name, f"{type(exc).__name__}: {exc}"))
+            continue
 
-    print(f"Finished {folder}")
+        written.extend(written_this_file)
+
+        if not written_this_file:
+            no_csv_files.append(mat_file.name)
+
+    if skipped_errors or no_csv_files:
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        log_lines: list[str] = [
+            "Movie SME Preprocessing",
+            "=======================",
+            "",
+            "Folder:",
+            f"{folder}",
+            "",
+            "Summary",
+            "-------",
+            f"MAT files found: {len(mat_files)}",
+            f"MAT files read successfully: {len(mat_files) - len(skipped_errors)}",
+            f"CSV files written: {len(written)}",
+            f"Skipped due to errors: {len(skipped_errors)}",
+            f"No CSVs written after filtering: {len(no_csv_files)}",
+            "",
+        ]
+
+        if skipped_errors:
+            log_lines.extend(
+                [
+                    "Skipped MAT files",
+                    "-----------------",
+                    "",
+                ]
+            )
+            for file_name, reason in skipped_errors:
+                log_lines.extend(
+                    [
+                        file_name,
+                        f"    Reason: {reason}",
+                        "",
+                    ]
+                )
+
+        if no_csv_files:
+            log_lines.extend(
+                [
+                    "Files that produced no CSV output",
+                    "----------------------------------",
+                    "",
+                ]
+            )
+            for file_name in no_csv_files:
+                log_lines.extend(
+                    [
+                        file_name,
+                        "    Reason: No CSVs were written after filtering out unit 0.",
+                        "",
+                    ]
+                )
+
+        log_path.write_text("\n".join(log_lines).rstrip() + "\n", encoding="utf-8")
+
     return written
 
 
@@ -198,7 +273,6 @@ def convert_folders(folders: list[str | Path], skip_unit0: bool = True) -> list[
     for folder in folders:
         written.extend(convert_folder(Path(folder), skip_unit0=skip_unit0))
 
-    print(f"\nCreated {len(written)} CSV files.")
     return written
 
 
@@ -224,10 +298,11 @@ def main() -> None:
         folders = choose_folders()
 
     if not folders:
-        print("No folders selected.")
+        print("Completed preprocessing: 0 CSV files written.")
         return
 
-    convert_folders(folders, skip_unit0=not args.keep_unit_0)
+    written = convert_folders(folders, skip_unit0=not args.keep_unit_0)
+    print(f"Completed preprocessing: {len(written)} CSV files written. See skipped_mat_files.txt for details.")
 
 
 if __name__ == "__main__":
