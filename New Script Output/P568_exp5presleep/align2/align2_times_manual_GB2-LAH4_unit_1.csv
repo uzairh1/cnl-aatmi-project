@@ -1,0 +1,2 @@
+units,spikeTimeRawS,movieAlignedTimeS,movieAlignedTimeMs,trialOrder,clipWindowId,clipID,movieID,isAccurate,plotOrder,includeInPlots,clipStartTimeMs,clipEndTimeMs,spikeTimeRelativeToClipStartMs,spikeTimeRelativeToClipStartS
+1,2160.5115,1558.5185,1558518.4594,20,1.0-1556785-1561775,634.0000,1.0000,1,15,True,1556785.0000,1561775.0000,1733.4594,1.7335

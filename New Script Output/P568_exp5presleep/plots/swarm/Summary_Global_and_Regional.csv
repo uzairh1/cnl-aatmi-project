@@ -1,0 +1,5 @@
+Scope,Total Patients,Total Neurons,Significant Pre (-1000 to 0),Significant Post (200-1200)
+global,1,55,7,4
+HPC,1,9,4,1
+FC,1,26,2,2
+MTL,1,16,4,2

@@ -1,0 +1,6 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P568_exp5presleep,AMY - amygdala,7,0,1
+P568_exp5presleep,CC - anterior cingulate cortex,9,1,0
+P568_exp5presleep,"FC - frontal cortex (includes SFG, MFG, IFG, OFC)",26,2,2
+P568_exp5presleep,HPC - hippocampus,9,4,1
+P568_exp5presleep,WM - white matter,4,0,0
