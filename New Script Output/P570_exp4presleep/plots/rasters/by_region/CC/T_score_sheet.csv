@@ -1,0 +1,2 @@
+Patient,Neuron Name,Pre-Stim T-Score,Pre-Stim P-Value,Pre-Stim Significant,Post-Stim T-Score,Post-Stim P-Value,Post-Stim Significant,T-Score Diff (Pre - Post),Post-Stim Mean Rate (Hz),N Clips,Region Abbr,Sig Status,Raster Path
+P570_exp4presleep,times_manual_GB3-LOF7_unit_1,-1.6820245349168024,0.1160545047323529,False,-4.7317709163597845,0.0002969345208629,True,3.049746381442982,4.88,75,CC,sig,C:\Users\Uzair\Desktop\CNL\cnl_aatmi_project\New Script Output\P570_exp4presleep\plots\rasters\all\P570_exp4presleep_LOF_times_manual_GB3-LOF7_unit_1.png

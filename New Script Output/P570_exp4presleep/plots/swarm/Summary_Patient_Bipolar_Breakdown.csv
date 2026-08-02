@@ -1,0 +1,8 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P570_exp4presleep,AMY - amygdala,9,1,3
+P570_exp4presleep,CC - anterior cingulate cortex,1,0,1
+P570_exp4presleep,ERC - entorhinal cortex,2,0,0
+P570_exp4presleep,"FC - frontal cortex (includes SFG, MFG, IFG, OFC)",2,0,0
+P570_exp4presleep,HPC - hippocampus,9,2,1
+P570_exp4presleep,INS - insula,17,2,3
+P570_exp4presleep,"PHC - parahippocampal gyrus (parahippocampal, perirhinal)",8,2,2

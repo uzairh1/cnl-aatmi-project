@@ -1,0 +1,1522 @@
+[
+  {
+    "name": "trial_table.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\data\\trial_table.csv",
+    "artifact_type": "trial_table"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA1-REC3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA1-REC4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA1-REC5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA1-REC5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA2-RA7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RA7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA2-RA7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA3-RMH8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GA4-RPHG7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA2_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB1-LA8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB2-LMH8_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LOF7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB3-LOF7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR3_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GB4-LOPR8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-ROF4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC1-ROF4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-ROF5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC1-ROF5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-ROF7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC1-ROF7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align1\\align1_times_manual_GC2-ROPRAI8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA1-REC3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA1-REC4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA1-REC5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA1-REC5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA2-RA7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RA7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA2-RA7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RMH8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA3-RMH8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPHG7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GA4-RPHG7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA2_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB1-LA8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LMH8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB2-LMH8_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LOF7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB3-LOF7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR3_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOPR8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GB4-LOPR8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-ROF4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC1-ROF4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-ROF5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC1-ROF5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-ROF7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC1-ROF7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-ROPRAI8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\align2\\align2_times_manual_GC2-ROPRAI8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA1-REC3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA1-REC4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA1-REC5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA1-REC5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RA7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA2-RA7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RA7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA2-RA7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RMH8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA3-RMH8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPHG7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GA4-RPHG7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA2_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB1-LA8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LMH8_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB2-LMH8_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LOF7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB3-LOF7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR3_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR3_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOPR8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GB4-LOPR8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-ROF4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC1-ROF4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-ROF5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC1-ROF5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-ROF7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC1-ROF7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-ROPRAI8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\binning\\align1_times_manual_GC2-ROPRAI8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "neuron_summary.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\statistics\\neuron_summary.csv",
+    "artifact_type": "neuron_summary_csv"
+  },
+  {
+    "name": "P570_exp4presleep_REC_times_manual_GA1-REC3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_REC_times_manual_GA1-REC3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_REC_times_manual_GA1-REC5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_REC_times_manual_GA1-REC5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RA_times_manual_GA2-RA7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RA_times_manual_GA2-RA7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RA_times_manual_GA2-RA7_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RA_times_manual_GA2-RA7_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RMH_times_manual_GA3-RMH4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RMH_times_manual_GA3-RMH4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RMH_times_manual_GA3-RMH5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RMH_times_manual_GA3-RMH5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RMH_times_manual_GA3-RMH6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RMH_times_manual_GA3-RMH6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG1_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG1_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG6_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG6_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_RPHG_times_manual_GA4-RPHG7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_RPHG_times_manual_GA4-RPHG7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LA_times_manual_GB1-LA1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LA_times_manual_GB1-LA1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LA_times_manual_GB1-LA2_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LA_times_manual_GB1-LA2_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LA_times_manual_GB1-LA3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LA_times_manual_GB1-LA3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LA_times_manual_GB1-LA6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LA_times_manual_GB1-LA6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LA_times_manual_GB1-LA7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LA_times_manual_GB1-LA7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LA_times_manual_GB1-LA8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LA_times_manual_GB1-LA8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LA_times_manual_GB1-LA8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LA_times_manual_GB1-LA8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LMH_times_manual_GB2-LMH3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LMH_times_manual_GB2-LMH3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LMH_times_manual_GB2-LMH4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LMH_times_manual_GB2-LMH4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LMH_times_manual_GB2-LMH4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LMH_times_manual_GB2-LMH4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LMH_times_manual_GB2-LMH8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LMH_times_manual_GB2-LMH8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LMH_times_manual_GB2-LMH8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LMH_times_manual_GB2-LMH8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LMH_times_manual_GB2-LMH8_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LMH_times_manual_GB2-LMH8_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOF_times_manual_GB3-LOF7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOF_times_manual_GB3-LOF7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR1_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR1_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR1_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR1_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR3_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR3_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR6_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR6_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_LOPR_times_manual_GB4-LOPR8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_LOPR_times_manual_GB4-LOPR8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_ROF_times_manual_GC1-ROF4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_ROF_times_manual_GC1-ROF4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_ROF_times_manual_GC1-ROF7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_ROF_times_manual_GC1-ROF7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI1_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI1_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\rasters\\all\\P570_exp4presleep_ROPRAI_times_manual_GC2-ROPRAI8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "localization_trace.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\localization_trace.csv",
+    "artifact_type": "localization_trace"
+  },
+  {
+    "name": "swarm",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\swarm",
+    "artifact_type": "swarm_output_dir"
+  },
+  {
+    "name": "Run_Summary.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\dashboards\\Run_Summary.csv",
+    "artifact_type": "run_summary_csv"
+  },
+  {
+    "name": "ERC_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\dashboards\\ERC_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "FC_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\dashboards\\FC_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "global_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\dashboards\\global_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "HPC_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\dashboards\\HPC_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "MTL_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\cnl_aatmi_project\\New Script Output\\P570_exp4presleep\\plots\\dashboards\\MTL_dashboard.png",
+    "artifact_type": "dashboard_png"
+  }
+]
