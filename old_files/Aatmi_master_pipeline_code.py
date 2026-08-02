@@ -23,135 +23,17 @@ from scipy.stats import ttest_ind, gaussian_kde, chisquare
 # USER EDIT SECTION
 # =============================================================================
 PATIENT_CONFIGS: List[Dict[str, object]] = [
-{
-   "patient_id": "566",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/566TMexp7presleep",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/566TMexp7presleep/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-566_localizations.xlsx",
-   "output_tag": "exp7presleep",
-   "matLab": 1691272807.193047,
-   "start_unix_0": 1691273171.2970471,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "567",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/567TMexp8presleep",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/567TMexp8presleep/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-567_localizations.xlsx",
-   "output_tag": "exp8presleep",
-   "matLab": 1692747794.1907692,
-   "start_unix_0": 1692748176.5677693,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "568",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/568TMexp5presleep",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/568TMexp5presleep/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-568_localizations.xlsx",
-   "output_tag": "exp5presleep",
-   "matLab": 1700603867.2240472,
-   "start_unix_0": 1700604469.2170877,
-   "duration": 2476.867,
-   "fps": 29.97
-},
+
+
 {
    "patient_id": "570",
    "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/570TMexp4presleep",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/570TMexp4presleep/570_TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-570_localizations.xlsx",
+   "signal_path": "C:\\Users\\Uzair\\Desktop\\CNL\\570 test run",
+   "clip_ttl_csv": "C:\\Users\\Uzair\\Desktop\\CNL\\570 test run\\TTL_table.csv",
+   "localization_file": "C:\\Users\\Uzair\\Desktop\\CNL\\570 test run\\sub-570_localizations.xlsx",
    "output_tag": "exp4presleep",
    "matLab": 1706304396.2999392,
    "start_unix_0": 1706308502.2209392,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "572",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/572TMexp9presleepviewing",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/572TMexp9presleepviewing/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-572_localizations.xlsx",
-   "output_tag": "exp9presleepviewing",
-   "matLab": 1711142763.6770148,
-   "start_unix_0": 1711143392.781015,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "573",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/573TMexp7presleepviewing",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/573TMexp7presleepviewing/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-573_localizations.xlsx",
-   "output_tag": "exp7presleepviewing",
-   "matLab": 1714775636.2359192,
-   "start_unix_0": 1714775660.3849192,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "574",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/574TMexp10viewing",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/574TMexp10viewing/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-574_localizations.xlsx",
-   "output_tag": "exp10viewing",
-   "matLab": 1721747817.881015,
-   "start_unix_0": 1721747828.862015,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "576",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/576TMexp14Viewing",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/576TMexp14Viewing/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-576_localizations.xlsx",
-   "output_tag": "exp14Viewing",
-   "matLab": 1726515700.953,
-   "start_unix_0": 1726515776.9090002,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "577",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/577TMexp4viewing",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/577TMexp4viewing/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-577_localizations.xlsx",
-   "output_tag": "exp4viewing",
-   "matLab": 1726269951.420004,
-   "start_unix_0": 1726269994.518004,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "579",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/579TMexp6viewing",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/579TMexp6viewing/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-579_localizations.xlsx",
-   "output_tag": "exp6viewing",
-   "matLab": 1734025549.335989,
-   "start_unix_0": 1734025573.176989,
-   "duration": 2476.867,
-   "fps": 29.97
-},
-{
-   "patient_id": "582",
-   "movie_label": "24",
-   "signal_path": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/582TMexp8viewing",
-   "clip_ttl_csv": "/Users/aatmi/Aatmi CML work/Clip Capstone alignments/582TMexp8viewing/TTL_table.csv",
-   "localization_file": "/Users/aatmi/Desktop/UCLA/CNL Capstone/Pipeline spreadsheets/sub-582_localizations.xlsx",
-   "output_tag": "exp8viewing",
-   "matLab": 1742751241.165916,
-   "start_unix_0": 1742751270.809916,
    "duration": 2476.867,
    "fps": 29.97
 }
@@ -166,7 +48,7 @@ CREATE_RASTER_PLOTS = True
 
 
 # Global output dirs for significance
-BASE_OUTPUT_DIR = Path("/Users/aatmi/Aatmi CML work/Clip Capstone alignments")
+BASE_OUTPUT_DIR = Path("C:\\Users\\Uzair\\Desktop\\CNL\\570 test run")
 AGGREGATE_DIR = BASE_OUTPUT_DIR / "Aggregate Patients outputs"
 ALL_SIG_DIR = AGGREGATE_DIR / "All significant plots"
 ALL_NON_SIG_DIR = AGGREGATE_DIR / "All Non significant plots"
