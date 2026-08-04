@@ -386,20 +386,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
----
-
-## Verifying the Installation
-
-Execute the complete automated test suite.
-
-```bash
-pytest
-```
-
-A successful test run verifies that the repository is correctly installed and that all major pipeline components are functioning as expected.
-
----
-
 # Running the Pipeline
 
 ## Interactive Execution
