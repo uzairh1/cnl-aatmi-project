@@ -7,70 +7,12 @@ throughout the analysis pipeline.
 Design principles
 -----------------
 - Preserve raw experimental metadata.
-- Use clipStartTime / clipEndTime as canonical timing.
-- Keep frameOn / frameOff intact as raw provenance.
-- Use descriptive names for derived analysis columns.
+- Support both the legacy TTL export and the newer refined clip table.
+- Use frameOn / frameOff as the canonical timing source when available,
+  because they are the closest shared representation between the formats.
+- Keep derived analysis columns separate from raw provenance columns.
 - Separate parsing, filtering, derivation, and saving into small functions.
 - Keep the module runnable by itself for debugging.
-
-Pipeline
---------
-Raw TTL CSV
-    -> load_ttl_table()
-    -> filter_trials()
-    -> derive_timing_columns()
-    -> derive_analysis_columns()
-    -> restore_plot_preferences()
-    -> save_trial_table()
-
-Column mapping
---------------
-Raw TTL columns (preserved)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-experimentPhase
-trialNumber
-movieID
-clipID
-response
-reactionTimePTB
-trialStartTimePTB
-trialEndTimePTB
-clipStartTime
-clipEndTime
-frameOn
-frameOff
-startTag
-cueEndTag
-endTag
-startTimeUnixSec
-cueEndTimeUnixSec
-endTimeUnixSec
-startTimeMat
-cueEndTimeMat
-endTimeMat
-trialNumberMat
-
-Derived analysis columns
-~~~~~~~~~~~~~~~~~~~~~~~
-Legacy name           -> New name
-ms start              -> clipStartTimeMs
-ms end                -> clipEndTimeMs
-clip duration ms      -> clipDurationMs
-clip duration s       -> clipDurationSec
-frame range           -> clipFrameRange
-ms range              -> clipTimeRangeMs
-ms ID                 -> clipWindowId
-Chronological Index   -> trialOrder
-Plot Y-Axis           -> plotOrder
-Plot Toggle           -> includeInPlots
-Accurate              -> isAccurate
-
-Notes
------
-- The parser defaults to experimentPhase == "recog_task" and movieID == 1,
-  mirroring the original monolithic behavior.
-- The canonical time source is clipStartTime / clipEndTime (seconds).
-- Raw frameOn / frameOff values are retained for provenance and debugging.
 """
 
 from __future__ import annotations
@@ -80,6 +22,52 @@ from pathlib import Path
 from typing import Optional
 
 import pandas as pd
+import numpy as np
+
+DEFAULT_MOVIE_FPS = 29.97
+
+
+def _apply_alias(df: pd.DataFrame, target: str, sources: list[str]) -> None:
+    """Copy the first available source column into a canonical alias."""
+    if target in df.columns:
+        return
+    for source in sources:
+        if source in df.columns:
+            df[target] = df[source]
+            return
+
+
+def _is_truthy_exclude(value: object) -> bool:
+    """Interpret a refined-format exclude value as a boolean flag."""
+    if pd.isna(value):
+        return False
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, (int, float)):
+        return bool(value)
+    text = str(value).strip().lower()
+    return text in {"1", "true", "t", "yes", "y"}
+
+
+def _normalize_input_schema(df: pd.DataFrame) -> pd.DataFrame:
+    """Add canonical aliases for either legacy TTL or refined clip tables."""
+    df = df.copy()
+
+    if "experimentPhase" not in df.columns:
+        df["experimentPhase"] = "recog_task"
+
+    # Canonical legacy names.
+    _apply_alias(df, "trialNumber", ["trialNumber", "trial_num"])
+    _apply_alias(df, "movieID", ["movieID", "effective_movie_ID", "ttl_movie_ID", "movie_ID"])
+    _apply_alias(df, "clipID", ["clipID", "clip_ID"])
+    _apply_alias(df, "response", ["response", "resp_answer"])
+    _apply_alias(df, "reactionTimePTB", ["reactionTimePTB", "reaction_time_sec"])
+    _apply_alias(df, "trialStartTimePTB", ["trialStartTimePTB", "mat_trial_start_sec"])
+    _apply_alias(df, "frameOn", ["frameOn", "frame_on"])
+    _apply_alias(df, "frameOff", ["frameOff", "frame_off"])
+    _apply_alias(df, "Accurate", ["Accurate", "correct"])
+
+    return df
 
 
 def load_ttl_table(ttl_csv: str | Path) -> pd.DataFrame:
@@ -94,12 +82,13 @@ def load_ttl_table(ttl_csv: str | Path) -> pd.DataFrame:
     Returns
     -------
     pd.DataFrame
-        Raw table with column names stripped of whitespace.
+        Raw table with column names stripped of whitespace and aliases added
+        for the canonical downstream schema.
     """
     ttl_csv = Path(ttl_csv)
     df = pd.read_csv(ttl_csv)
     df.columns = [str(c).strip() for c in df.columns]
-    return df
+    return _normalize_input_schema(df)
 
 
 def filter_trials(
@@ -136,9 +125,19 @@ def filter_trials(
     return df.reset_index(drop=True)
 
 
-def derive_timing_columns(df: pd.DataFrame, drift_rate_slope: float = 0.0) -> pd.DataFrame:
+def derive_timing_columns(
+    df: pd.DataFrame,
+    drift_rate_slope: float = 0.0,
+) -> pd.DataFrame:
     """
-    Add canonical timing columns from clipStartTime / clipEndTime.
+    Add canonical timing columns.
+
+    Prefer frameOn / frameOff when available because they are shared by both the
+    legacy TTL export and the refined clip table. If frame timing is not
+    available, fall back to clipStartTime / clipEndTime.
+
+    A small optional drift correction can be applied by passing a
+    drift_rate_slope value. The correction factor is 1 + drift_rate_slope.
 
     Creates:
     - clipStartTimeMs
@@ -148,44 +147,52 @@ def derive_timing_columns(df: pd.DataFrame, drift_rate_slope: float = 0.0) -> pd
     - clipFrameRange (if frameOn/frameOff exist)
     - clipTimeRangeMs
     - clipWindowId
-
-    Notes
-    -----
-    frameOn / frameOff are preserved as raw metadata. They are not used as the
-    primary timing source in this refactor.
     """
     df = df.copy()
 
-    required_time_cols = {"clipStartTime", "clipEndTime"}
-    missing = sorted(required_time_cols - set(df.columns))
-    if missing:
+    has_frame_timing = {"frameOn", "frameOff"}.issubset(df.columns)
+    has_clip_timing = {"clipStartTime", "clipEndTime"}.issubset(df.columns)
+
+    if not has_frame_timing and not has_clip_timing:
         raise ValueError(
-            f"TTL table is missing required timing columns: {missing}. "
-            "This parser expects clipStartTime and clipEndTime."
+            "TTL table is missing usable timing columns. Expected frameOn / "
+            "frameOff or clipStartTime / clipEndTime."
         )
 
-    df["clipStartTime"] = pd.to_numeric(df["clipStartTime"], errors="coerce")
-    df["clipEndTime"] = pd.to_numeric(df["clipEndTime"], errors="coerce")
-    df = df.dropna(subset=["clipStartTime", "clipEndTime"]).copy()
+    start_sec = pd.Series(np.nan, index=df.index, dtype="float64")
+    end_sec = pd.Series(np.nan, index=df.index, dtype="float64")
 
-    correction_factor = 1.0 + float(drift_rate_slope)
-    if correction_factor != 1.0:
-        df["clipStartTime"] = df["clipStartTime"] * correction_factor
-        df["clipEndTime"] = df["clipEndTime"] * correction_factor
+    if has_frame_timing:
+        df["frameOn"] = pd.to_numeric(df["frameOn"], errors="coerce")
+        df["frameOff"] = pd.to_numeric(df["frameOff"], errors="coerce")
+        start_sec = df["frameOn"] / DEFAULT_MOVIE_FPS
+        end_sec = df["frameOff"] / DEFAULT_MOVIE_FPS
+
+    if has_clip_timing:
+        clip_start = pd.to_numeric(df["clipStartTime"], errors="coerce")
+        clip_end = pd.to_numeric(df["clipEndTime"], errors="coerce")
+        start_sec = start_sec.fillna(clip_start)
+        end_sec = end_sec.fillna(clip_end)
+
+    df["clipStartTime"] = start_sec
+    df["clipEndTime"] = end_sec
+    df = df.dropna(subset=["clipStartTime", "clipEndTime"]).copy()
 
     if df.empty:
         raise ValueError(
-            "All rows were dropped because clipStartTime / clipEndTime were missing."
+            "All rows were dropped because usable timing columns were missing or invalid."
         )
+
+    correction_factor = 1.0 + float(drift_rate_slope)
+    df["clipStartTime"] = df["clipStartTime"] * correction_factor
+    df["clipEndTime"] = df["clipEndTime"] * correction_factor
 
     df["clipStartTimeMs"] = (df["clipStartTime"] * 1000.0).round().astype(int)
     df["clipEndTimeMs"] = (df["clipEndTime"] * 1000.0).round().astype(int)
     df["clipDurationMs"] = df["clipEndTimeMs"] - df["clipStartTimeMs"]
     df["clipDurationSec"] = df["clipEndTime"] - df["clipStartTime"]
 
-    if {"frameOn", "frameOff"}.issubset(df.columns):
-        df["frameOn"] = pd.to_numeric(df["frameOn"], errors="coerce")
-        df["frameOff"] = pd.to_numeric(df["frameOff"], errors="coerce")
+    if has_frame_timing:
         df["clipFrameRange"] = (
             df["frameOn"].round().astype("Int64").astype(str)
             + "-"
@@ -265,6 +272,10 @@ def derive_analysis_columns(df: pd.DataFrame) -> pd.DataFrame:
     df["plotOrder"] = df["plotOrder"].astype(int)
 
     df["includeInPlots"] = True
+
+    if "exclude" in df.columns:
+        exclude_mask = df["exclude"].map(_is_truthy_exclude)
+        df.loc[exclude_mask, "includeInPlots"] = False
 
     return df
 
@@ -362,6 +373,12 @@ def main() -> None:
         default=None,
         help="Optional existing trial table whose includeInPlots values should be reused.",
     )
+    parser.add_argument(
+        "--drift-rate-slope",
+        type=float,
+        default=0.0,
+        help="Optional drift-rate slope to apply to timing columns.",
+    )
     args = parser.parse_args()
 
     movie_id = None if args.movie_id == -1 else args.movie_id
@@ -372,6 +389,7 @@ def main() -> None:
         phase=args.phase,
         movie_id=movie_id,
         previous_table=args.previous_table,
+        drift_rate_slope=args.drift_rate_slope,
     )
     print(f"Wrote {len(table)} rows to {out_path}")
 
