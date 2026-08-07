@@ -43,33 +43,70 @@ from plotting.swarm import generate_population_swarm_plot
 from plotting.summary_figures import generate_summary_figures
 
 
-def _as_pair(value, default):
+def _is_missing_value(value) -> bool:
     if value is None:
+        return True
+    try:
+        if pd.isna(value):
+            return True
+    except Exception:
+        pass
+    if isinstance(value, str) and value.strip().upper() == '<NA>':
+        return True
+    return False
+
+
+def _safe_float(value, default: float | None = None) -> float:
+    if isinstance(value, (list, tuple)):
+        if len(value) == 0:
+            if default is not None:
+                return float(default)
+            raise ValueError('Missing numeric value')
+        value = value[0]
+    if _is_missing_value(value):
+        if default is not None:
+            return float(default)
+        raise ValueError('Missing numeric value')
+    try:
+        out = float(value)
+    except Exception as exc:
+        if default is not None:
+            return float(default)
+        raise ValueError(f'Invalid numeric value: {value!r}') from exc
+    return out
+
+
+def _safe_int(value, default: int | None = None) -> int:
+    return int(round(_safe_float(value, default)))
+
+
+def _as_pair(value, default):
+    if value is None or _is_missing_value(value):
         return tuple(default)
     if isinstance(value, str):
-        pieces = [p.strip() for p in value.split(",") if p.strip()]
+        pieces = [p.strip() for p in value.split(',') if p.strip()]
         if len(pieces) == 2:
-            return (float(pieces[0]), float(pieces[1]))
+            return (_safe_float(pieces[0], default[0]), _safe_float(pieces[1], default[1]))
         return tuple(default)
     if isinstance(value, (list, tuple)) and len(value) == 2:
-        return (float(value[0]), float(value[1]))
+        return (_safe_float(value[0], default[0]), _safe_float(value[1], default[1]))
     return tuple(default)
 
 
 def patient_dict_to_config(raw: dict) -> PatientConfig:
     return PatientConfig(
-        patient_id=str(raw.get("patient_id", "")),
-        movie_label=str(raw.get("movie_label", "")),
-        signal_path=str(raw.get("signal_path", "")),
-        clip_ttl_csv=str(raw.get("clip_ttl_csv", "")),
-        localization_file=str(raw.get("localization_file", "")),
-        output_tag=str(raw.get("output_tag", "")),
-        matLab=float(raw.get("matLab", 0.0)),
-        start_unix_0=float(raw.get("start_unix_0", 0.0)),
-        duration=float(raw.get("duration", 0.0)),
-        fps=float(raw.get("fps", 29.97)),
-        drift_rate_slope=float(raw.get("drift_rate_slope", 0.0)),
-        event_time_offset_ms=float(raw.get("event_time_offset_ms", 0.0)),
+        patient_id=str(raw.get('patient_id', '')),
+        movie_label=str(raw.get('movie_label', '')),
+        signal_path=str(raw.get('signal_path', '')),
+        clip_ttl_csv=str(raw.get('clip_ttl_csv', '')),
+        localization_file=str(raw.get('localization_file', '')),
+        output_tag=str(raw.get('output_tag', '')),
+        matLab=_safe_float(raw.get('matLab'), 0.0),
+        start_unix_0=_safe_float(raw.get('start_unix_0'), 0.0),
+        duration=_safe_float(raw.get('duration'), 0.0),
+        fps=_safe_float(raw.get('fps'), 29.97),
+        drift_rate_slope=_safe_float(raw.get('drift_rate_slope'), 0.0),
+        event_time_offset_ms=_safe_float(raw.get('event_time_offset_ms'), 0.0),
     )
 
 
@@ -79,23 +116,22 @@ def analysis_dict_to_config(raw: dict | None) -> AnalysisConfig:
 
     default = PIPELINE_ANALYSIS_CONFIG
     return AnalysisConfig(
-        pre_window_ms=tuple(raw.get("pre_window_ms", default.pre_window_ms)),
-        post_window_ms=tuple(raw.get("post_window_ms", default.post_window_ms)),
-        raster_window_ms=tuple(raw.get("raster_window_ms", default.raster_window_ms)),
-        min_rate_hz=float(raw.get("min_rate_hz", default.min_rate_hz)),
-        alpha=float(raw.get("alpha", default.alpha)),
-        stat_style=str(raw.get("stat_style", default.stat_style)),
-        n_permutations=int(raw.get("n_permutations", default.n_permutations)),
-        smoothing=str(raw.get("smoothing", default.smoothing)),
-        psth_bin_ms=int(raw.get("psth_bin_ms", default.psth_bin_ms)),
-        movie_bin_size_s=int(raw.get("movie_bin_size_s", default.movie_bin_size_s)),
-        raster_figsize=_as_pair(raw.get("raster_figsize", default.raster_figsize), default.raster_figsize),
-        raster_dpi=int(raw.get("raster_dpi", default.raster_dpi)),
-        line_length=float(raw.get("line_length", default.line_length)),
-        line_width=float(raw.get("line_width", default.line_width)),
-        clip_end_marker_half_height=float(raw.get("clip_end_marker_half_height", default.clip_end_marker_half_height)),
+        pre_window_ms=tuple(raw.get('pre_window_ms', default.pre_window_ms)),
+        post_window_ms=tuple(raw.get('post_window_ms', default.post_window_ms)),
+        raster_window_ms=tuple(raw.get('raster_window_ms', default.raster_window_ms)),
+        min_rate_hz=_safe_float(raw.get('min_rate_hz'), default.min_rate_hz),
+        alpha=_safe_float(raw.get('alpha'), default.alpha),
+        stat_style=str(raw.get('stat_style', default.stat_style)),
+        n_permutations=_safe_int(raw.get('n_permutations'), default.n_permutations),
+        smoothing=str(raw.get('smoothing', default.smoothing)),
+        psth_bin_ms=_safe_int(raw.get('psth_bin_ms'), default.psth_bin_ms),
+        movie_bin_size_s=_safe_int(raw.get('movie_bin_size_s'), default.movie_bin_size_s),
+        raster_figsize=_as_pair(raw.get('raster_figsize', default.raster_figsize), default.raster_figsize),
+        raster_dpi=_safe_int(raw.get('raster_dpi'), default.raster_dpi),
+        line_length=_safe_float(raw.get('line_length'), default.line_length),
+        line_width=_safe_float(raw.get('line_width'), default.line_width),
+        clip_end_marker_half_height=_safe_float(raw.get('clip_end_marker_half_height'), default.clip_end_marker_half_height),
     )
-
 
 def _patient_root(output_root: Path, patient_cfg: PatientConfig) -> Path:
     suffix = f"_{patient_cfg.output_tag}" if patient_cfg.output_tag else ""
