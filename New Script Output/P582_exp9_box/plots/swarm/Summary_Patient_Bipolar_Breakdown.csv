@@ -1,0 +1,7 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P582,AMY - amygdala,15,0,0
+P582,ERC - entorhinal cortex,14,0,1
+P582,FUS - fusiform cortex,12,0,0
+P582,"PC - parietal cortex (precuneus, inferiorparietal, somatosensory, supramarginal)",3,0,0
+P582,THL - Unknown,22,1,2
+P582,"VIS - visual cortex (includes lingual, pericalcarine, cuneus)",31,4,3
