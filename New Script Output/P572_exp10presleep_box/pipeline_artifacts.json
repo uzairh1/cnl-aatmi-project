@@ -1,0 +1,1302 @@
+[
+  {
+    "name": "trial_table.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\data\\trial_table.csv",
+    "artifact_type": "trial_table"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA1-RA8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RAH8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA3-RAH8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA4-RFOpAI3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA4-RFOpAI3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA4-RFOpAI4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA4-RFOpAI6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GA4-RFOpAI8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP5_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP8_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB2-LPTP8_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB3-LAC1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB3-LAC2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB3-LAC2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB3-LAC5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB3-LAC5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GB3-LAC7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC1-LA8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF2_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF4_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align1\\align1_times_manual_GC2-LOF8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-RA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA1-RA8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RAH8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA3-RAH8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RFOpAI3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA4-RFOpAI3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RFOpAI3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA4-RFOpAI3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RFOpAI4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA4-RFOpAI4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RFOpAI6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA4-RFOpAI6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RFOpAI8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GA4-RFOpAI8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP5_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP8_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB2-LPTP8_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB2-LPTP8_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LAC1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB3-LAC1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LAC2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB3-LAC2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LAC2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB3-LAC2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LAC5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB3-LAC5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LAC5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB3-LAC5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LAC7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GB3-LAC7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LA8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC1-LA8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF2_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF4_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOF8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\align2\\align2_times_manual_GC2-LOF8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-RA8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA1-RA8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RAH8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA3-RAH8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA4-RFOpAI3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA4-RFOpAI3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA4-RFOpAI4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA4-RFOpAI6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RFOpAI8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GA4-RFOpAI8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP5_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP5_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP8_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB2-LPTP8_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB2-LPTP8_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB3-LAC1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB3-LAC2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB3-LAC2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB3-LAC5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB3-LAC5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LAC7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GB3-LAC7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LA8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC1-LA8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF2_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF2_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF4_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF4_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOF8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\binning\\align1_times_manual_GC2-LOF8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "neuron_summary.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\statistics\\neuron_summary.csv",
+    "artifact_type": "neuron_summary_csv"
+  },
+  {
+    "name": "P572_RA_times_manual_GA1-RA3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_RA_times_manual_GA1-RA3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_RA_times_manual_GA1-RA4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_RA_times_manual_GA1-RA4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_RA_times_manual_GA1-RA5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_RA_times_manual_GA1-RA5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_RA_times_manual_GA1-RA7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_RA_times_manual_GA1-RA7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_RAH_times_manual_GA3-RAH8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_RAH_times_manual_GA3-RAH8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_RFOPAI_times_manual_GA4-RFOpAI3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_RFOPAI_times_manual_GA4-RFOpAI3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP1_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP1_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP2_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP2_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP5_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP5_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP6_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP6_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP7_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP7_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP8_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP8_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LPTP_times_manual_GB2-LPTP8_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LPTP_times_manual_GB2-LPTP8_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LAC_times_manual_GB3-LAC2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LAC_times_manual_GB3-LAC2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LAC_times_manual_GB3-LAC7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LAC_times_manual_GB3-LAC7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA2_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA2_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA7_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA7_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LA_times_manual_GC1-LA8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LA_times_manual_GC1-LA8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF2_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF2_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF5_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF5_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P572_LOF_times_manual_GC2-LOF8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\rasters\\all\\P572_LOF_times_manual_GC2-LOF8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "localization_trace.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\localization_trace.csv",
+    "artifact_type": "localization_trace"
+  },
+  {
+    "name": "swarm",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\swarm",
+    "artifact_type": "swarm_output_dir"
+  },
+  {
+    "name": "Run_Summary.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\dashboards\\Run_Summary.csv",
+    "artifact_type": "run_summary_csv"
+  },
+  {
+    "name": "ERC_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\dashboards\\ERC_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "global_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\dashboards\\global_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "HPC_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\dashboards\\HPC_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "MTL_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P572\\plots\\dashboards\\MTL_dashboard.png",
+    "artifact_type": "dashboard_png"
+  }
+]
