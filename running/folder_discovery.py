@@ -152,13 +152,24 @@ def _find_exactly_one(folder: Path, pattern: str) -> Path:
 
 
 def _find_behavioral_table(folder: Path) -> Path:
-    refined = sorted(folder.glob('*clip*refined*.csv'))
+    """
+    Prefer refined clip tables over legacy TTL tables.
+    """
+
+    refined = sorted(folder.glob("*clip*refined*.csv"))
+
     if refined:
         return refined[0]
-    ttl = folder / 'TTL_table.csv'
-    if ttl.exists():
-        return ttl
-    raise FileNotFoundError('Could not locate either a refined behavioral table or TTL_table.csv')
+
+    ttl_candidates = sorted(folder.glob("*TTL_table.csv"))
+
+    if ttl_candidates:
+        return ttl_candidates[0]
+
+    raise FileNotFoundError(
+        "Could not locate either a refined behavioral table "
+        "or a *TTL_table.csv file."
+    )
 
 
 def _find_mat_files(folder: Path) -> list[Path]:
