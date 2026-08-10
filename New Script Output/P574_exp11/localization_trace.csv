@@ -1,0 +1,76 @@
+neuron_name,electrode_code,full_location,region_abbr
+times_manual_GA1-REC2_unit_1,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC2_unit_2,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC4_unit_1,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC5_unit_1,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC5_unit_2,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC6_unit_1,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC6_unit_2,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC8_unit_1,REC,ctx-rh-perirhinal,REC
+times_manual_GA1-REC8_unit_2,REC,ctx-rh-perirhinal,REC
+times_manual_GA2-RA1_unit_1,RA,Right-Amygdala,RA
+times_manual_GA2-RA1_unit_2,RA,Right-Amygdala,RA
+times_manual_GA2-RA2_unit_1,RA,Right-Amygdala,RA
+times_manual_GA2-RA3_unit_1,RA,Right-Amygdala,RA
+times_manual_GA2-RA4_unit_1,RA,Right-Amygdala,RA
+times_manual_GA2-RA4_unit_2,RA,Right-Amygdala,RA
+times_manual_GA2-RA5_unit_1,RA,Right-Amygdala,RA
+times_manual_GA2-RA6_unit_1,RA,Right-Amygdala,RA
+times_manual_GA2-RA6_unit_2,RA,Right-Amygdala,RA
+times_manual_GA2-RA7_unit_1,RA,Right-Amygdala,RA
+times_manual_GA2-RA8_unit_1,RA,Right-Amygdala,RA
+times_manual_GA3-RAH1_unit_1,RAH,Unknown Location,UNKNOWN
+times_manual_GA3-RAH2_unit_1,RAH,Unknown Location,UNKNOWN
+times_manual_GA3-RAH3_unit_1,RAH,Unknown Location,UNKNOWN
+times_manual_GA3-RAH5_unit_1,RAH,Unknown Location,UNKNOWN
+times_manual_GA3-RAH7_unit_1,RAH,Unknown Location,UNKNOWN
+times_manual_GA3-RAH8_unit_1,RAH,Unknown Location,UNKNOWN
+times_manual_GA4-RPHG5_unit_1,RPHG,ctx-rh-parahippocampal,RPHG
+times_manual_GB1-LEC2_unit_1,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC3_unit_1,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC3_unit_2,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC3_unit_3,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC4_unit_1,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC5_unit_1,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC5_unit_2,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC6_unit_1,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC6_unit_2,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC7_unit_1,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC7_unit_2,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC8_unit_1,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC8_unit_2,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC8_unit_3,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC8_unit_4,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB1-LEC8_unit_5,LEC,ctx-lh-entorhinal,LEC
+times_manual_GB2-LA1_unit_1,LA,Left-Amygdala,LA
+times_manual_GB2-LA3_unit_1,LA,Left-Amygdala,LA
+times_manual_GB2-LA4_unit_1,LA,Left-Amygdala,LA
+times_manual_GB2-LA6_unit_1,LA,Left-Amygdala,LA
+times_manual_GB2-LA7_unit_1,LA,Left-Amygdala,LA
+times_manual_GB2-LA7_unit_2,LA,Left-Amygdala,LA
+times_manual_GB2-LA8_unit_1,LA,Left-Amygdala,LA
+times_manual_GB3-LAH2_unit_1,LAH,Left-Hippocampus,LAH
+times_manual_GB3-LAH3_unit_1,LAH,Left-Hippocampus,LAH
+times_manual_GB3-LAH3_unit_2,LAH,Left-Hippocampus,LAH
+times_manual_GC1-ROF1_unit_1,ROF,ctx-rh-medialorbitofrontal,ROF
+times_manual_GC1-ROF3_unit_1,ROF,ctx-rh-medialorbitofrontal,ROF
+times_manual_GC1-ROF6_unit_1,ROF,ctx-rh-medialorbitofrontal,ROF
+times_manual_GC1-ROF7_unit_1,ROF,ctx-rh-medialorbitofrontal,ROF
+times_manual_GC1-ROF8_unit_1,ROF,ctx-rh-medialorbitofrontal,ROF
+times_manual_GC3-LOF1_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF1_unit_2,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF2_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF2_unit_2,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF3_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF3_unit_2,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF4_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF5_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF5_unit_2,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF5_unit_3,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF6_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF7_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF8_unit_1,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC3-LOF8_unit_2,LOF,wm-lh-rostralanteriorcingulate,LOF
+times_manual_GC4-LAC3_unit_1,LAC,ctx-lh-rostralanteriorcingulate,LAC
+times_manual_GC4-LAC4_unit_1,LAC,ctx-lh-rostralanteriorcingulate,LAC
+times_manual_GC4-LAC8_unit_1,LAC,ctx-lh-rostralanteriorcingulate,LAC

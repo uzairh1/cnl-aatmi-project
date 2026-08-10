@@ -1,0 +1,5 @@
+scope,rows,patients,neurons,sig_pre,sig_post
+Summary_Global_and_Regional,1,1.0,60.0,3.0,4.0
+Summary_Patient_Bipolar_Breakdown,8,,7.0,,
+Swarm_Statistics_global,5,,,,
+neuron_summary,60,1.0,60.0,3.0,4.0
