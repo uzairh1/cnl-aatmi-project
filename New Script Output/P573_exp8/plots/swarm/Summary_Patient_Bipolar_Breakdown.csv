@@ -1,0 +1,5 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P573_exp_07_preSleep,"FC - frontal cortex (includes SFG, MFG, IFG, OFC)",3,0,0
+P573_exp_07_preSleep,HPC - hippocampus,12,1,2
+P573_exp_07_preSleep,INS - insula,4,1,0
+P573_exp_07_preSleep,"PHC - parahippocampal gyrus (parahippocampal, perirhinal)",7,1,0
