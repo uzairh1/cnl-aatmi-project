@@ -1,0 +1,5 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P577_exp_07_preSleep,AMY - amygdala,9,1,1
+P577_exp_07_preSleep,HPC - hippocampus,12,0,0
+P577_exp_07_preSleep,INS - insula,8,0,0
+P577_exp_07_preSleep,"PC - parietal cortex (precuneus, inferiorparietal, somatosensory, supramarginal)",4,0,0
