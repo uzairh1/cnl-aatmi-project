@@ -1,0 +1,4 @@
+Plot ID,Metric,N Total,Mean,SEM,Sig Positive,Sig Negative,Total Sig,Expected Sig (5%),Chi2 Stat,P-Value,Pre-Driven (>0),Post-Driven (<0),Exact Zero,Valid N (excluding 0),Expected (50/50)
+P1_Post-Stim_T-Scores,Post-Stim T-Score,1,-0.0877798640429943,,0.0,0.0,0.0,0.05,0.05263157894736843,0.8185458083820435,,,,,
+P2_Pre-Stim_T-Scores,Pre-Stim T-Score,1,-0.0922319470007015,,0.0,0.0,0.0,0.05,0.05263157894736843,0.8185458083820435,,,,,
+P4_Diff_All,T-Score Diff (Pre - Post),1,-0.0044520829577072,,,,,,1.0,0.31731050786291115,0.0,1.0,0.0,1.0,0.5

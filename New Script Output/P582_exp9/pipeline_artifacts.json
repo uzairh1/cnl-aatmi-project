@@ -1,0 +1,3557 @@
+[
+  {
+    "name": "trial_table.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\data\\trial_table.csv",
+    "artifact_type": "trial_table"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC3_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC7_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC7_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA1-REC8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG3_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG3_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG3_unit_5.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA2-RFSG8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO2_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO6_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA3-RO8_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv2_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv3_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv4_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv4_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv6_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv6_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv6_unit_5.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv6_unit_6.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_7.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv6_unit_7.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv7_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv7_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv7_unit_5.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv7_unit_6.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv8_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv8_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GA4-RPv8_unit_5.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB1-LA8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG6_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG6_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB3-LFSG8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa1_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa2_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa3_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa6_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa6_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa6_unit_5.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa6_unit_6.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa7_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa7_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GB4-LOa8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp1_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp2_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp2_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp3_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp3_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp4_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp4_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp5_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp5_unit_5.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp5_unit_6.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC1-LOp8_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs1_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs1_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs1_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs1_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs2_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs2_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs3_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs3_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs3_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs3_unit_5.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs4_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs5_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC2-LOs8_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO2_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO3_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO4_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO4_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO5_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO5_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO5_unit_3.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO5_unit_4.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO6_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO6_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO7_unit_1.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align1\\align1_times_manual_GC3-LPO7_unit_2.csv",
+    "artifact_type": "align1_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC3_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC7_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC7_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA1-REC8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA1-REC8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG3_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG3_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG3_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG3_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG3_unit_5.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA2-RFSG8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA2-RFSG8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO2_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO6_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA3-RO8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA3-RO8_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv2_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv3_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv4_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv4_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv4_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv6_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv6_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv6_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv6_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv6_unit_5.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv6_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv6_unit_6.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv6_unit_7.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv6_unit_7.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv7_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv7_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv7_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv7_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv7_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv7_unit_5.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv7_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv7_unit_6.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv8_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv8_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv8_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv8_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GA4-RPv8_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GA4-RPv8_unit_5.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB1-LA8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB1-LA8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG6_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG6_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG6_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB3-LFSG8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB3-LFSG8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa1_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa1_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa2_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa3_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa6_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa6_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa6_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa6_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa6_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa6_unit_5.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa6_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa6_unit_6.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa7_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa7_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GB4-LOa8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GB4-LOa8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp1_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp1_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp2_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp2_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp2_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp3_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp3_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp3_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp4_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp4_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp4_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp5_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp5_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp5_unit_5.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp5_unit_6.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp5_unit_6.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC1-LOp8_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC1-LOp8_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs1_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs1_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs1_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs1_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs1_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs1_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs1_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs1_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs2_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs2_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs2_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs2_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs3_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs3_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs3_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs3_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs3_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs3_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs3_unit_5.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs3_unit_5.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs4_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs4_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs5_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC2-LOs8_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC2-LOs8_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO2_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO2_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO3_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO3_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO4_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO4_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO4_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO4_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO5_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO5_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO5_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO5_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO5_unit_3.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO5_unit_3.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO5_unit_4.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO5_unit_4.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO6_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO6_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO6_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO6_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO7_unit_1.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO7_unit_1.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align2_times_manual_GC3-LPO7_unit_2.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\align2\\align2_times_manual_GC3-LPO7_unit_2.csv",
+    "artifact_type": "align2_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC3_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC3_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC7_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC7_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA1-REC8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA1-REC8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG3_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG3_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG3_unit_5_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG3_unit_5_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA2-RFSG8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA2-RFSG8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO2_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO2_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO6_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO6_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA3-RO8_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA3-RO8_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv2_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv2_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv3_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv3_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv4_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv4_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv4_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv6_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv6_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_5_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv6_unit_5_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_6_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv6_unit_6_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv6_unit_7_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv6_unit_7_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv7_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv7_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_5_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv7_unit_5_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv7_unit_6_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv7_unit_6_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv8_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv8_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GA4-RPv8_unit_5_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GA4-RPv8_unit_5_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB1-LA8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB1-LA8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG6_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG6_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG6_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB3-LFSG8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB3-LFSG8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa1_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa1_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa2_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa2_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa3_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa3_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa6_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa6_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_5_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa6_unit_5_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa6_unit_6_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa6_unit_6_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa7_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa7_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GB4-LOa8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GB4-LOa8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp1_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp1_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp2_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp2_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp2_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp3_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp3_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp3_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp4_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp4_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp4_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp5_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_5_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp5_unit_5_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp5_unit_6_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp5_unit_6_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC1-LOp8_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC1-LOp8_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs1_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs1_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs1_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs1_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs1_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs2_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs2_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs2_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs2_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs3_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs3_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs3_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs3_unit_5_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs3_unit_5_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs4_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs4_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs5_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs5_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC2-LOs8_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC2-LOs8_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO2_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO2_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO3_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO3_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO4_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO4_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO4_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO4_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO5_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO5_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_3_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO5_unit_3_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO5_unit_4_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO5_unit_4_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO6_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO6_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO6_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO6_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO7_unit_1_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO7_unit_1_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "align1_times_manual_GC3-LPO7_unit_2_binned_10s.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\binning\\align1_times_manual_GC3-LPO7_unit_2_binned_10s.csv",
+    "artifact_type": "binned_csv"
+  },
+  {
+    "name": "neuron_summary.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\statistics\\neuron_summary.csv",
+    "artifact_type": "neuron_summary_csv"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC2_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC2_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC3_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC3_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC6_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC6_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC7_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC7_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_REC_times_manual_GA1-REC8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_REC_times_manual_GA1-REC8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG1_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG1_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG3_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG3_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG5_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG5_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG5_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG5_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG7_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RFSG_times_manual_GA2-RFSG7_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO5_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO5_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO6_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO6_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO6_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO6_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RO_times_manual_GA3-RO8_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RO_times_manual_GA3-RO8_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv2_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv2_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv2_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv2_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv3_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv3_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv4_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv4_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv4_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv4_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_5.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_5.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_6.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_6.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_7.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv6_unit_7.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv7_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv7_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv7_unit_5.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv7_unit_5.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv8_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv8_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_RPV_times_manual_GA4-RPv8_unit_5.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_RPV_times_manual_GA4-RPv8_unit_5.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LA_times_manual_GB1-LA2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LA_times_manual_GB1-LA2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LA_times_manual_GB1-LA2_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LA_times_manual_GB1-LA2_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LA_times_manual_GB1-LA3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LA_times_manual_GB1-LA3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LA_times_manual_GB1-LA4_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LA_times_manual_GB1-LA4_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LA_times_manual_GB1-LA8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LA_times_manual_GB1-LA8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa1_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa1_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa2_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa2_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa2_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa2_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa6_unit_5.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa6_unit_5.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa6_unit_6.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa6_unit_6.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa7_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa7_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOA_times_manual_GB4-LOa8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOA_times_manual_GB4-LOa8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp2_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp2_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp3_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp3_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp4_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp4_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp4_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp4_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_5.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp5_unit_5.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp7_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp7_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp8_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp8_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOP_times_manual_GC1-LOp8_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOP_times_manual_GC1-LOp8_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs1_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs1_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs1_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs1_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs2_unit_3.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs2_unit_3.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs3_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs3_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs3_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs3_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs5_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs5_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs5_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs5_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LOS_times_manual_GC2-LOs7_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LOS_times_manual_GC2-LOs7_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LPO_times_manual_GC3-LPO5_unit_2.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LPO_times_manual_GC3-LPO5_unit_2.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LPO_times_manual_GC3-LPO5_unit_4.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LPO_times_manual_GC3-LPO5_unit_4.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "P582_exp_8_preSleep_LPO_times_manual_GC3-LPO6_unit_1.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\rasters\\all\\P582_exp_8_preSleep_LPO_times_manual_GC3-LPO6_unit_1.png",
+    "artifact_type": "raster_png"
+  },
+  {
+    "name": "localization_trace.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\localization_trace.csv",
+    "artifact_type": "localization_trace"
+  },
+  {
+    "name": "swarm",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\swarm",
+    "artifact_type": "swarm_output_dir"
+  },
+  {
+    "name": "Run_Summary.csv",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\dashboards\\Run_Summary.csv",
+    "artifact_type": "run_summary_csv"
+  },
+  {
+    "name": "ERC_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\dashboards\\ERC_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "global_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\dashboards\\global_dashboard.png",
+    "artifact_type": "dashboard_png"
+  },
+  {
+    "name": "MTL_dashboard.png",
+    "path": "C:\\Users\\Uzair\\Desktop\\CNL\\patients\\outputs\\P582_exp_8_preSleep\\plots\\dashboards\\MTL_dashboard.png",
+    "artifact_type": "dashboard_png"
+  }
+]
