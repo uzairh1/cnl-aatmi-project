@@ -1,0 +1,2 @@
+Patient,Neuron Name,Pre-Stim T-Score,Pre-Stim P-Value,Pre-Stim Significant,Post-Stim T-Score,Post-Stim P-Value,Post-Stim Significant,T-Score Diff (Pre - Post),Post-Stim Mean Rate (Hz),N Clips,Region Abbr,Sig Status,Raster Path
+P576_exp_14_preSleep,times_manual_GB1-LAI7_unit_2,-0.7157077692821981,0.4790800905620936,False,0.1429861616316078,0.8870929968029551,False,-0.858693930913806,0.7066666666666667,75,INS,nonsig,C:\Users\Uzair\Desktop\CNL\patients\outputs\P576_exp_14_preSleep\plots\rasters\all\P576_exp_14_preSleep_LAI_times_manual_GB1-LAI7_unit_2.png

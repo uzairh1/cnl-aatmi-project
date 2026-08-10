@@ -1,0 +1,5 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P576_exp_14_preSleep,INS - insula,1,0,0
+P576_exp_14_preSleep,"LTC - lateral temporal cortex (includes STG, MTG, IFG, banksSTS and TP)",1,0,0
+P576_exp_14_preSleep,MCC - to differentiate from ACC (includes MCC and PCC),13,0,0
+P576_exp_14_preSleep,WM - white matter,3,0,0
