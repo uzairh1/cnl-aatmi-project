@@ -1,0 +1,27 @@
+neuron_name,electrode_code,full_location,region_abbr
+times_manual_GA1-RAI1_unit_1,RAI,Right-Cerebral-White-Matter,WM
+times_manual_GA1-RAI3_unit_1,RAI,Right-Cerebral-White-Matter,WM
+times_manual_GA1-RAI3_unit_2,RAI,Right-Cerebral-White-Matter,WM
+times_manual_GA2-RFO5_unit_1,RFO,Unknown Location,UNKNOWN
+times_manual_GB1-LAI1_unit_1,LAI,wm-lh-insula,INS
+times_manual_GB1-LAI3_unit_1,LAI,wm-lh-insula,INS
+times_manual_GB1-LAI7_unit_1,LAI,wm-lh-insula,INS
+times_manual_GB1-LAI7_unit_2,LAI,wm-lh-insula,INS
+times_manual_GB1-LAI8_unit_1,LAI,wm-lh-insula,INS
+times_manual_GB2-LHG3_unit_1,LHG,ctx-lh-superiortemporal,LTC
+times_manual_GB4-LSMA1_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA1_unit_2,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA1_unit_3,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA2_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA2_unit_2,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA3_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA3_unit_2,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA3_unit_3,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA3_unit_4,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA4_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA5_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA6_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA6_unit_2,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA7_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA8_unit_1,LSMA,ctx-lh-posteriorcingulate,MCC
+times_manual_GB4-LSMA8_unit_2,LSMA,ctx-lh-posteriorcingulate,MCC
