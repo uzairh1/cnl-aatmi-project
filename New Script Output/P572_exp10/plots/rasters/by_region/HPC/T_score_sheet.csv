@@ -1,0 +1,2 @@
+Patient,Neuron Name,Pre-Stim T-Score,Pre-Stim P-Value,Pre-Stim Significant,Post-Stim T-Score,Post-Stim P-Value,Post-Stim Significant,T-Score Diff (Pre - Post),Post-Stim Mean Rate (Hz),N Clips,Region Abbr,Sig Status,Raster Path
+P572_exp_09_preSleep,times_manual_GA3-RAH8_unit_1,-0.0922319470007015,0.9268762424192252,False,-0.0877798640429943,0.930296548748247,False,-0.0044520829577072,0.52,75,HPC,nonsig,C:\Users\Uzair\Desktop\CNL\patients\outputs\P572_exp_09_preSleep\plots\rasters\all\P572_exp_09_preSleep_RAH_times_manual_GA3-RAH8_unit_1.png
