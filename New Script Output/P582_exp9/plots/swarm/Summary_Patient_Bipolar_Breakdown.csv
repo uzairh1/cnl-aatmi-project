@@ -1,0 +1,7 @@
+Patient,Localization - Bipolar,Total Neurons,Significant Pre,Significant Post
+P582_exp_8_preSleep,AMY - amygdala,15,0,0
+P582_exp_8_preSleep,ERC - entorhinal cortex,14,0,1
+P582_exp_8_preSleep,FUS - fusiform cortex,12,0,0
+P582_exp_8_preSleep,"PC - parietal cortex (precuneus, inferiorparietal, somatosensory, supramarginal)",3,0,0
+P582_exp_8_preSleep,THL - Unknown,22,1,2
+P582_exp_8_preSleep,"VIS - visual cortex (includes lingual, pericalcarine, cuneus)",31,4,3
