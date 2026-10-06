@@ -1,0 +1,18 @@
+Scope,Selection Rule,Patients,Neurons,Pre Significant,Post Significant
+global,canonical,11,476,41,34
+AMY,canonical,9,85,4,10
+CC,canonical,4,23,1,1
+ERC,canonical,5,54,3,4
+FC,canonical,6,60,11,3
+FUS,canonical,3,40,3,0
+HPC,canonical,8,58,8,4
+INS,canonical,4,30,3,3
+LTC,canonical,2,5,0,0
+MCC,canonical,1,13,0,0
+PARS,canonical,1,1,0,0
+PC,canonical,2,7,0,0
+PHC,canonical,4,23,3,3
+UNMAPPED_THL,canonical,1,22,1,2
+VIS,canonical,1,31,4,3
+WM,canonical,3,20,0,1
+MTL,canonical,10,220,18,21

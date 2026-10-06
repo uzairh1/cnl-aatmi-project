@@ -1,0 +1,5 @@
+Scope,Selection Rule,Patients,Neurons,Pre Significant,Post Significant
+global,strict_raw,11,476,41,34
+HPC,strict_raw,7,57,8,4
+MTL,strict_raw,9,182,16,18
+FC,strict_raw,5,55,10,3
