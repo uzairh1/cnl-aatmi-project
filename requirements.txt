@@ -13,6 +13,7 @@ numpy>=1.26
 
 # Data tables / CSV handling
 pandas>=2.2
+openpyxl>=3.1.5
 
 # Statistics
 scipy>=1.13
