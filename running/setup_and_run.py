@@ -8,12 +8,22 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import pandas as pd
 import tkinter as tk
 from tkinter import filedialog
+
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+
+from plotting.cross_patient_bipolar_signed_z import (
+    generate_cross_patient_plots,
+)
+
+from plotting.participant_swarm_nonHPC_MTL_wilcoxon_3x3 import (
+    make_figure as make_participant_swarm_3x3,
+)
 
 try:
     from .config import PIPELINE_ANALYSIS_CONFIG
@@ -76,19 +86,76 @@ def _choose_patient_folders() -> list[Path]:
     return folders
 
 
-def _choose_output_root(patient_folders: list[Path]) -> Path:
-    """Default outputs beside the selected patient folders."""
-    if not patient_folders:
-        raise RuntimeError("No patient folders were selected.")
-
-    parents = {p.resolve().parent for p in patient_folders}
-    if len(parents) != 1:
+def _choose_localizations_root(patient_folders: list[Path]) -> Path:
+    """Select the shared localization workbook root used for cross-patient plots."""
+    try:
+        root = tk.Tk()
+        root.withdraw()
+    except Exception as exc:  # pragma: no cover
         raise RuntimeError(
-            "All selected patient folders must share the same parent directory "
-            "so a single outputs folder can be used."
+            "tkinter is not available, so localization folder selection cannot run."
+        ) from exc
+
+    try:
+        initial_dir = (
+            patient_folders[0].resolve().parent
+            if patient_folders
+            else Path.cwd()
         )
 
-    output_root = next(iter(parents)) / "outputs"
+        folder = filedialog.askdirectory(
+            title=(
+                "Select localization root "
+                "(contains sub-*_localizations.xlsx workbooks)"
+            ),
+            initialdir=str(initial_dir),
+        )
+    finally:
+        root.destroy()
+
+    if not folder:
+        raise FileNotFoundError("No localization root selected.")
+
+    return Path(folder)
+
+
+def _choose_output_root(patient_folders: list[Path]) -> Path:
+    """
+    Let the user choose the shared output directory.
+
+    This can already contain outputs from previously processed patients.
+    New patient outputs will be added alongside them.
+    """
+
+    try:
+        root = tk.Tk()
+        root.withdraw()
+    except Exception as exc:  # pragma: no cover
+        raise RuntimeError(
+            "tkinter is not available, so output folder selection cannot run."
+        ) from exc
+
+    try:
+        initial_dir = (
+            patient_folders[0].resolve().parent
+            if patient_folders
+            else Path.cwd()
+        )
+
+        folder = filedialog.askdirectory(
+            title=(
+                "Select shared patient OUTPUT folder "
+                "(existing patients can already be here)"
+            ),
+            initialdir=str(initial_dir),
+        )
+    finally:
+        root.destroy()
+
+    if not folder:
+        raise RuntimeError("No output folder selected.")
+
+    output_root = Path(folder)
     output_root.mkdir(parents=True, exist_ok=True)
     return output_root
 
@@ -247,6 +314,7 @@ def main() -> int:
         return 1
 
     output_root = _choose_output_root(patient_folders)
+    localizations_root = _choose_localizations_root(patient_folders)
     raw_analysis_override = _analysis_override_from_args(args.raster_window_ms)
     analysis_cfg = analysis_dict_to_config(raw_analysis_override)
 
@@ -257,6 +325,7 @@ def main() -> int:
     print("=" * 80)
     print(f"Selected folders   : {len(patient_folders)}")
     print(f"Output root        : {output_root}")
+    print(f"Localization root  : {localizations_root}")
     print(f"Raster window      : {raster_window[0]} to {raster_window[1]} ms")
     print("=" * 80)
 
@@ -274,6 +343,36 @@ def main() -> int:
             n_success += 1
         else:
             n_failed += 1
+
+    # ------------------------------------------------------------------
+    # Cross-patient aggregation
+    # ------------------------------------------------------------------
+    if not args.dry_run:
+        cross_output = output_root / "cross_patient"
+        generate_cross_patient_plots(
+            outputs_root=output_root,
+            output_dir=cross_output,
+            localizations_root=localizations_root,
+            exclude_substrings=(
+                "_box",
+                "P574",
+            ),
+        )
+
+        # ------------------------------------------------------------------
+        # Make the new 3x3 participant swarm
+        # ------------------------------------------------------------------
+        combined_path = cross_output / "combined_neuron_summary.csv"
+        combined = pd.read_csv(combined_path)
+        make_participant_swarm_3x3(
+            combined=combined,
+            output_path=(
+                cross_output / "participant_swarm_nonHPC_MTL_wilcoxon_3x3.png"
+            ),
+            stats_output_path=(
+                cross_output / "participant_swarm_nonHPC_MTL_wilcoxon_3x3_stats.csv"
+            ),
+        )
 
     print()
     print("=" * 80)

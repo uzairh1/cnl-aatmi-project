@@ -30,7 +30,7 @@ TARGET_FOLDERS: Dict[str, List[str]] = {
     "ERC": ["ERC"],
     "FC": ["FC"],
     "LTC": ["LTC"],
-    "MTL": ["AMY", "ERC", "HPC", "PHC"],
+    "MTL": ["AMY", "ERC", "PHC"],
 }
 
 
